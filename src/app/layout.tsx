@@ -1,13 +1,14 @@
-import type { Metadata } from "next"
-import { Manrope, Space_Grotesk } from "next/font/google"
+import type { Metadata } from "next";
+import { Manrope, Space_Grotesk } from "next/font/google";
 
-import "react-toastify/dist/ReactToastify.css"
+import "react-toastify/dist/ReactToastify.css";
 
-import "./globals.css"
+import "./globals.css";
 
-import { AppToaster } from "@/components/common/toaster"
-import { PublicShell } from "@/components/common/public-shell"
-import { StoreProvider } from "@/store/provider"
+import { MetaPixel } from "@/components/common/meta-pixel";
+import { AppToaster } from "@/components/common/toaster";
+import { PublicShell } from "@/components/common/public-shell";
+import { StoreProvider } from "@/store/provider";
 
 // Body / UI font — Manrope (clean, modern sans-serif)
 const manrope = Manrope({
@@ -15,7 +16,7 @@ const manrope = Manrope({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
-})
+});
 
 // Heading font — Space Grotesk (geometric, techy, impactful)
 const spaceGrotesk = Space_Grotesk({
@@ -23,7 +24,7 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
-})
+});
 
 export const metadata: Metadata = {
   title: {
@@ -32,24 +33,23 @@ export const metadata: Metadata = {
   },
   description:
     "Learn Web, App, DSA, ML, DevOps and Cloud with global instructors and placement-focused mentoring.",
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} ${spaceGrotesk.variable} font-sans min-h-dvh bg-background text-foreground antialiased`}
-      >
+        className={`${manrope.variable} ${spaceGrotesk.variable} font-sans min-h-dvh bg-background text-foreground antialiased`}>
+        <MetaPixel />
         <StoreProvider>
           <PublicShell>{children}</PublicShell>
           <AppToaster />
         </StoreProvider>
       </body>
     </html>
-  )
+  );
 }
-
