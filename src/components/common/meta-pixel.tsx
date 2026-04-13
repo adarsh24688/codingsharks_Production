@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID ?? "970927388458009";
+const PIXEL_SDK_URL = "https://connect.facebook.net/en_US/fbevents.js";
 
 declare global {
   interface Window {
@@ -24,7 +26,10 @@ function trackEvent(eventName: string, retries = 10) {
 
   if (retries > 0) {
     window.setTimeout(() => trackEvent(eventName, retries - 1), 200);
+    return;
   }
+
+  console.warn(`[MetaPixel] fbq is unavailable, dropped event: ${eventName}`);
 }
 
 export function MetaPixel() {
@@ -32,6 +37,7 @@ export function MetaPixel() {
   const searchParams = useSearchParams();
   const pageViewTrackedUrlRef = useRef<string | null>(null);
   const leadTrackedUrlRef = useRef<string | null>(null);
+  const pixelInitializedRef = useRef(false);
 
   useEffect(() => {
     const query = searchParams.toString();
@@ -48,29 +54,46 @@ export function MetaPixel() {
     }
   }, [pathname, searchParams]);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && !PIXEL_ID) {
+      console.warn("[MetaPixel] NEXT_PUBLIC_FB_PIXEL_ID is missing.");
+    }
+  }, []);
+
   return (
     <>
       <Script
-        id="facebook-pixel"
+        id="facebook-pixel-stub"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
-          __html: `!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '${PIXEL_ID}');
-fbq('track', 'PageView');`,
+          __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;
+n.loaded=!0;n.version='2.0';n.queue=[];}(window, document,'script');`,
+        }}
+      />
+
+      <Script
+        id="facebook-pixel-sdk"
+        strategy="afterInteractive"
+        src={PIXEL_SDK_URL}
+        onLoad={() => {
+          if (pixelInitializedRef.current || typeof window.fbq !== "function") {
+            return;
+          }
+
+          window.fbq("init", PIXEL_ID);
+          pixelInitializedRef.current = true;
+        }}
+        onError={() => {
+          console.warn("[MetaPixel] Failed to load Facebook Pixel SDK.");
         }}
       />
 
       <noscript>
-        <img
-          alt=""
+        <Image
+          alt="Meta Pixel noscript tracking pixel"
           height="1"
+          unoptimized
           width="1"
           style={{ display: "none" }}
           src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`}
