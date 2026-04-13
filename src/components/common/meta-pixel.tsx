@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
+import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const PIXEL_ID = process.env.NEXT_PUBLIC_FB_PIXEL_ID ?? "970927388458009";
@@ -64,74 +65,12 @@ export function MetaPixel() {
   });
   const [lastEvent, setLastEvent] = useState<string>("none");
   const [lastUrl, setLastUrl] = useState<string>("");
-  console.log("MetaPixel render", {
-    pathname,
-    searchParams: searchParams.toString(),
-  });
   const debugEnabled = useMemo(() => {
     return (
       process.env.NEXT_PUBLIC_META_PIXEL_DEBUG === "1" ||
       searchParams.get("pixel-debug") === "1"
     );
   }, [searchParams]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    ensurePixelStub();
-
-    const existingScript = document.querySelector(
-      'script[data-meta-pixel-sdk="true"]',
-    );
-
-    if (existingScript) {
-      return;
-    }
-
-    const sdkScript = document.createElement("script");
-    sdkScript.async = true;
-    sdkScript.src = PIXEL_SDK_URL;
-    sdkScript.dataset.metaPixelSdk = "true";
-
-    sdkScript.onload = () => {
-      setSdkStatus("loaded");
-
-      if (typeof window.fbq !== "function") {
-        setFbqStatus("missing");
-        console.warn("[MetaPixel] SDK loaded but fbq is still missing.");
-        return;
-      }
-
-      if (!pixelInitializedRef.current) {
-        window.fbq("init", PIXEL_ID);
-        pixelInitializedRef.current = true;
-      }
-
-      setFbqStatus("available");
-
-      if (debugEnabled) {
-        console.info("[MetaPixel] SDK loaded and initialized", {
-          pixelId: PIXEL_ID,
-          pathname,
-        });
-      }
-    };
-
-    sdkScript.onerror = () => {
-      setSdkStatus("error");
-      setFbqStatus("missing");
-      console.warn("[MetaPixel] Failed to load Facebook Pixel SDK.");
-    };
-
-    document.head.appendChild(sdkScript);
-
-    return () => {
-      sdkScript.onload = null;
-      sdkScript.onerror = null;
-    };
-  }, [debugEnabled, pathname]);
 
   const emitEvent = (eventName: string, nextUrl: string) => {
     window.setTimeout(() => {
@@ -167,6 +106,50 @@ export function MetaPixel() {
 
   return (
     <>
+      <Script
+        id="facebook-pixel-stub"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;
+n.loaded=!0;n.version='2.0';n.queue=[];}(window, document,'script');`,
+        }}
+      />
+
+      <Script
+        id="facebook-pixel-sdk"
+        strategy="afterInteractive"
+        src={PIXEL_SDK_URL}
+        onLoad={() => {
+          setSdkStatus("loaded");
+
+          if (typeof window.fbq !== "function") {
+            setFbqStatus("missing");
+            console.warn("[MetaPixel] SDK loaded but fbq is still missing.");
+            return;
+          }
+
+          if (!pixelInitializedRef.current) {
+            window.fbq("init", PIXEL_ID);
+            pixelInitializedRef.current = true;
+          }
+
+          setFbqStatus("available");
+
+          if (debugEnabled) {
+            console.info("[MetaPixel] SDK loaded and initialized", {
+              pixelId: PIXEL_ID,
+              pathname,
+            });
+          }
+        }}
+        onError={() => {
+          setSdkStatus("error");
+          setFbqStatus("missing");
+          console.warn("[MetaPixel] Failed to load Facebook Pixel SDK.");
+        }}
+      />
+
       <noscript>
         <Image
           alt="Meta Pixel noscript tracking pixel"
