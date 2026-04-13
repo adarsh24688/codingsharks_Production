@@ -64,7 +64,10 @@ export function MetaPixel() {
   });
   const [lastEvent, setLastEvent] = useState<string>("none");
   const [lastUrl, setLastUrl] = useState<string>("");
-
+  console.log("MetaPixel render", {
+    pathname,
+    searchParams: searchParams.toString(),
+  });
   const debugEnabled = useMemo(() => {
     return (
       process.env.NEXT_PUBLIC_META_PIXEL_DEBUG === "1" ||
