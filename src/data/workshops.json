@@ -1,0 +1,208 @@
+[
+  {
+    "template": "cream-warm",
+    "slug": "ai-ml-data-science-web-development-career-roadmap-indore",
+    "title": "Career Roadmap Indore",
+    "tagline": "AI/ML · Data Science · Web Development · Career Roadmap",
+    "short_description": "A clear AI/ML roadmap for Indore students who want direction, practical skills, and a realistic path to hiring - without wasting months on random tutorials.",
+    "event_date": "2026-04-18",
+    "event_time_from": "17:30",
+    "event_time": "17:30",
+    "event_time_to": "19:30",
+    "duration": "2 Hours",
+    "mode": "online/offline",
+    "platform": "Zoom + LMS",
+    "instructor_name": "Adarsh Kewat",
+    "instructor_title": "AI Career Mentor & Full Stack Developer",
+    "price": "Free",
+    "price_original": "₹999",
+    "is_free": false,
+    "base_url": "/images/workshops/ai-for-beginners/workshophero.png",
+    "is_active": true,
+    "youtube_url": "",
+    "cta_button_text": "RESERVE MY AI/ML SEAT",
+    "crm_workshop_name": "Career Roadmap Indore Workshop",
+    "page_primary_color": "#e8561a",
+    "media": {
+      "hero_bg": "/images/workshops/ai-for-beginners/workshophero.png",
+      "hero_preview": "/images/workshops/ai-for-beginners/workshophero.png",
+      "instructor": "/images/workshops/ai-for-beginners/instructors.jpg",
+      "instructor_bg": "/images/workshops/ai-for-beginners/instructors.jpg",
+      "product": "/images/workshops/ai-for-beginners/product.jpg",
+      "before": "/images/workshops/ai-for-beginners/before.png",
+      "after": "/images/workshops/ai-for-beginners/after.png",
+      "curriculum_sidebar": "/images/workshops/ai-for-beginners/curriculum.jpg",
+      "feature_1": "/images/workshops/ai-for-beginners/feat-1.jpg",
+      "feature_2": "/images/workshops/ai-for-beginners/feat-2.jpg"
+    },
+    "before_after_title_plain": "Before Vs After This Workshop",
+    "before_after_title_bold": "Your Transformation",
+    "before_items": [
+      "Confused between AI/ML, Data Science & Web Development",
+      "Switching between tech stacks without completing anything",
+      "No clarity on which path has better career scope",
+      "Wasting time on random YouTube tutorials",
+      "Fear of picking the wrong domain and regretting later",
+      "Don't know which skills companies actually hire for"
+    ],
+    "after_items": [
+      "Crystal clear understanding of all 3 career paths",
+      "Know exactly which domain suits YOUR goals & interests",
+      "Understand salary potential & job market reality",
+      "Get a personalized roadmap for your chosen path",
+      "Stop wasting time - focus on ONE winning direction",
+      "Confidence to make the right career decision"
+    ],
+    "features_section_items": [
+      {
+        "emoji": "🧭",
+        "title": "Step-By-Step AI Roadmap",
+        "description": "Beginner to job-ready, with a clear sequence that removes guesswork."
+      },
+      {
+        "emoji": "⚡",
+        "title": "Skills Companies Pay For",
+        "description": "Focus on the abilities that actually matter in interviews and internships."
+      },
+      {
+        "emoji": "📁",
+        "title": "Portfolio Strategy",
+        "description": "Build projects that make your profile easy to understand and hard to ignore."
+      },
+      {
+        "emoji": "💰",
+        "title": "Salary & Career Reality",
+        "description": "Understand the realistic path from fresher to high-value AI roles in India."
+      }
+    ],
+    "bonus_kit_items": [
+      {
+        "title": "AI/ML Roadmap PDF",
+        "price": "₹999",
+        "image": "/images/feature/feature5.png"
+      },
+      {
+        "title": "AI Benchmark & Cheat Sheet",
+        "price": "₹1,499",
+        "image": "/images/feature/feature4.png"
+      },
+      {
+        "title": "Project Ideas Guide",
+        "price": "₹999",
+        "image": "/images/feature/feature2.png"
+      },
+      {
+        "title": "Resume Templates",
+        "price": "₹799",
+        "image": "/images/feature/feature1.png"
+      },
+      {
+        "title": "Tool Resources List",
+        "price": "₹999",
+        "image": "/images/feature/feature3.png"
+      }
+    ],
+    "curriculum": [
+      {
+        "title": "AI/ML vs Data Science vs Web Development - The Truth",
+        "points": [
+          "What each domain actually involves (no fluff)",
+          "Real salary ranges for freshers to 5 years experience",
+          "Job availability & hiring trends in 2026",
+          "Which companies hire for what roles"
+        ]
+      },
+      {
+        "title": "Career Path Comparison - Side by Side",
+        "points": [
+          "Learning curve: Which is easiest to start?",
+          "Time to get job-ready in each domain",
+          "Skills required & difficulty level",
+          "Long-term growth potential & future scope"
+        ]
+      },
+      {
+        "title": "How to Choose YOUR Perfect Path",
+        "points": [
+          "Self-assessment framework to find your fit",
+          "Common mistakes students make while choosing",
+          "Red flags to avoid in each domain",
+          "Decision-making checklist you can use today"
+        ]
+      },
+      {
+        "title": "Roadmap for Your Chosen Domain",
+        "points": [
+          "Step-by-step learning path for beginners",
+          "Resources, tools & platforms to use",
+          "Project ideas to build your portfolio",
+          "Timeline to land your first job/internship"
+        ]
+      }
+    ],
+    "who_should_attend_items": [
+      {
+        "title": "Confused College Students",
+        "description": "You're in 2nd/3rd/4th year and still don't know which tech path to choose."
+      },
+      {
+        "title": "Serial Course Starters",
+        "description": "You start AI today, Web Dev tomorrow, but complete nothing."
+      },
+      {
+        "title": "Career Clarity Seekers",
+        "description": "You want honest comparison - not biased advice from course sellers."
+      },
+      {
+        "title": "Decision Paralysis Victims",
+        "description": "You're stuck overthinking instead of taking action on ONE path."
+      }
+    ],
+    "testimonials": [
+      {
+        "name": "Ishan Patidar",
+        "role": "Full Stack Developer",
+        "text": "I was so confused between AI and Web Dev. This workshop gave me complete clarity. Now I'm confidently building my career in Full Stack Development.",
+        "youtube_url": ""
+      },
+      {
+        "name": "Aditi Sharma",
+        "role": "Data Analyst",
+        "text": "I wasted 6 months jumping between courses. This session helped me choose Data Science over AI/ML based on my actual interests. Best decision ever!",
+        "youtube_url": ""
+      },
+      {
+        "name": "Vishal Verma",
+        "role": "ML Engineer Intern",
+        "text": "Finally understood the real difference between AI/ML and Data Science. Adarsh sir's honest comparison saved me from making a wrong career choice.",
+        "youtube_url": ""
+      }
+    ],
+    "about_stats": [
+      {
+        "value": "1000+",
+        "label": "Students Trained"
+      },
+      {
+        "value": "8+ Years",
+        "label": "Industry Experience"
+      },
+      {
+        "value": "Top 1%",
+        "label": "Career Clarity Focus"
+      }
+    ],
+    "why_join_items": [
+      "See the exact roadmap to become an AI/ML engineer from scratch",
+      "Avoid the most common mistakes students in Indore make right now",
+      "Learn what companies actually expect from freshers in AI roles"
+    ],
+    "register_bullets": [
+      "Live roadmap walkthrough with practical direction",
+      "Step-by-step plan to avoid wasted learning time",
+      "Clear next steps for your AI/ML journey"
+    ],
+    "final_cta_title": "Ready to stop guessing your AI/ML path?",
+    "final_cta_subtitle": "Reserve your seat, get the live roadmap, and build the next 12 months with clarity."
+  }
+]

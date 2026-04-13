@@ -1,0 +1,22 @@
+{
+  "brand": {
+    "name": "Coding Sharks",
+    "taglineShort": "Placement Focused",
+    "description": "Learn Web, App, DSA, ML, DevOps and Cloud with global instructors, hands-on projects, and interview-ready mentorship."
+  },
+  "contact": {
+    "email": "hello@codingsharks.com",
+    "phone": "+91 9424586286"
+  },
+  "address": {
+    "line1": "1st Floor Veda Complex, Bhawarkua Main Rd, square",
+    "city": "Indore",
+    "region": "Madhya Pradesh",
+    "country": "India"
+  },
+  "socials": {
+    "instagram": "",
+    "linkedin": "",
+    "youtube": ""
+  }
+}

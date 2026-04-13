@@ -1,0 +1,1123 @@
+[
+  {
+    "slug": "ai-agents",
+    "crmCourseName": "AI Agents & Automation",
+    "badge": "IN HIGH DEMAND",
+    "title": "AI Agents & Automation",
+    "tagline": "Build intelligent products with LLMs, agents and automation workflows",
+    "gradient": "from-rose-500 to-pink-700",
+    "accentColor": "#e11d48",
+    "type": "campus",
+    "isNew": true,
+    "duration": "4 Months",
+    "mode": "Live · Indore",
+    "level": "Intermediate",
+    "students": "980+",
+    "projectCount": "5+",
+    "placementRate": "91%",
+    "price": "₹90,000",
+    "originalPrice": "₹1,40,000",
+    "description": "Master LLMs, AI agents and automation to build products that 99% of developers can't. This program covers everything from OpenAI APIs to deploying production-grade AI tools with real users.",
+    "meta": [
+      {
+        "icon": "briefcase",
+        "text": "Min. work exp: Open to all"
+      },
+      {
+        "icon": "clock",
+        "text": "Duration: 4 months"
+      },
+      {
+        "icon": "check",
+        "text": "Build 5+ AI agents from scratch"
+      }
+    ],
+    "whatYouLearn": [
+      "Integrate LLMs like GPT-4, Claude and Gemini into production apps",
+      "Build autonomous AI agents with tool-calling and memory",
+      "Create RAG pipelines with vector databases for semantic search",
+      "Automate complex workflows with LangChain and CrewAI",
+      "Ship AI-powered SaaS with subscriptions and user management",
+      "Deploy and monitor AI systems with cost and latency optimisation"
+    ],
+    "curriculum": [
+      {
+        "module": "Module 1 — Python & AI Foundations",
+        "topics": [
+          "Python for AI developers",
+          "OpenAI & Anthropic APIs",
+          "Prompt engineering patterns",
+          "Token management & cost optimisation",
+          "Streaming & async AI calls"
+        ]
+      },
+      {
+        "module": "Module 2 — LangChain & Agents",
+        "topics": [
+          "LangChain chains and runnables",
+          "Tool-calling and function execution",
+          "Agent memory and state management",
+          "CrewAI multi-agent systems",
+          "ReAct and plan-execute patterns"
+        ]
+      },
+      {
+        "module": "Module 3 — RAG & Vector DBs",
+        "topics": [
+          "Embeddings and similarity search",
+          "Pinecone and Weaviate setup",
+          "Document ingestion pipelines",
+          "Hybrid search strategies",
+          "RAG evaluation and quality"
+        ]
+      },
+      {
+        "module": "Module 4 — Shipping AI Products",
+        "topics": [
+          "Next.js + AI SDK integration",
+          "Subscription and billing with Stripe",
+          "AI product deployment on Vercel/AWS",
+          "Monitoring with LangSmith",
+          "Building waitlists and user onboarding"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "AI Coding Assistant",
+        "desc": "GitHub Copilot-like tool with context-aware suggestions"
+      },
+      {
+        "name": "Document Q&A Bot",
+        "desc": "RAG-powered chatbot that answers from uploaded PDFs"
+      },
+      {
+        "name": "Autonomous Research Agent",
+        "desc": "Agent that searches, reads and summarises web content"
+      },
+      {
+        "name": "AI Content SaaS",
+        "desc": "Subscription product that generates marketing copy"
+      }
+    ],
+    "whoIsItFor": [
+      {
+        "title": "Software Developers",
+        "desc": "Engineers who want to add high-demand AI skills to their stack"
+      },
+      {
+        "title": "Product Builders",
+        "desc": "Founders and PMs who want to ship AI-powered features"
+      },
+      {
+        "title": "Career Upgraders",
+        "desc": "Professionals targeting AI Engineer and ML Ops roles"
+      }
+    ],
+    "tools": [
+      "Python",
+      "OpenAI API",
+      "LangChain",
+      "CrewAI",
+      "Pinecone",
+      "Next.js",
+      "FastAPI",
+      "Vercel",
+      "Stripe",
+      "LangSmith"
+    ]
+  },
+  {
+    "slug": "dsa-mastery",
+    "crmCourseName": "DSA Mastery",
+    "badge": "INTERVIEW CRUSHER",
+    "title": "DSA Mastery",
+    "tagline": "Master Data Structures & Algorithms to crack any tech interview with confidence",
+    "gradient": "from-emerald-500 to-cyan-700",
+    "accentColor": "#10b981",
+    "type": "campus",
+    "isNew": true,
+    "duration": "2 Months",
+    "mode": "Live · Indore",
+    "level": "Beginner to Advanced",
+    "students": "600+",
+    "projectCount": "100+",
+    "placementRate": "94%",
+    "price": "₹35,000",
+    "originalPrice": "₹60,000",
+    "description": "A focused 2-month DSA program that takes you from basics to advanced problem-solving. Solve 100+ handpicked problems, master every key pattern and learn how to think algorithmically — exactly what top companies like Swiggy, Razorpay, Google and Amazon test in interviews.",
+    "meta": [
+      {
+        "icon": "briefcase",
+        "text": "Min. work exp: Open to all"
+      },
+      {
+        "icon": "clock",
+        "text": "Duration: 2 months"
+      },
+      {
+        "icon": "check",
+        "text": "100+ curated problems"
+      }
+    ],
+    "whatYouLearn": [
+      "Analyse time and space complexity using Big-O notation confidently",
+      "Master arrays, strings, linked lists, stacks, queues and hash maps",
+      "Solve tree and graph problems with BFS, DFS, Dijkstra and Bellman-Ford",
+      "Crack dynamic programming with 15+ proven patterns",
+      "Implement heaps, tries, segment trees and disjoint sets from scratch",
+      "Solve 100+ LeetCode-style problems with optimal solutions and explanations",
+      "Perform in live coding interviews with speed, accuracy and confidence"
+    ],
+    "curriculum": [
+      {
+        "module": "Module 1 — Complexity & Arrays (Week 1)",
+        "topics": [
+          "Big-O notation: time and space analysis",
+          "Arrays: sliding window, two pointers, prefix sum",
+          "Strings: reversal, anagram, palindrome patterns",
+          "Sorting: bubble, selection, insertion, merge, quick",
+          "Binary search and its variations"
+        ]
+      },
+      {
+        "module": "Module 2 — Linked Lists, Stacks & Queues (Week 2)",
+        "topics": [
+          "Singly & doubly linked lists: insert, delete, reverse",
+          "Fast & slow pointer (Floyd's cycle detection)",
+          "Stacks: monotonic stack, next greater element",
+          "Queues & deques: sliding window maximum",
+          "Priority queues & heap basics"
+        ]
+      },
+      {
+        "module": "Module 3 — Hashing, Recursion & Backtracking (Week 3)",
+        "topics": [
+          "Hash maps & sets: frequency counting, two-sum family",
+          "Recursion: tree recursion, memoization intro",
+          "Backtracking: N-Queens, subsets, permutations",
+          "Divide and conquer patterns",
+          "Greedy algorithms: interval scheduling, activity selection"
+        ]
+      },
+      {
+        "module": "Module 4 — Trees & Heaps (Week 4–5)",
+        "topics": [
+          "Binary trees: inorder, preorder, postorder traversals",
+          "BST: insertion, deletion, search, validation",
+          "Level-order BFS, height, diameter, LCA",
+          "Heaps: min/max heap, heap sort, K-th largest",
+          "Tries: insert, search, prefix matching"
+        ]
+      },
+      {
+        "module": "Module 5 — Graphs (Week 5–6)",
+        "topics": [
+          "Graph representations: adjacency list & matrix",
+          "BFS & DFS traversal patterns",
+          "Topological sort: Kahn's algorithm & DFS",
+          "Shortest paths: Dijkstra & Bellman-Ford",
+          "Union-Find / Disjoint Set Union"
+        ]
+      },
+      {
+        "module": "Module 6 — Dynamic Programming (Week 7–8)",
+        "topics": [
+          "DP fundamentals: memoization vs tabulation",
+          "1D DP: climbing stairs, house robber, coin change",
+          "2D DP: longest common subsequence, edit distance",
+          "Knapsack family: 0/1, unbounded, partition",
+          "DP on trees, graphs and strings"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "LeetCode Sprint (×50)",
+        "desc": "50 curated easy & medium problems solved with full explanation and complexity analysis"
+      },
+      {
+        "name": "Advanced Problem Set (×50)",
+        "desc": "50 hard and company-tagged problems targeting FAANG and unicorn interviews"
+      },
+      {
+        "name": "Mock Interview Rounds",
+        "desc": "Live whiteboard sessions simulating real Google, Amazon and Razorpay rounds"
+      },
+      {
+        "name": "DSA Revision Sheet",
+        "desc": "Personal cheatsheet covering all patterns, templates and edge cases"
+      }
+    ],
+    "whoIsItFor": [
+      {
+        "title": "CS / IT Students",
+        "desc": "Build a strong DSA foundation for campus placements and coding rounds"
+      },
+      {
+        "title": "Working Engineers",
+        "desc": "Upskill for FAANG, unicorn and senior engineer interviews"
+      },
+      {
+        "title": "Competitive Coders",
+        "desc": "Level up from basics to advanced patterns and contest-level problem solving"
+      }
+    ],
+    "tools": [
+      "Java / Python / C++",
+      "LeetCode",
+      "GeeksforGeeks",
+      "VS Code",
+      "GitHub",
+      "Excalidraw",
+      "Notion (revision)"
+    ]
+  },
+  {
+    "slug": "system-design",
+    "crmCourseName": "System Design & DSA Masterclass",
+    "badge": "PLACEMENT BOOSTER",
+    "title": "System Design & DSA Masterclass",
+    "tagline": "Crack senior engineer interviews at top product companies",
+    "gradient": "from-indigo-500 to-blue-800",
+    "accentColor": "#4f46e5",
+    "type": "campus",
+    "isNew": false,
+    "duration": "3 Months",
+    "mode": "Live · Indore",
+    "level": "Intermediate to Advanced",
+    "students": "1,400+",
+    "projectCount": "50+",
+    "placementRate": "96%",
+    "price": "₹60,000",
+    "originalPrice": "₹90,000",
+    "description": "The most focused interview prep program for engineers targeting senior roles at Swiggy, Razorpay, PhonePe and similar companies. Covers HLD, LLD, and 300+ DSA problems.",
+    "meta": [
+      {
+        "icon": "briefcase",
+        "text": "Min. work exp: 1 year"
+      },
+      {
+        "icon": "clock",
+        "text": "Duration: 3 months"
+      },
+      {
+        "icon": "check",
+        "text": "50+ coding problem sets"
+      }
+    ],
+    "whatYouLearn": [
+      "Design systems like URL shorteners, Instagram, WhatsApp and Uber",
+      "Master data structures: arrays, trees, graphs, heaps and tries",
+      "Solve 300+ LeetCode-style problems with time/space complexity analysis",
+      "Understand CAP theorem, consistency models and distributed systems",
+      "Design low-level class hierarchies with SOLID principles",
+      "Perform confidently in whiteboard and live coding interviews"
+    ],
+    "curriculum": [
+      {
+        "module": "Module 1 — DSA Foundations",
+        "topics": [
+          "Arrays, strings & two pointers",
+          "Hash maps & sets",
+          "Stacks, queues & deques",
+          "Recursion & backtracking",
+          "Sorting & binary search"
+        ]
+      },
+      {
+        "module": "Module 2 — Advanced DSA",
+        "topics": [
+          "Trees & BST operations",
+          "Graphs: BFS, DFS, Dijkstra",
+          "Dynamic programming patterns",
+          "Tries & segment trees",
+          "Heaps & priority queues"
+        ]
+      },
+      {
+        "module": "Module 3 — High Level Design",
+        "topics": [
+          "Load balancers & CDNs",
+          "SQL vs NoSQL tradeoffs",
+          "Caching strategies",
+          "Message queues & Kafka",
+          "Rate limiting & API gateways"
+        ]
+      },
+      {
+        "module": "Module 4 — Low Level Design",
+        "topics": [
+          "SOLID principles",
+          "Design patterns (Factory, Observer, Strategy)",
+          "Class diagram design",
+          "LLD: Parking lot, Chess, Elevator",
+          "Concurrency & thread safety"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Design URL Shortener",
+        "desc": "Bitly-like system with 100M+ redirects/day"
+      },
+      {
+        "name": "Design Instagram Feed",
+        "desc": "Social feed with fanout, ranking and CDN"
+      },
+      {
+        "name": "Design Chat System",
+        "desc": "WhatsApp-scale messaging with presence and delivery"
+      },
+      {
+        "name": "Design Ride-sharing",
+        "desc": "Uber-like matching, maps and surge pricing"
+      }
+    ],
+    "whoIsItFor": [
+      {
+        "title": "Working Engineers",
+        "desc": "1–4 year experience devs targeting senior roles at product companies"
+      },
+      {
+        "title": "Competitive Coders",
+        "desc": "Those who want to crack FAANG and unicorn-level interviews"
+      },
+      {
+        "title": "Bootcamp Grads",
+        "desc": "Developers with projects but weak on CS fundamentals"
+      }
+    ],
+    "tools": [
+      "Java / Python / JavaScript",
+      "LeetCode",
+      "Excalidraw",
+      "PostgreSQL",
+      "Redis",
+      "Kafka",
+      "AWS",
+      "Docker"
+    ]
+  },
+  {
+    "slug": "python-for-data-science",
+    "crmCourseName": "Python for Data Science",
+    "badge": "PERFECT STARTING POINT",
+    "title": "Python for Data Science",
+    "tagline": "Master Python from ground up — the essential first step before ML & AI",
+    "gradient": "from-green-500 to-teal-700",
+    "accentColor": "#10b981",
+    "type": "campus",
+    "isNew": false,
+    "duration": "6 Weeks",
+    "mode": "Live · Indore",
+    "level": "Absolute Beginner",
+    "students": "1,800+",
+    "projectCount": "2",
+    "placementRate": "88%",
+    "price": "₹25,000",
+    "originalPrice": "₹40,000",
+    "description": "A focused 6-week intensive covering Python from zero — data structures, OOP, file handling, and everything you need to start your Data Science journey. Build 2 real-world projects and write clean, professional Python by Week 6.",
+    "meta": [
+      {
+        "icon": "briefcase",
+        "text": "Min. work exp: Open to all"
+      },
+      {
+        "icon": "clock",
+        "text": "Duration: 6 weeks"
+      },
+      {
+        "icon": "check",
+        "text": "2 portfolio projects"
+      }
+    ],
+    "whatYouLearn": [
+      "Write clean, readable Python programs from absolute scratch",
+      "Use all data structures — list, dict, set, tuple — like a pro",
+      "Apply OOP principles to build real modular programs",
+      "Handle exceptions and read/write files (txt, CSV, JSON)",
+      "Use Python's built-in library and install packages with pip",
+      "Build complete command-line applications",
+      "Confidently start learning NumPy, Pandas and Data Analytics"
+    ],
+    "curriculum": [
+      {
+        "module": "Module 1 & 2 — Python Basics & Control Flow (Week 1)",
+        "topics": [
+          "Variables, Data Types, Operators & Type Casting",
+          "Strings: creation, slicing & methods",
+          "if/elif/else, nested conditionals & chaining",
+          "for/while loops, break, continue & pass",
+          "Pattern printing & ternary expressions"
+        ]
+      },
+      {
+        "module": "Module 3 & 4 — Functions & Data Structures (Week 2–3)",
+        "topics": [
+          "Functions: parameters, *args/**kwargs, return values",
+          "Lambda, map(), filter() & reduce()",
+          "Lists: indexing, slicing, methods & comprehensions",
+          "Tuples: immutability, packing & unpacking",
+          "2D lists, sorting with key functions"
+        ]
+      },
+      {
+        "module": "Module 5 — Sets & Dictionaries (Week 3–4)",
+        "topics": [
+          "Sets: union, intersection, difference & frozensets",
+          "Dictionaries: key-value pairs & all methods",
+          "Nested dicts & dictionary comprehensions",
+          "defaultdict & Counter from collections",
+          "Choosing the right data structure"
+        ]
+      },
+      {
+        "module": "Module 6 — Object-Oriented Programming (Week 4–5)",
+        "topics": [
+          "Classes, Objects & __init__ method",
+          "Instance/class variables & static methods",
+          "Inheritance, super() & method overriding",
+          "Multiple inheritance & encapsulation",
+          "Polymorphism & duck typing"
+        ]
+      },
+      {
+        "module": "Module 7 & 8 — File I/O, Modules & Modern Python (Week 5–6)",
+        "topics": [
+          "try/except/finally & custom exceptions",
+          "File handling: txt, CSV & JSON",
+          "Built-in modules: os, sys, math, random",
+          "Iterators, generators & decorators",
+          "f-strings, walrus operator & PEP 8 best practices"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "WhatsApp Chat Analyser",
+        "desc": "Parse a real WhatsApp export to uncover message counts, top senders, emoji usage and word frequency — saved as a formatted report"
+      },
+      {
+        "name": "Personal Expense Tracker",
+        "desc": "CLI app with OOP, CSV storage, category filtering, monthly summaries and exception handling"
+      }
+    ],
+    "whoIsItFor": [
+      {
+        "title": "Complete Beginners",
+        "desc": "Zero coding experience — the perfect, structured starting point for Python"
+      },
+      {
+        "title": "Aspiring Data Scientists",
+        "desc": "The essential first step before jumping into ML, Deep Learning and AI"
+      },
+      {
+        "title": "Working Professionals & Entrepreneurs",
+        "desc": "Quickly add Python to your skillset or automate your own data tasks"
+      }
+    ],
+    "tools": [
+      "Python 3.x",
+      "Anaconda",
+      "Jupyter Notebooks",
+      "VS Code",
+      "pip",
+      "os / sys / math / random",
+      "csv module",
+      "json module",
+      "collections (defaultdict, Counter)"
+    ]
+  },
+  {
+    "slug": "data-science",
+    "crmCourseName": "DATA SCIENCE & MACHINE LEARNING",
+    "badge": "MOST COMPREHENSIVE",
+    "title": "Data Science & Machine Learning",
+    "tagline": "Zero to job-ready Data Scientist — Python, ML, Deep Learning & Gen AI in 8 months",
+    "gradient": "from-sky-500 to-indigo-700",
+    "accentColor": "#0ea5e9",
+    "type": "campus",
+    "isNew": false,
+    "duration": "8 Months",
+    "mode": "Live · Indore",
+    "level": "Beginner to Advanced",
+    "students": "850+",
+    "projectCount": "10+",
+    "placementRate": "92%",
+    "price": "₹1,40,000",
+    "originalPrice": "₹2,20,000",
+    "description": "A complete 8-month Data Science mastery program — 4 structured courses covering Python, Data Analytics, Machine Learning, Deep Learning and Generative AI. Build 10+ real-world projects and graduate targeting roles like Data Scientist, ML Engineer, Deep Learning Engineer and AI Developer.",
+    "meta": [
+      {
+        "icon": "briefcase",
+        "text": "Min. work exp: Open to all"
+      },
+      {
+        "icon": "clock",
+        "text": "Duration: 8 months"
+      },
+      {
+        "icon": "check",
+        "text": "10+ real-world projects"
+      }
+    ],
+    "whatYouLearn": [
+      "Write professional Python programs and solve real data problems from scratch",
+      "Load, clean, analyse and visualise any dataset like a senior analyst",
+      "Build, tune and deploy ML models for classification, regression and clustering",
+      "Design and train deep neural networks for vision, NLP and generative tasks",
+      "Deploy production AI models with Flask and FastAPI",
+      "Build LLM-powered pipelines with LangChain, RAG and vector databases",
+      "Use Gen AI tools to supercharge your data science productivity"
+    ],
+    "curriculum": [
+      {
+        "module": "Course 1 — Python Programming Fundamentals (6 Weeks)",
+        "topics": [
+          "Variables, Data Types, Operators & Control Flow",
+          "Functions, Lambda & Higher-order Functions",
+          "OOP: Classes, Inheritance, Polymorphism",
+          "Data Structures: Lists, Tuples, Sets, Dicts",
+          "File I/O: CSV, JSON — 2 Projects"
+        ]
+      },
+      {
+        "module": "Course 2 — Data Analytics with Python (2 Months)",
+        "topics": [
+          "NumPy: N-d arrays, broadcasting & math ops",
+          "Pandas: DataFrames, cleaning & feature engineering",
+          "Matplotlib & Seaborn: charts, heatmaps & pair plots",
+          "Statistical Analysis & Descriptive Stats",
+          "RegEx, Text Pre-processing & Image Data basics — 2 Projects"
+        ]
+      },
+      {
+        "module": "Course 3 — Advanced Machine Learning (3 Months)",
+        "topics": [
+          "Linear/Logistic Regression & Gradient Descent",
+          "Decision Trees, Random Forests & XGBoost",
+          "SVM, KNN & Model Evaluation (F1, ROC-AUC)",
+          "K-Means, DBSCAN & Dimensionality Reduction (PCA, t-SNE)",
+          "Neural Networks, Hyperparameter Tuning — 3 Projects"
+        ]
+      },
+      {
+        "module": "Course 4 — Deep Learning & Neural Networks (2 Months)",
+        "topics": [
+          "CNNs: LeNet, AlexNet, VGG, ResNet",
+          "RNN, LSTM & GRU for sequence modelling",
+          "Transfer Learning & Fine-tuning pretrained models",
+          "Autoencoders & Generative Adversarial Networks (GANs)",
+          "Model Deployment with Flask / FastAPI — 2 Projects"
+        ]
+      },
+      {
+        "module": "Bonus — Generative AI for Data Scientists",
+        "topics": [
+          "LLMs: GPT-4, Gemini, Claude & OpenAI API",
+          "Prompt Engineering for Data Scientists",
+          "LangChain pipelines & RAG systems",
+          "Vector databases: Pinecone, ChromaDB",
+          "Hugging Face models, bias detection & Responsible AI"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Python Data Projects (×2)",
+        "desc": "Real-world programs solving data problems with clean, professional Python"
+      },
+      {
+        "name": "Data Analytics Projects (×2)",
+        "desc": "EDA and insight reports on industry datasets using Pandas and Seaborn"
+      },
+      {
+        "name": "ML Projects (×3)",
+        "desc": "Classification, regression and clustering models tuned and evaluated at scale"
+      },
+      {
+        "name": "Deep Learning Projects (×2)",
+        "desc": "CNN image classifier and LSTM sequence model deployed via FastAPI"
+      },
+      {
+        "name": "Gen AI Capstone",
+        "desc": "LangChain + RAG-powered AI chatbot for intelligent data querying"
+      }
+    ],
+    "whoIsItFor": [
+      {
+        "title": "Fresh Graduates",
+        "desc": "BCA, B.Tech, BSc, MBA, BBA — any stream, zero coding background welcome"
+      },
+      {
+        "title": "Career Switchers & Analysts",
+        "desc": "Excel users and professionals ready to level up to Python, ML and AI"
+      },
+      {
+        "title": "Working Professionals",
+        "desc": "Employees who want to add high-demand data science skills without quitting their job"
+      }
+    ],
+    "tools": [
+      "Python",
+      "NumPy",
+      "Pandas",
+      "Matplotlib",
+      "Seaborn",
+      "Scikit-Learn",
+      "TensorFlow",
+      "Keras",
+      "OpenCV",
+      "NLTK / spaCy",
+      "Flask / FastAPI",
+      "LangChain",
+      "ChatGPT API",
+      "Pinecone",
+      "GitHub"
+    ]
+  },
+  {
+    "slug": "data-analytics",
+    "crmCourseName": "DATA ANALYTICS",
+    "badge": "JOB READY",
+    "title": "Data Analytics",
+    "tagline": "From Python basics to dashboards — become a job-ready Data Analyst in 6 months",
+    "gradient": "from-amber-500 to-orange-700",
+    "accentColor": "#d97706",
+    "type": "campus",
+    "isNew": false,
+    "duration": "6 Months",
+    "mode": "Live · Indore",
+    "level": "Beginner to Job-Ready",
+    "students": "1,100+",
+    "projectCount": "5+",
+    "placementRate": "93%",
+    "price": "₹90,000",
+    "originalPrice": "₹1,50,000",
+    "description": "A complete 6-month Data Analytics program covering Python, NumPy, Pandas, SQL, Statistics, Power BI, Tableau, Excel and Gen AI. Build 5+ real-world projects and graduate with a strong portfolio, polished resume and full placement support.",
+    "meta": [
+      {
+        "icon": "briefcase",
+        "text": "Min. work exp: Open to all"
+      },
+      {
+        "icon": "clock",
+        "text": "Duration: 6 months"
+      },
+      {
+        "icon": "check",
+        "text": "5+ industry projects"
+      }
+    ],
+    "whatYouLearn": [
+      "Write clean Python programs and solve real data problems from scratch",
+      "Clean, transform and analyse messy datasets using NumPy and Pandas",
+      "Extract and transform data from any relational database using SQL",
+      "Apply statistical thinking to validate findings and present data-backed conclusions",
+      "Design impactful visualisations with Matplotlib, Seaborn and Plotly",
+      "Build professional, interactive dashboards in Power BI and Tableau",
+      "Use Excel and Gen AI tools to become 3x more productive as a Data Analyst"
+    ],
+    "curriculum": [
+      {
+        "module": "Module 1 — Python Programming Foundations",
+        "topics": [
+          "Variables, Data Types & Control Flow",
+          "Functions, *args/**kwargs & OOP",
+          "Data Structures: List, Tuple, Set, Dict",
+          "File Handling: CSV, JSON, TXT",
+          "List Comprehensions, Lambda, map/filter"
+        ]
+      },
+      {
+        "module": "Module 2 — NumPy & Pandas — Data Manipulation",
+        "topics": [
+          "NumPy Arrays: Indexing, Slicing & Broadcasting",
+          "Pandas Series & DataFrame Basics",
+          "Data Cleaning: Nulls, Duplicates & Outliers",
+          "GroupBy, Aggregations & Pivot Tables",
+          "Merging, Joining & Date/Time Operations"
+        ]
+      },
+      {
+        "module": "Module 3 — SQL for Data Analysts",
+        "topics": [
+          "DDL, DML & Filtering (WHERE, IN, LIKE)",
+          "Joins: INNER, LEFT, RIGHT, FULL, SELF",
+          "Subqueries, CTEs & Window Functions",
+          "Views, Indexes & Query Optimisation",
+          "Stored Procedures, Triggers & Transactions"
+        ]
+      },
+      {
+        "module": "Module 4 — Statistics & Data Visualization",
+        "topics": [
+          "Central Tendency, Dispersion & Probability",
+          "Hypothesis Testing, p-value & Confidence Intervals",
+          "t-test, Chi-Square, ANOVA & Correlation",
+          "Matplotlib & Seaborn Charts & Heatmaps",
+          "Data Storytelling: Right Chart for Right Data"
+        ]
+      },
+      {
+        "module": "Module 5 — Power BI, Tableau & Excel",
+        "topics": [
+          "Power Query & Data Modelling (Star/Snowflake)",
+          "DAX: CALCULATE, FILTER, SUMX, RANKX",
+          "Tableau: Dashboards, Stories & Publishing",
+          "Excel: VLOOKUP, Pivot Tables, Dynamic Arrays",
+          "Gen AI for Analysis: ChatGPT, Copilot & AWS Basics"
+        ]
+      },
+      {
+        "module": "Module 6 — Projects, EDA & Career Prep",
+        "topics": [
+          "EDA on 5+ industry datasets",
+          "Capstone: End-to-End Data Analysis Project",
+          "ATS-Friendly Resume & LinkedIn Optimisation",
+          "Mock Interviews: SQL, Python, Stats & Case Studies",
+          "Placement Drive & Company Connect Sessions"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Sales Performance Dashboard",
+        "desc": "End-to-end Power BI dashboard tracking revenue, trends and KPIs"
+      },
+      {
+        "name": "Customer Churn Analysis",
+        "desc": "Python + SQL analysis to predict and reduce customer churn"
+      },
+      {
+        "name": "HR Analytics Report",
+        "desc": "Excel + Tableau report on attrition, headcount and performance"
+      },
+      {
+        "name": "E-Commerce Analysis",
+        "desc": "Pandas + Seaborn deep dive into sales, returns and customer behaviour"
+      },
+      {
+        "name": "Capstone Project",
+        "desc": "Full end-to-end data analysis from raw data to executive dashboard"
+      }
+    ],
+    "whoIsItFor": [
+      {
+        "title": "Fresh Graduates",
+        "desc": "BCA, B.Tech, BSc, MBA, BBA — any discipline welcome, no prior coding needed"
+      },
+      {
+        "title": "Career Switchers",
+        "desc": "Professionals from any background who want to move into analytics roles"
+      },
+      {
+        "title": "Working Professionals",
+        "desc": "Employees who want to upskill and transition into data-driven positions"
+      }
+    ],
+    "tools": [
+      "Python",
+      "NumPy",
+      "Pandas",
+      "SQL",
+      "Power BI",
+      "Tableau",
+      "MS Excel",
+      "Matplotlib",
+      "Seaborn",
+      "Plotly",
+      "Jupyter",
+      "GitHub",
+      "ChatGPT / AI",
+      "AWS Basics"
+    ]
+  },
+  {
+    "slug": "full-stack",
+    "crmCourseName": "FULL STACK WEB DEVELOPMENT",
+    "badge": "MOST POPULAR",
+    "title": "Full Stack Web Development",
+    "tagline": "From zero to deploying real full-stack apps — HTML to AWS in 15 weeks",
+    "gradient": "from-violet-500 to-purple-800",
+    "accentColor": "#7c3aed",
+    "type": "campus",
+    "isNew": false,
+    "duration": "15 Weeks",
+    "mode": "Live · Indore",
+    "level": "Beginner to Job-Ready",
+    "students": "3,200+",
+    "projectCount": "5+",
+    "placementRate": "94%",
+    "price": "₹80,000",
+    "originalPrice": "₹1,20,000",
+    "description": "A complete 15-week Full Stack program covering HTML, CSS, Bootstrap, JavaScript, React, SQL, Node.js, MongoDB, AWS and Gen AI. Build 5+ real production apps and graduate with a strong portfolio and full placement support.",
+    "meta": [
+      {
+        "icon": "briefcase",
+        "text": "Min. work exp: Open to all"
+      },
+      {
+        "icon": "clock",
+        "text": "Duration: 15 weeks"
+      },
+      {
+        "icon": "check",
+        "text": "5+ real full-stack projects"
+      }
+    ],
+    "whatYouLearn": [
+      "Build and structure any web page with semantic HTML5 and CSS3",
+      "Build polished, mobile-first UIs rapidly with Bootstrap",
+      "Write dynamic, interactive web apps with modern JavaScript (ES6+)",
+      "Build fast, component-driven SPAs with React.js hooks and routing",
+      "Design and query relational databases with SQL",
+      "Build secure, scalable REST APIs with Node.js, Express and JWT auth",
+      "Deploy full production applications on AWS EC2 with CI/CD"
+    ],
+    "curriculum": [
+      {
+        "module": "Module 0–3 — Web Foundations (Week 0–3)",
+        "topics": [
+          "Dev Setup: GitHub, VS Code, Terminal, DevTools",
+          "HTML5: Structure, Forms, Semantic Markup",
+          "CSS3: Box Model, Flexbox, Responsive Units",
+          "Bootstrap: Grid, Components, Custom Theming"
+        ]
+      },
+      {
+        "module": "Module 4 — JavaScript Core to ES6+ (Week 4–5)",
+        "topics": [
+          "Variables, Data Types, Operators & Loops",
+          "DOM Manipulation & Event Listeners",
+          "Async JS: Promises, async/await, Fetch API",
+          "ES6+: Destructuring, Spread, Modules",
+          "OOP: Classes, Inheritance, Prototypes"
+        ]
+      },
+      {
+        "module": "Module 5 — React.js (Week 6–7)",
+        "topics": [
+          "Components, JSX, Props & State",
+          "Hooks: useState, useEffect, useRef",
+          "React Router for SPA Navigation",
+          "Context API & Controlled Forms",
+          "Connecting to APIs with Axios / Fetch"
+        ]
+      },
+      {
+        "module": "Module 6–7 — SQL & Node.js Backend (Week 8–10)",
+        "topics": [
+          "SQL: DDL, DML, JOINs, Subqueries, Window Functions",
+          "Node.js architecture & Express middleware",
+          "REST API design: GET/POST/PUT/DELETE",
+          "JWT Authentication & bcrypt security",
+          "CORS, Helmet & security best practices"
+        ]
+      },
+      {
+        "module": "Module 8–9 — MongoDB, Deployment & Advanced (Week 11–15)",
+        "topics": [
+          "MongoDB CRUD, Mongoose schemas & Aggregation",
+          "Full-stack MERN capstone project",
+          "AWS EC2 deployment & CI/CD basics",
+          "Redis caching, Multer file uploads, Payment APIs",
+          "Gen AI: ChatGPT API, GitHub Copilot in apps"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "Portfolio Website",
+        "desc": "Responsive personal site with HTML, CSS and Bootstrap"
+      },
+      {
+        "name": "JavaScript Web App",
+        "desc": "DOM-driven interactive app with async API integration"
+      },
+      {
+        "name": "React SPA",
+        "desc": "Multi-page React app with routing, hooks and API calls"
+      },
+      {
+        "name": "REST API Server",
+        "desc": "Node.js + Express backend with JWT auth and SQL database"
+      },
+      {
+        "name": "Full-Stack MERN Capstone",
+        "desc": "End-to-end MERN application deployed on AWS EC2 with CI/CD"
+      }
+    ],
+    "whoIsItFor": [
+      {
+        "title": "Fresh Graduates",
+        "desc": "Any degree — BCA, B.Tech, BSc, Arts, Commerce — zero coding needed"
+      },
+      {
+        "title": "Career Switchers & Entrepreneurs",
+        "desc": "Build your own web products or move into developer roles from scratch"
+      },
+      {
+        "title": "Designers & Working Professionals",
+        "desc": "Add coding skills to your toolkit and upskill into frontend or full-stack roles"
+      }
+    ],
+    "tools": [
+      "HTML5",
+      "CSS3",
+      "Bootstrap",
+      "JavaScript",
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "SQL / MySQL",
+      "REST APIs",
+      "GitHub",
+      "AWS EC2",
+      "Redis",
+      "ChatGPT API",
+      "VS Code"
+    ]
+  },
+  {
+    "slug": "c-cpp",
+    "crmCourseName": "C / C++ PROGRAMMING",
+    "badge": "PROGRAMMING FOUNDATION",
+    "title": "C / C++ Programming",
+    "tagline": "Master the foundation of all modern software — from C basics to object-oriented C++",
+    "gradient": "from-slate-500 to-zinc-800",
+    "accentColor": "#64748b",
+    "type": "campus",
+    "isNew": false,
+    "duration": "2 Courses",
+    "mode": "Live · Indore",
+    "level": "Beginner to Intermediate",
+    "students": "1,400+",
+    "projectCount": "4+",
+    "placementRate": "87%",
+    "price": "₹30,000",
+    "originalPrice": "₹50,000",
+    "description": "A complete C and C++ program covering pointers, memory management, OOP, data structures and file handling. Two structured courses — start with C fundamentals, then master object-oriented C++ with templates, STL and real projects.",
+    "meta": [
+      {
+        "icon": "briefcase",
+        "text": "Min. work exp: Open to all"
+      },
+      {
+        "icon": "clock",
+        "text": "Duration: 2 courses"
+      },
+      {
+        "icon": "check",
+        "text": "4+ real coding projects"
+      }
+    ],
+    "whatYouLearn": [
+      "Write structured C programs from scratch and understand how memory works",
+      "Use arrays, strings, pointers and dynamic memory allocation confidently",
+      "Build modular, reusable programs with functions and recursion",
+      "Model real-world data with structures and file handling",
+      "Design clean, encapsulated classes with OOP principles in C++",
+      "Implement inheritance, polymorphism, templates and STL in C++",
+      "Write generic, maintainable software systems ready for DSA and competitive coding"
+    ],
+    "curriculum": [
+      {
+        "module": "C Course — Module 1 & 2: Basics & Control Flow",
+        "topics": [
+          "Variables, Data Types, Operators & I/O (printf/scanf)",
+          "Type Casting, sizeof & Operator Precedence",
+          "if/else, switch, Ternary Operator",
+          "for/while/do-while loops, break/continue/goto",
+          "Pattern Programs & Logic Building"
+        ]
+      },
+      {
+        "module": "C Course — Module 3 & 4: Arrays, Functions & Pointers",
+        "topics": [
+          "1D & 2D Arrays, Strings & String Functions",
+          "Function Declaration, Call by Value vs Reference",
+          "Recursion & Function Pointers",
+          "Pointer Arithmetic, Pointers with Arrays & Strings",
+          "Dynamic Memory: malloc, calloc, free, Pointer to Pointer"
+        ]
+      },
+      {
+        "module": "C Course — Module 5: Structures, Files & Project",
+        "topics": [
+          "Structures, Array of Structures, typedef & enum",
+          "Storage Classes: auto, static, extern, register",
+          "File Handling: fopen, fclose, read/write/append",
+          "Mini Project: Logic-based application",
+          "Final Project + Interview Questions"
+        ]
+      },
+      {
+        "module": "C++ Course — Module 1–3: OOP Foundations",
+        "topics": [
+          "C vs C++ differences, iostream, cin/cout, namespace",
+          "Classes, Objects, Access Modifiers & Encapsulation",
+          "this Pointer, Inline Functions, Passing Objects",
+          "Constructors: default, parameterized, copy",
+          "Operator Overloading, Deep Copy vs Shallow Copy"
+        ]
+      },
+      {
+        "module": "C++ Course — Module 4–5: Inheritance, Templates & STL",
+        "topics": [
+          "Single, Multilevel, Multiple & Hybrid Inheritance",
+          "Virtual Functions, Abstract Classes & Polymorphism",
+          "Friend Functions, Templates & Class Templates",
+          "STL: vector, list, map",
+          "Exception Handling & Final OOP Project"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "C Logic Application",
+        "desc": "Structured C program using arrays, pointers and file handling"
+      },
+      {
+        "name": "C Mini Project",
+        "desc": "Real-world C application with structures, enums and file I/O"
+      },
+      {
+        "name": "C++ OOP Application",
+        "desc": "Class-based C++ app demonstrating encapsulation and operator overloading"
+      },
+      {
+        "name": "C++ Final Project",
+        "desc": "OOP-based system using inheritance, templates and STL containers"
+      }
+    ],
+    "whoIsItFor": [
+      {
+        "title": "Complete Beginners",
+        "desc": "Zero programming background — start with C, the foundation of all software"
+      },
+      {
+        "title": "CS / IT Students",
+        "desc": "Strengthen fundamentals for university exams, placements and competitive coding"
+      },
+      {
+        "title": "Competitive Coders & Professionals",
+        "desc": "Build the logic foundation for DSA, CP or add systems programming to your skillset"
+      }
+    ],
+    "tools": [
+      "GCC Compiler",
+      "CodeBlocks",
+      "VS Code",
+      "GDB",
+      "Valgrind",
+      "Make / CMake",
+      "Git / GitHub",
+      "Linux Terminal",
+      "STL",
+      "C++17"
+    ]
+  }
+]

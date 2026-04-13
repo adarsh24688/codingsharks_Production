@@ -1,0 +1,22 @@
+{
+  "workshops": {
+    "ai-ml-career-roadmap-indore": {
+      "hero_bg": "/images/workshops/ai-for-beginners/2I1A8728.JPG",
+      "hero_preview": "/images/workshops/ai-for-beginners/2I1A8728.JPG",
+      "hero_youtube": null,
+      "instructor": "/images/workshops/ai-for-beginners/instructors.jpg",
+      "instructor_bg": "/images/workshops/ai-for-beginners/instructors.jpg",
+      "product": "/images/workshops/ai-for-beginners/product.jpg",
+      "before": "/images/workshops/ai-for-beginners/before.png",
+      "after": "/images/workshops/ai-for-beginners/after.png",
+      "curriculum_sidebar": "/images/workshops/ai-for-beginners/curriculum.jpg",
+      "feature_1": "/images/workshops/ai-for-beginners/feat-1.jpg",
+      "feature_2": "/images/workshops/ai-for-beginners/feat-2.jpg",
+      "pain": [
+        "/images/workshops/ai-for-beginners/pain-1.jpg",
+        "/images/workshops/ai-for-beginners/pain-2.jpg",
+        "/images/workshops/ai-for-beginners/pain-3.jpg"
+      ]
+    }
+  }
+}

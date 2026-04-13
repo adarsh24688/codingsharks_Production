@@ -1,0 +1,42 @@
+[
+  {
+    "id": "neeraj-pawar",
+    "name": "Neeraj Pawar",
+    "company": "Coforge",
+    "package": "21 LPA",
+    "position": "Software Engineer",
+    "image": "/images/students/student1.png"
+  },
+  {
+    "id": "vijay-nemade",
+    "name": "Vijay Nemade",
+    "company": "Mind Ruby",
+    "package": "18 LPA",
+    "position": "Backend Engineer",
+    "image": "/images/students/student2.png"
+  },
+  {
+    "id": "sunny-ralnarkar",
+    "name": "Sunny Ralnarkar",
+    "company": "Astron Micro",
+    "package": "11 LPA",
+    "position": "Backend Developer",
+    "image": "/images/students/student3.png"
+  },
+  {
+    "id": "Om-javia",
+    "name": "Om Javia",
+    "company": "Meta Short",
+    "package": "15 LPA",
+    "position": "Meta Developer",
+    "image": "/images/students/student4.png"
+  },
+  {
+    "id": "manish-patidar",
+    "name": "Manish Patidar",
+    "company": "Infosys",
+    "package": "10 LPA",
+    "position": "Full Stack Developer",
+    "image": "/images/students/student5.png"
+  }
+]
