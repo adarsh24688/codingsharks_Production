@@ -90,9 +90,7 @@ export function BookLiveClassSection() {
 
           <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/40 max-w-2xl leading-relaxed">
             Experience our high-intensity, placement-focused model. Join{" "}
-            <span className="text-white/70 font-semibold">
-              15,000+ students
-            </span>{" "}
+            <span className="text-white/70 font-semibold">3,000+ students</span>{" "}
             who&apos;ve transformed their careers with real mentorship.
           </p>
         </div>
@@ -177,7 +175,7 @@ export function BookLiveClassSection() {
               {[
                 "1-on-1 mentorship from IIT/NIT alumni",
                 "10+ industry-standard projects",
-                "Placements with 40 LPA+ packages",
+                "Placements with 21 LPA+ packages",
                 "Lifetime community & sprint access",
               ].map((point, i) => (
                 <div

@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Briefcase, Clock, CheckSquare, ArrowRight,
-} from "lucide-react";
+import { Briefcase, Clock, CheckSquare, ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import courses from "@/data/courses.json";
 import { ApplyNowButton } from "@/components/common/apply-now-button";
@@ -12,14 +10,14 @@ import { ApplyNowButton } from "@/components/common/apply-now-button";
 type Course = (typeof courses)[number];
 
 const COURSE_IMAGE: Record<string, string> = {
-  "full-stack":              "/images/courses/full-stack.jpg",
-  "ai-agents":               "/images/courses/ai-agents.jpg",
+  "full-stack": "/images/courses/full-stack.jpg",
+  "ai-agents": "/images/courses/ai-agents.jpg",
   "python-for-data-science": "/images/courses/python-for-data-science.jpg",
-  "data-science":            "/images/courses/data-science.jpg",
-  "data-analytics":          "/images/courses/data-analytics.jpg",
-  "system-design":           "/images/courses/system-design.jpg",
-  "c-cpp":                   "/images/courses/c-cpp.jpg",
-  "dsa-mastery":             "/images/courses/dsa-mastery.jpg",
+  "data-science": "/images/courses/data-science.jpg",
+  "data-analytics": "/images/courses/data-analytics.jpg",
+  "system-design": "/images/courses/system-design.jpg",
+  "c-cpp": "/images/courses/c-cpp.jpg",
+  "dsa-mastery": "/images/courses/dsa-mastery.jpg",
 };
 
 const META_ICON_MAP: Record<string, React.ElementType> = {
@@ -33,10 +31,10 @@ function CourseCard({ course }: { course: Course }) {
   return (
     <Link
       href={`/courses/${course.slug}`}
-      className="group border border-white/8 bg-[#111] overflow-hidden flex flex-col hover:border-primary/40 transition-all duration-300"
-    >
+      className="group border border-white/8 bg-[#111] overflow-hidden flex flex-col hover:border-primary/40 transition-all duration-300">
       {/* Image header */}
-      <div className={`h-44 relative overflow-hidden bg-linear-to-br ${course.gradient}`}>
+      <div
+        className={`h-44 relative overflow-hidden bg-linear-to-br ${course.gradient}`}>
         {img && (
           <Image
             src={img}
@@ -62,15 +60,22 @@ function CourseCard({ course }: { course: Course }) {
         <h3 className="text-base font-bold text-white leading-snug group-hover:text-primary transition-colors">
           {course.title}
         </h3>
-        <p className="text-xs text-white/40 leading-relaxed flex-1">{course.tagline}</p>
+        <p className="text-xs text-white/40 leading-relaxed flex-1">
+          {course.tagline}
+        </p>
 
         {/* Meta */}
         <ul className="space-y-1.5 border-t border-white/5 pt-3">
           {course.meta.map((m, i) => {
             const MetaIcon = META_ICON_MAP[m.icon] ?? Briefcase;
             return (
-              <li key={i} className="flex items-center gap-2 text-xs text-white/45">
-                <MetaIcon className="h-3.5 w-3.5 text-white/25 shrink-0" strokeWidth={1.5} />
+              <li
+                key={i}
+                className="flex items-center gap-2 text-xs text-white/45">
+                <MetaIcon
+                  className="h-3.5 w-3.5 text-white/25 shrink-0"
+                  strokeWidth={1.5}
+                />
                 {m.text}
               </li>
             );
@@ -90,10 +95,8 @@ function CourseCard({ course }: { course: Course }) {
 }
 
 export function CoursesListingPage() {
-
   return (
     <div className="bg-[#0a0a0a] min-h-screen">
-
       {/* ── Hero ── */}
       <div className="relative overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-20">
         {/* Background image */}
@@ -111,18 +114,25 @@ export function CoursesListingPage() {
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.04]"
           style={{
-            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)",
+            backgroundImage:
+              "radial-gradient(circle, rgba(255,255,255,0.9) 1px, transparent 1px)",
             backgroundSize: "28px 28px",
           }}
         />
         {/* Orange glow top */}
-        <div className="absolute inset-0 pointer-events-none" style={{
-          background: "radial-gradient(ellipse 70% 55% at 50% -10%, rgba(255,107,44,0.18) 0%, transparent 65%)",
-        }} />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 55% at 50% -10%, rgba(255,107,44,0.18) 0%, transparent 65%)",
+          }}
+        />
         {/* Bottom fade into grid */}
         <div
           className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, transparent, #0a0a0a)" }}
+          style={{
+            background: "linear-gradient(to bottom, transparent, #0a0a0a)",
+          }}
         />
 
         <Container className="relative z-10">
@@ -135,20 +145,25 @@ export function CoursesListingPage() {
               <span className="text-primary italic">Get You Hired</span>
             </h1>
             <p className="mt-5 text-sm sm:text-base text-white/45 max-w-xl leading-relaxed">
-              Every program is designed around real projects, 1-on-1 mentorship, and direct placement support — not just video lectures.
+              Every program is designed around real projects, 1-on-1 mentorship,
+              and direct placement support — not just video lectures.
             </p>
 
             {/* Stats */}
             <div className="mt-10 flex flex-wrap items-center justify-center gap-8 sm:gap-12">
               {[
-                { value: "15K+", label: "Careers Transformed" },
+                { value: "2K+", label: "Careers Transformed" },
                 { value: "94%", label: "Placement Rate" },
-                { value: "1200+", label: "Hiring Partners" },
-                { value: "₹32L", label: "Highest Package" },
+                { value: "100+", label: "Hiring Partners" },
+                { value: "₹21L", label: "Highest Package" },
               ].map((s) => (
                 <div key={s.label} className="flex flex-col items-center gap-1">
-                  <span className="text-2xl sm:text-3xl font-bold text-white font-heading">{s.value}</span>
-                  <span className="text-xs text-white/35 tracking-wide">{s.label}</span>
+                  <span className="text-2xl sm:text-3xl font-bold text-white font-heading">
+                    {s.value}
+                  </span>
+                  <span className="text-xs text-white/35 tracking-wide">
+                    {s.label}
+                  </span>
                 </div>
               ))}
             </div>
@@ -165,7 +180,9 @@ export function CoursesListingPage() {
               On-Campus Programs
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-white/30">{courses.length} programs available</p>
+          <p className="text-xs sm:text-sm text-white/30">
+            {courses.length} programs available
+          </p>
         </div>
 
         {/* Grid */}
@@ -178,13 +195,16 @@ export function CoursesListingPage() {
         {/* Bottom CTA */}
         <div className="mt-16 border border-white/8 bg-white/3 p-5 sm:p-8 lg:p-12 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white font-heading">Not sure which program to pick?</h3>
-            <p className="mt-2 text-sm text-white/45">Book a free 30-min career call with one of our advisors.</p>
+            <h3 className="text-xl sm:text-2xl font-bold text-white font-heading">
+              Not sure which program to pick?
+            </h3>
+            <p className="mt-2 text-sm text-white/45">
+              Book a free 30-min career call with one of our advisors.
+            </p>
           </div>
           <ApplyNowButton
             source="courses-listing"
-            className="shrink-0 inline-flex items-center gap-2 bg-primary px-8 py-4 text-sm font-bold text-white uppercase tracking-widest hover:bg-primary/85 transition-colors"
-          >
+            className="shrink-0 inline-flex items-center gap-2 bg-primary px-8 py-4 text-sm font-bold text-white uppercase tracking-widest hover:bg-primary/85 transition-colors">
             Book Free Call <ArrowRight className="h-4 w-4" />
           </ApplyNowButton>
         </div>
