@@ -27,11 +27,11 @@
     "videoPoster": "https://images.unsplash.com/photo-1600880292089-90e7d22eebae?auto=format&fit=crop&w=1600&q=80",
     "stats": [
       {
-        "value": "1200+",
+        "value": "100+",
         "label": "Placement Partners"
       },
       {
-        "value": "15K+",
+        "value": "2K+",
         "label": "Careers Transformed"
       },
       {
@@ -435,8 +435,7 @@
         "1-on-1 mentorship with senior engineers",
         "Real product projects — not toy exercises",
         "Placement support with 1200+ hiring partners",
-        "Live cohort with weekly code reviews",
-        "ISA option — pay only after you get placed"
+        "Live cohort with weekly code reviews"
       ]
     },
     "them": {
@@ -445,8 +444,7 @@
         "Pre-recorded lectures with no mentor access",
         "Theory-centric, outdated curriculum",
         "No structured placement pipeline",
-        "Self-paced with zero accountability",
-        "High upfront fees regardless of outcome"
+        "Self-paced with zero accountability"
       ]
     }
   },
@@ -458,10 +456,6 @@
       {
         "question": "Is CodingSharks suitable for complete beginners?",
         "answer": "Yes — many of our top placements had zero prior coding experience. Our pre-cohort prep module gets you up to speed before Day 1, and your mentor guides you through every step."
-      },
-      {
-        "question": "How does the ISA (Income Share Agreement) work?",
-        "answer": "You pay nothing upfront. Once you land a job with a salary above ₹5L/year, you share a fixed percentage for 24 months — capped at a maximum amount. If you don't get placed, you pay nothing."
       },
       {
         "question": "What programming languages and technologies are taught?",
