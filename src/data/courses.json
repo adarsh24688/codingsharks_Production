@@ -539,10 +539,10 @@
     "accentColor": "#0ea5e9",
     "type": "campus",
     "isNew": false,
-    "duration": "8 Months",
+    "duration": "6 Months",
     "mode": "Live · Indore",
     "level": "Beginner to Advanced",
-    "students": "850+",
+    "students": "100+",
     "projectCount": "10+",
     "placementRate": "92%",
     "price": "₹1,40,000",
@@ -555,7 +555,7 @@
       },
       {
         "icon": "clock",
-        "text": "Duration: 8 months"
+        "text": "Duration: 6 months"
       },
       {
         "icon": "check",

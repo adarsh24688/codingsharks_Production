@@ -51,14 +51,14 @@ const ICON_MAP: Record<string, React.ElementType> = {
 };
 
 const COURSE_IMAGE: Record<string, string> = {
-  "full-stack":              "/images/courses/full-stack.jpg",
-  "ai-agents":               "/images/courses/ai-agents.jpg",
+  "full-stack": "/images/courses/full-stack.jpg",
+  "ai-agents": "/images/courses/ai-agents.jpg",
   "python-for-data-science": "/images/courses/python-for-data-science.jpg",
-  "data-science":            "/images/courses/data-science.jpg",
-  "data-analytics":          "/images/courses/data-analytics.jpg",
-  "system-design":           "/images/courses/system-design.jpg",
-  "c-cpp":                   "/images/courses/c-cpp.jpg",
-  "dsa-mastery":             "/images/courses/dsa-mastery.jpg",
+  "data-science": "/images/courses/data-science.jpg",
+  "data-analytics": "/images/courses/data-analytics.jpg",
+  "system-design": "/images/courses/system-design.jpg",
+  "c-cpp": "/images/courses/c-cpp.jpg",
+  "dsa-mastery": "/images/courses/dsa-mastery.jpg",
 };
 
 const SLUG_TO_PDF: Record<string, string> = {
@@ -207,14 +207,21 @@ function HeroForm({ course }: { course: Course }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [crmCourseId, setCrmCourseId] = useState<string>("");
-  const [form, setForm] = useState({ name: "", email: "", phone: "", background: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    background: "",
+  });
 
   // Match this course to its CRM UUID using explicit crmCourseName field
   useEffect(() => {
-    const lookupName = (course as Course & { crmCourseName?: string }).crmCourseName ?? course.title;
+    const lookupName =
+      (course as Course & { crmCourseName?: string }).crmCourseName ??
+      course.title;
     fetchCrmCourses("all").then((crmCourses) => {
       const match = crmCourses.find(
-        (c) => c.name.toLowerCase() === lookupName.toLowerCase()
+        (c) => c.name.toLowerCase() === lookupName.toLowerCase(),
       );
       if (match) setCrmCourseId(match.id);
     });
@@ -257,110 +264,138 @@ function HeroForm({ course }: { course: Course }) {
 
       <div className="p-6">
         <>
-            {/* Header */}
-            <div className="mb-5">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="h-5 w-1 bg-primary" />
-                <p className="text-[10px] font-bold tracking-[0.22em] text-primary uppercase">
-                  Free Counselling
-                </p>
-              </div>
-              <h3 className="text-gray-900 font-bold text-xl font-heading leading-tight">
-                Talk to an Advisor
-              </h3>
-              <p className="text-gray-400 text-sm mt-1 leading-relaxed">
-                Get clarity on fees, schedule & placement in 10 mins.
+          {/* Header */}
+          <div className="mb-5">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="h-5 w-1 bg-primary" />
+              <p className="text-[10px] font-bold tracking-[0.22em] text-primary uppercase">
+                Free Counselling
               </p>
             </div>
+            <h3 className="text-gray-900 font-bold text-xl font-heading leading-tight">
+              Talk to an Advisor
+            </h3>
+            <p className="text-gray-400 text-sm mt-1 leading-relaxed">
+              Get clarity on fees, schedule & placement in 10 mins.
+            </p>
+          </div>
 
-            {/* Trust row */}
-            <div className="flex items-center gap-3 mb-5 pb-5 border-b border-gray-100">
-              <div className="flex -space-x-2">
-                {["#ff6b2c", "#1e40af", "#16a34a"].map((c, i) => (
-                  <div
-                    key={i}
-                    className="size-7 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white"
-                    style={{ background: c }}>
-                    {["R", "A", "S"][i]}
-                  </div>
-                ))}
-              </div>
-              <p className="text-xs text-gray-500">
-                <span className="font-semibold text-gray-700">
-                  980+ students
-                </span>{" "}
-                enrolled this program
-              </p>
-            </div>
-
-            <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
-              <input
-                required
-                type="text"
-                placeholder="Your Full Name"
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
-              />
-              <input
-                required
-                type="email"
-                placeholder="Email Address"
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
-              />
-              <div className="flex gap-2">
-                <div className="shrink-0 w-16 h-11 bg-gray-50 border border-gray-200 flex items-center justify-center text-sm text-gray-600 font-semibold gap-1">
-                  🇮🇳 +91
+          {/* Trust row */}
+          <div className="flex items-center gap-3 mb-5 pb-5 border-b border-gray-100">
+            <div className="flex -space-x-2">
+              {["#ff6b2c", "#1e40af", "#16a34a"].map((c, i) => (
+                <div
+                  key={i}
+                  className="size-7 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white"
+                  style={{ background: c }}>
+                  {["R", "A", "S"][i]}
                 </div>
-                <input
-                  required
-                  type="tel"
-                  placeholder="WhatsApp Number"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="flex-1 min-w-0 h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
-                />
+              ))}
+            </div>
+            <p className="text-xs text-gray-500">
+              <span className="font-semibold text-gray-700">100+ students</span>{" "}
+              enrolled this program
+            </p>
+          </div>
+
+          <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
+            <input
+              required
+              type="text"
+              placeholder="Your Full Name"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              className="w-full h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
+            />
+            <input
+              required
+              type="email"
+              placeholder="Email Address"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              className="w-full h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
+            />
+            <div className="flex gap-2">
+              <div className="shrink-0 w-16 h-11 bg-gray-50 border border-gray-200 flex items-center justify-center text-sm text-gray-600 font-semibold gap-1">
+                🇮🇳 +91
               </div>
-              <select
-                value={form.background}
-                onChange={(e) => setForm({ ...form, background: e.target.value })}
-                className="w-full h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-600 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors appearance-none cursor-pointer">
-                <option value="" disabled>I am a…</option>
-                {["Student / Fresher", "Working Professional", "Career Switcher", "Freelancer"].map((o) => (
-                  <option key={o} value={o}>{o}</option>
-                ))}
-              </select>
+              <input
+                required
+                type="tel"
+                placeholder="WhatsApp Number"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className="flex-1 min-w-0 h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
+              />
+            </div>
+            <select
+              value={form.background}
+              onChange={(e) => setForm({ ...form, background: e.target.value })}
+              className="w-full h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-600 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors appearance-none cursor-pointer">
+              <option value="" disabled>
+                I am a…
+              </option>
+              {[
+                "Student / Fresher",
+                "Working Professional",
+                "Career Switcher",
+                "Freelancer",
+              ].map((o) => (
+                <option key={o} value={o}>
+                  {o}
+                </option>
+              ))}
+            </select>
 
-              {error && <p className="text-sm text-red-500">{error}</p>}
+            {error && <p className="text-sm text-red-500">{error}</p>}
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full h-12 bg-primary hover:bg-primary/90 text-white text-sm font-bold uppercase tracking-wide transition-all shadow-[0_4px_16px_rgba(255,107,44,0.35)] hover:shadow-[0_6px_24px_rgba(255,107,44,0.45)] flex items-center justify-center gap-2 mt-1 disabled:opacity-70">
-                {loading ? (
-                  <>
-                    <svg className="animate-spin h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="3" strokeOpacity="0.3"/>
-                      <path d="M12 2a10 10 0 0 1 10 10" stroke="white" strokeWidth="3" strokeLinecap="round"/>
-                    </svg>
-                    Submitting…
-                  </>
-                ) : (
-                  <>
-                    Get Free Callback
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </>
-                )}
-              </button>
-              <p className="text-[11px] text-gray-400 text-center">
-                No spam · Free · Response in 24 hours
-              </p>
-            </form>
-          </>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full h-12 bg-primary hover:bg-primary/90 text-white text-sm font-bold uppercase tracking-wide transition-all shadow-[0_4px_16px_rgba(255,107,44,0.35)] hover:shadow-[0_6px_24px_rgba(255,107,44,0.45)] flex items-center justify-center gap-2 mt-1 disabled:opacity-70">
+              {loading ? (
+                <>
+                  <svg
+                    className="animate-spin h-4 w-4 shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="white"
+                      strokeWidth="3"
+                      strokeOpacity="0.3"
+                    />
+                    <path
+                      d="M12 2a10 10 0 0 1 10 10"
+                      stroke="white"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                  Submitting…
+                </>
+              ) : (
+                <>
+                  Get Free Callback
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <path
+                      d="M2 7h10M8 3l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </>
+              )}
+            </button>
+            <p className="text-[11px] text-gray-400 text-center">
+              No spam · Free · Response in 24 hours
+            </p>
+          </form>
+        </>
       </div>
     </div>
   );
@@ -402,7 +437,9 @@ export function CourseDetailPage({ slug }: { slug: string }) {
             aria-hidden
           />
         ) : (
-          <div className={`absolute inset-0 bg-linear-to-br ${course.gradient}`} />
+          <div
+            className={`absolute inset-0 bg-linear-to-br ${course.gradient}`}
+          />
         )}
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-[#0a0a0a]/60" />
@@ -419,7 +456,9 @@ export function CourseDetailPage({ slug }: { slug: string }) {
         {/* Bottom fade */}
         <div
           className="absolute inset-x-0 bottom-0 h-32 pointer-events-none"
-          style={{ background: "linear-gradient(to bottom, transparent, #0a0a0a)" }}
+          style={{
+            background: "linear-gradient(to bottom, transparent, #0a0a0a)",
+          }}
         />
 
         <Container>
@@ -673,7 +712,6 @@ export function CourseDetailPage({ slug }: { slug: string }) {
                     { label: "Duration", value: course.duration },
                     { label: "Mode", value: course.mode },
                     { label: "Level", value: course.level },
-                    { label: "Students", value: course.students },
                   ].map((item) => (
                     <div
                       key={item.label}
