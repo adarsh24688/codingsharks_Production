@@ -4,9 +4,10 @@ import path from "node:path";
 import { InstaPromptSourcePage } from "@/components/pages/insta/insta-prompt-source-page";
 
 export const metadata = {
-  title: "Prompt + Source Code",
+  title: "Free AI Master Prompt + Source Code — Coding Sharks",
   description:
-    "Get the CodingSharks master prompt instantly and unlock source code by submitting a quick form.",
+    "Get the Coding Sharks AI master prompt instantly — a production-ready prompt template used by our engineers. Unlock source code by submitting a quick form. Free download.",
+  robots: { index: true, follow: true },
 };
 
 async function getPromptContent() {

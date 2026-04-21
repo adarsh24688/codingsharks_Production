@@ -247,8 +247,7 @@ export function LeadModal() {
           {/* Testimonial */}
           <div className="relative z-10 bg-white/5 border border-white/8 p-4 mt-8">
             <p className="text-white/60 text-xs leading-relaxed italic">
-              &ldquo;₹4L to ₹32L in 6 months. No CS degree. Just the right
-              system.&rdquo;
+              &ldquo;Right time, right setup — that’s the winning combo&rdquo;
             </p>
             <div className="flex items-center gap-2 mt-3">
               <div className="size-7 rounded-full bg-primary/20 flex items-center justify-center text-primary text-xs font-bold">
@@ -256,10 +255,10 @@ export function LeadModal() {
               </div>
               <div>
                 <p className="text-white/70 text-xs font-semibold">
-                  Rahul Gupta
+                  Neeraj Pawar
                 </p>
                 <p className="text-white/35 text-[10px]">
-                  SWE @ Google · Cohort 9
+                  Software Engineer · Cohort 2
                 </p>
               </div>
             </div>
@@ -304,7 +303,7 @@ export function LeadModal() {
                   <input
                     required
                     type="text"
-                    placeholder="Rahul Gupta"
+                    placeholder="Adarsh Kumar"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="h-11 border border-gray-200 px-4 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:border-primary transition-colors"
@@ -320,7 +319,7 @@ export function LeadModal() {
                     <input
                       required
                       type="email"
-                      placeholder="rahul@gmail.com"
+                      placeholder="Adarsh@gmail.com"
                       value={form.email}
                       onChange={(e) =>
                         setForm({ ...form, email: e.target.value })
@@ -339,7 +338,7 @@ export function LeadModal() {
                       <input
                         required
                         type="tel"
-                        placeholder="98765 43210"
+                        placeholder="98*** ***10"
                         value={form.phone}
                         onChange={(e) =>
                           setForm({ ...form, phone: e.target.value })

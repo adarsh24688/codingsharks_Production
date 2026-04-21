@@ -122,16 +122,16 @@
   ],
   "placementStories": [
     {
-      "name": "Rahul Gupta",
+      "name": "Neeraj Pawar",
       "cohort": "Cohort 9",
       "city": "Pune",
-      "fromRole": "Marketing Manager",
-      "toRole": "SWE",
-      "company": "Google",
-      "ctc": "₹32L CTC",
-      "ctcLocation": "Google Bangalore",
-      "quote": "₹4L to ₹32L in 6 months. No CS degree. Just the right system.",
-      "videoId": "dQw4w9WgXcQ",
+      "fromRole": "Student",
+      "toRole": "Software Engineer",
+      "company": "Coforge",
+      "ctc": "₹21L CTC",
+      "ctcLocation": "",
+      "quote": "Right time, right setup — that’s the winning combo",
+      "videoId": "",
       "thumbnailUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80"
     },
     {

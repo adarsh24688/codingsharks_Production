@@ -210,7 +210,7 @@ export function WhyCodingSharksSection() {
           {/* Stat 2 */}
           <div className="rounded-2xl bg-primary p-6 shadow-md">
             <p className="text-5xl font-extrabold text-white leading-none font-heading">
-              ₹40L+
+              ₹21L+
             </p>
             <p className="text-sm text-white/80 mt-2">
               Top package achieved by a CodingSharks graduate
