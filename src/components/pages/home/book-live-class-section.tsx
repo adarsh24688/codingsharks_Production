@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
   ArrowRight,
-  Play,
   CheckCircle2,
   Clock,
   Star,
@@ -21,11 +20,11 @@ import {
   submitLeadToCrm,
   type CrmCourse,
 } from "@/lib/crm-api";
+import { VideoPlayer } from "@/components/ui/video-player";
 
 export function BookLiveClassSection() {
   const router = useRouter();
   const live = home.liveClass;
-  const [showVideo, setShowVideo] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [courses, setCourses] = useState<CrmCourse[]>([]);
@@ -35,8 +34,6 @@ export function BookLiveClassSection() {
     phone: "",
     courseId: "",
   });
-
-  const videoId = "JKXwbbSvlu0";
 
   useEffect(() => {
     fetchCrmCourses("regular").then(setCourses);
@@ -99,52 +96,11 @@ export function BookLiveClassSection() {
         <div className="grid gap-8 sm:gap-10 lg:gap-14 lg:grid-cols-[1.15fr_0.85fr] items-start">
           {/* ──── Left — Video + Stats + Points ──── */}
           <div className="flex flex-col gap-6 sm:gap-8">
-            {/* Video Player - Temporarily showing only image */}
-            <div className="relative group/video overflow-hidden border border-white/8">
-              <div className="relative aspect-video bg-[#111]">
-                <img
-                  src="/images/office6.jpg"
-                  alt="Live class preview"
-                  className="w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover/video:scale-[1.02]"
-                />
-              </div>
-            </div>
-
-            {/* TODO: Video functionality commented out - will be added back later
-            <div className="relative group/video overflow-hidden border border-white/8">
-              <div className="relative aspect-video bg-[#111]">
-                {!showVideo ? (
-                  <>
-                    <img
-                      src="/images/adarshVideo.png"
-                      alt="Live class preview"
-                      className="w-full h-full object-cover opacity-80 transition-transform duration-700 group-hover/video:scale-[1.02]"
-                    />
-                    <div
-                      className="absolute inset-0 flex items-center justify-center cursor-pointer group/play bg-black/20"
-                      onClick={() => setShowVideo(true)}
-                    >
-                      <div className="flex h-14 w-14 sm:h-20 sm:w-20 items-center justify-center bg-primary text-white shadow-[0_0_40px_rgba(255,107,44,0.45)] transition-all duration-300 group-hover/play:scale-110">
-                        <Play className="h-5 w-5 sm:h-8 sm:w-8 fill-white ml-0.5 sm:ml-1" />
-                      </div>
-                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-1 bg-black/60 backdrop-blur-md border border-white/15 text-white/90 text-[9px] sm:text-[10px] font-semibold tracking-wider flex items-center gap-1.5">
-                        <Zap className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-primary shrink-0" />
-                        CLICK TO PREVIEW
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  <iframe
-                    src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-                    title="Coding Sharks Preview"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 h-full w-full border-0"
-                  />
-                )}
-              </div>
-            </div>
-            */}
+            {/* Custom Video Player */}
+            <VideoPlayer
+              src="/video/CodingSharks.mp4"
+              poster="/images/office6.jpg"
+            />
             {/* Stats */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4">
               {live.stats.map((s, idx) => (

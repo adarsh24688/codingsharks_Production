@@ -85,5 +85,4 @@ docker-compose.yml
 Dockerfile
 Makefile
 SECURITY.md
-TOKEN-OPTIMIZATION.md
 
