@@ -11,8 +11,9 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
   const isAdmin = pathname.startsWith("/admin");
   const isWorkshopDetail = /^\/workshops\/[^/]+/.test(pathname);
   const isInstaProjectPage = pathname.startsWith("/insta-project");
+  const isCounselingPage = pathname.startsWith("/counseling");
 
-  if (isAdmin || isWorkshopDetail || isInstaProjectPage) {
+  if (isAdmin || isWorkshopDetail || isInstaProjectPage || isCounselingPage) {
     return <>{children}</>;
   }
 
