@@ -1,0 +1,130 @@
+{
+  "hero": {
+    "badge": "Free Career Counseling",
+    "headline": "Confused About Your Career?",
+    "subheadline": "We'll Help You Figure It Out.",
+    "description": "Whether you're a college student with no direction, struggling to get placed, or just unsure about your next step — one free 1:1 session will clear everything.",
+    "cyclingWords": [
+      "Which course should I pick?",
+      "Will I actually get placed?",
+      "Am I too late to start coding?",
+      "Is AI killing all the jobs?",
+      "What can a non-CS student do?"
+    ],
+    "stats": [
+      { "value": "500+", "label": "Students Counseled" },
+      { "value": "100%", "label": "Free, No Sales Pitch" },
+      { "value": "30 min", "label": "Focused 1:1 Session" }
+    ]
+  },
+  "doubts": [
+    "I have no coding background — can I still get into tech?",
+    "Is AI going to take all software jobs?",
+    "I'm from B.Com / BBA / Non-CS — what are my options?",
+    "Which course is the right fit for me?",
+    "I have no internship yet — will I get placed?",
+    "Can I be job-ready in 6 months?",
+    "Full Stack vs AI vs Data Science — what should I choose?",
+    "What's the right age to start learning to code?"
+  ],
+  "whatYouGet": [
+    {
+      "icon": "🗺️",
+      "title": "Personal Career Roadmap",
+      "desc": "We look at your background and goals, then tell you exactly which skills to build, which path to take, and what timeline to follow."
+    },
+    {
+      "icon": "💼",
+      "title": "Placement Blueprint",
+      "desc": "Resume, DSA, projects, soft skills — you'll leave with a step-by-step plan to crack interviews and land offers."
+    },
+    {
+      "icon": "🧠",
+      "title": "All Doubts Cleared",
+      "desc": "AI vs Full Stack vs DevOps — whatever confusion you're carrying, we'll clear it all in 30 focused minutes."
+    },
+    {
+      "icon": "📅",
+      "title": "30-Day Action Plan",
+      "desc": "You'll walk away knowing exactly what to do tomorrow, next week, and next month — no more guessing."
+    }
+  ],
+  "howItWorks": [
+    {
+      "step": "01",
+      "title": "Book Your Slot",
+      "desc": "Fill out the form with your name, phone, and your biggest doubt. Takes 60 seconds."
+    },
+    {
+      "step": "02",
+      "title": "Get Confirmation",
+      "desc": "Our counselor will call you within 24 hours to confirm your session slot."
+    },
+    {
+      "step": "03",
+      "title": "Attend Free Session",
+      "desc": "A 30-min 1:1 call — no pressure, no sales pitch. Just guidance built around you."
+    },
+    {
+      "step": "04",
+      "title": "Walk Away with Clarity",
+      "desc": "You'll have a clear roadmap in hand. You'll know your next step — no more confusion."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Arjun Tiwari",
+      "college": "DAVV, Indore",
+      "quote": "After the session, I knew exactly that Full Stack was my path. Got an offer within 4 months. One call changed everything.",
+      "outcome": "Placed at ₹6 LPA"
+    },
+    {
+      "name": "Priya Sharma",
+      "college": "IPS Academy, Indore",
+      "quote": "I'm from a non-CS background and thought tech wasn't for me. The counseling gave me confidence. Now I'm a React developer at a startup.",
+      "outcome": "Switched to Tech ✓"
+    },
+    {
+      "name": "Rahul Verma",
+      "college": "Medicaps University",
+      "quote": "I had zero idea where to start. One free call gave me direction. Two months later, I had my first internship.",
+      "outcome": "Internship in 2 months"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Is this really 100% free?",
+      "a": "Yes, completely free. No hidden charges, no forced enrollment. This session is about helping you — not selling you something."
+    },
+    {
+      "q": "How long is the session?",
+      "a": "30 minutes — focused, fast, and to the point. No fluff, no filler."
+    },
+    {
+      "q": "Is this open to non-CS students?",
+      "a": "Absolutely. BCA, BBA, B.Com, B.Sc, BA — all backgrounds are welcome. We guide you based on where you are, not where you should be."
+    },
+    {
+      "q": "Do I need to know coding before the session?",
+      "a": "Not at all. This session is perfect for complete beginners. We start from wherever you are."
+    },
+    {
+      "q": "Is the session online or offline?",
+      "a": "Both options are available. Visit our Indore office or join via Google Meet or phone call — your choice."
+    }
+  ],
+  "cta": {
+    "headline": "One Call. Lifetime Clarity.",
+    "subtext": "Book your free slot now — limited seats available each week.",
+    "urgency": "Only 10 slots available this week",
+    "doubtOptions": [
+      "Which course should I pick?",
+      "Will I get placed?",
+      "Am I too late to start?",
+      "Non-CS background — what to do?",
+      "Full Stack vs AI vs Data Science?",
+      "How to crack interviews?",
+      "Something else"
+    ]
+  }
+}
