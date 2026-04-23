@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import courses from "@/data/courses.json";
 import workshops from "@/data/workshops.json";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com";
+const BASE_URL = "https://www.thecodingsharks.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
