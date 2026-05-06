@@ -9,6 +9,12 @@ import {
   submitLeadToCrm,
   type CrmCourse,
 } from "@/lib/crm-api";
+import {
+  sanitizeIndianMobile,
+  validateIndianMobile,
+  validateEmail,
+  validateName,
+} from "@/lib/validators";
 import localCourses from "@/data/courses.json";
 
 const SLUG_TO_PDF: Record<string, string> = {
@@ -50,6 +56,7 @@ export function LeadModal() {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [courses, setCourses] = useState<CrmCourse[]>([]);
   const [coursesLoading, setCoursesLoading] = useState(false);
   const [form, setForm] = useState<FormState>({
@@ -92,13 +99,23 @@ export function LeadModal() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError(null);
 
-    const cleanPhone = form.phone
-      .replace(/\D/g, "")
-      .replace(/^91/, "")
-      .slice(-10);
+    const errs: Record<string, string> = {};
+    const nameErr = validateName(form.name);
+    if (nameErr) errs.name = nameErr;
+    const emailErr = validateEmail(form.email);
+    if (emailErr) errs.email = emailErr;
+    const phoneErr = validateIndianMobile(form.phone);
+    if (phoneErr) errs.phone = phoneErr;
+    if (Object.keys(errs).length) {
+      setFieldErrors(errs);
+      return;
+    }
+    setFieldErrors({});
+    setLoading(true);
+
+    const cleanPhone = sanitizeIndianMobile(form.phone);
 
     const result = await submitLeadToCrm({
       name: form.name,
@@ -308,6 +325,9 @@ export function LeadModal() {
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="h-11 border border-gray-200 px-4 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:border-primary transition-colors"
                   />
+                  {fieldErrors.name && (
+                    <p className="text-xs text-red-500">{fieldErrors.name}</p>
+                  )}
                 </div>
 
                 {/* Email + Phone */}
@@ -326,6 +346,9 @@ export function LeadModal() {
                       }
                       className="h-11 border border-gray-200 px-4 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:border-primary transition-colors"
                     />
+                    {fieldErrors.email && (
+                      <p className="text-xs text-red-500">{fieldErrors.email}</p>
+                    )}
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -338,14 +361,22 @@ export function LeadModal() {
                       <input
                         required
                         type="tel"
+                        inputMode="numeric"
+                        maxLength={10}
                         placeholder="98*** ***10"
                         value={form.phone}
                         onChange={(e) =>
-                          setForm({ ...form, phone: e.target.value })
+                          setForm({
+                            ...form,
+                            phone: e.target.value.replace(/\D/g, "").slice(0, 10),
+                          })
                         }
                         className="flex-1 min-w-0 h-11 border border-gray-200 px-4 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:border-primary transition-colors"
                       />
                     </div>
+                    {fieldErrors.phone && (
+                      <p className="text-xs text-red-500">{fieldErrors.phone}</p>
+                    )}
                   </div>
                 </div>
 

@@ -20,6 +20,12 @@ import {
   submitLeadToCrm,
   type CrmCourse,
 } from "@/lib/crm-api";
+import {
+  sanitizeIndianMobile,
+  validateIndianMobile,
+  validateEmail,
+  validateName,
+} from "@/lib/validators";
 import { VideoPlayer } from "@/components/ui/video-player";
 
 export function BookLiveClassSection() {
@@ -27,6 +33,7 @@ export function BookLiveClassSection() {
   const live = home.liveClass;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [courses, setCourses] = useState<CrmCourse[]>([]);
   const [form, setForm] = useState({
     name: "",
@@ -41,13 +48,26 @@ export function BookLiveClassSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError(null);
+
+    const errs: Record<string, string> = {};
+    const nameErr = validateName(form.name);
+    if (nameErr) errs.name = nameErr;
+    const emailErr = validateEmail(form.email);
+    if (emailErr) errs.email = emailErr;
+    const phoneErr = validateIndianMobile(form.phone);
+    if (phoneErr) errs.phone = phoneErr;
+    if (Object.keys(errs).length) {
+      setFieldErrors(errs);
+      return;
+    }
+    setFieldErrors({});
+    setLoading(true);
 
     const result = await submitLeadToCrm({
       name: form.name,
       email: form.email,
-      mobile: form.phone.replace(/\D/g, "").slice(-10),
+      mobile: sanitizeIndianMobile(form.phone),
       courseInterest: form.courseId || undefined,
       notes: "Book Live Class",
     });
@@ -195,39 +215,59 @@ export function BookLiveClassSection() {
                 </div>
 
                 {/* Name */}
-                <input
-                  required
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full h-11 sm:h-12 min-w-0 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/30 focus:border-primary focus:outline-none transition-all hover:border-white/20"
-                  placeholder="Full Name"
-                />
+                <div>
+                  <input
+                    required
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    className="w-full h-11 sm:h-12 min-w-0 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/30 focus:border-primary focus:outline-none transition-all hover:border-white/20"
+                    placeholder="Full Name"
+                  />
+                  {fieldErrors.name && (
+                    <p className="text-xs text-red-400 mt-1">{fieldErrors.name}</p>
+                  )}
+                </div>
 
                 {/* Email */}
-                <input
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full h-11 sm:h-12 min-w-0 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/30 focus:border-primary focus:outline-none transition-all hover:border-white/20"
-                  placeholder="Email Address"
-                />
+                <div>
+                  <input
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    className="w-full h-11 sm:h-12 min-w-0 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/30 focus:border-primary focus:outline-none transition-all hover:border-white/20"
+                    placeholder="Email Address"
+                  />
+                  {fieldErrors.email && (
+                    <p className="text-xs text-red-400 mt-1">{fieldErrors.email}</p>
+                  )}
+                </div>
 
                 {/* Phone */}
-                <div className="flex gap-2">
-                  <div className="w-16 sm:w-20 h-11 sm:h-12 shrink-0 border border-white/10 bg-white/5 px-2 sm:px-3 text-xs sm:text-sm text-white/50 flex items-center justify-center gap-1 font-medium">
-                    🇮🇳 +91
+                <div>
+                  <div className="flex gap-2">
+                    <div className="w-16 sm:w-20 h-11 sm:h-12 shrink-0 border border-white/10 bg-white/5 px-2 sm:px-3 text-xs sm:text-sm text-white/50 flex items-center justify-center gap-1 font-medium">
+                      🇮🇳 +91
+                    </div>
+                    <input
+                      type="tel"
+                      inputMode="numeric"
+                      maxLength={10}
+                      required
+                      value={form.phone}
+                      onChange={(e) =>
+                        setForm({
+                          ...form,
+                          phone: e.target.value.replace(/\D/g, "").slice(0, 10),
+                        })
+                      }
+                      className="flex-1 min-w-0 h-11 sm:h-12 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/30 focus:border-primary focus:outline-none transition-all hover:border-white/20"
+                      placeholder="WhatsApp Number"
+                    />
                   </div>
-                  <input
-                    type="tel"
-                    required
-                    value={form.phone}
-                    onChange={(e) =>
-                      setForm({ ...form, phone: e.target.value })
-                    }
-                    className="flex-1 min-w-0 h-11 sm:h-12 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/30 focus:border-primary focus:outline-none transition-all hover:border-white/20"
-                    placeholder="WhatsApp Number"
-                  />
+                  {fieldErrors.phone && (
+                    <p className="text-xs text-red-400 mt-1">{fieldErrors.phone}</p>
+                  )}
                 </div>
 
                 {/* Error */}
