@@ -3,6 +3,12 @@
 import { useState } from "react";
 
 import { submitLeadToCrm } from "@/lib/crm-api";
+import {
+  sanitizeIndianMobile,
+  validateIndianMobile,
+  validateEmail,
+  validateName,
+} from "@/lib/validators";
 
 type CtaData = {
   headline: string;
@@ -15,10 +21,6 @@ type Props = { data: CtaData };
 
 type FormState = { name: string; email: string; phone: string; doubt: string };
 
-function sanitizePhone(phone: string) {
-  return phone.replace(/\D/g, "").replace(/^91/, "").slice(-10);
-}
-
 const inputCls =
   "h-11 w-full border border-black/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 outline-none transition focus:border-white/60 focus:bg-white/15";
 
@@ -26,6 +28,7 @@ export function CounselingCta({ data }: Props) {
   const [form, setForm] = useState<FormState>({ name: "", email: "", phone: "", doubt: "" });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
 
   const set = (key: keyof FormState) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
@@ -34,11 +37,24 @@ export function CounselingCta({ data }: Props) {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
+
+    const errs: Record<string, string> = {};
+    const nameErr = validateName(form.name);
+    if (nameErr) errs.name = nameErr;
+    const emailErr = validateEmail(form.email);
+    if (emailErr) errs.email = emailErr;
+    const phoneErr = validateIndianMobile(form.phone);
+    if (phoneErr) errs.phone = phoneErr;
+    if (Object.keys(errs).length) {
+      setFieldErrors(errs);
+      return;
+    }
+    setFieldErrors({});
     setSubmitting(true);
     const result = await submitLeadToCrm({
       name: form.name.trim(),
       email: form.email.trim(),
-      mobile: sanitizePhone(form.phone),
+      mobile: sanitizeIndianMobile(form.phone),
       notes: `Free counseling booking. Doubt: ${form.doubt || "Not specified"}. Campaign: Counseling. Source: /counseling`,
     });
     setSubmitting(false);
@@ -128,6 +144,9 @@ export function CounselingCta({ data }: Props) {
                     placeholder="Your name"
                     className={inputCls}
                   />
+                  {fieldErrors.name && (
+                    <p className="text-xs text-red-400 mt-1">{fieldErrors.name}</p>
+                  )}
                 </div>
                 <div className="space-y-1.5">
                   <label className="text-xs font-bold tracking-wider text-white/50 uppercase">
@@ -135,12 +154,22 @@ export function CounselingCta({ data }: Props) {
                   </label>
                   <input
                     type="tel"
+                    inputMode="numeric"
+                    maxLength={10}
                     required
                     value={form.phone}
-                    onChange={set("phone")}
+                    onChange={(e) =>
+                      setForm((p) => ({
+                        ...p,
+                        phone: e.target.value.replace(/\D/g, "").slice(0, 10),
+                      }))
+                    }
                     placeholder="10 digit mobile"
                     className={inputCls}
                   />
+                  {fieldErrors.phone && (
+                    <p className="text-xs text-red-400 mt-1">{fieldErrors.phone}</p>
+                  )}
                 </div>
               </div>
 
@@ -156,6 +185,9 @@ export function CounselingCta({ data }: Props) {
                   placeholder="you@example.com"
                   className={inputCls}
                 />
+                {fieldErrors.email && (
+                  <p className="text-xs text-red-400 mt-1">{fieldErrors.email}</p>
+                )}
               </div>
 
               <div className="space-y-1.5">

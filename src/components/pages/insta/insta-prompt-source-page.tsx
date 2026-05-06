@@ -7,6 +7,12 @@ import { useEffect, useMemo, useState } from "react";
 import codingLogo from "@/assets/images/Coding_white.png";
 import site from "@/data/site.json";
 import { fetchCrmCourses, submitLeadToCrm } from "@/lib/crm-api";
+import {
+  sanitizeIndianMobile,
+  validateIndianMobile,
+  validateEmail,
+  validateName,
+} from "@/lib/validators";
 
 type Props = {
   promptContent: string;
@@ -21,10 +27,6 @@ type FormState = {
 const SOURCE_FILE_URL = "/insta/codingsharks.html";
 const PROMPT_FILE_URL = "/insta/CodingSharks_MasterPrompt.md";
 
-function sanitizePhone(phone: string) {
-  return phone.replace(/\D/g, "").replace(/^91/, "").slice(-10);
-}
-
 export function InstaPromptSourcePage({ promptContent }: Props) {
   const [form, setForm] = useState<FormState>({
     name: "",
@@ -33,6 +35,7 @@ export function InstaPromptSourcePage({ promptContent }: Props) {
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [unlocked, setUnlocked] = useState(false);
   const [copied, setCopied] = useState(false);
   const [showPrompt, setShowPrompt] = useState(false);
@@ -58,9 +61,22 @@ export function InstaPromptSourcePage({ promptContent }: Props) {
     e.preventDefault();
 
     setSubmitError(null);
+
+    const errs: Record<string, string> = {};
+    const nameErr = validateName(form.name);
+    if (nameErr) errs.name = nameErr;
+    const emailErr = validateEmail(form.email);
+    if (emailErr) errs.email = emailErr;
+    const phoneErr = validateIndianMobile(form.phone);
+    if (phoneErr) errs.phone = phoneErr;
+    if (Object.keys(errs).length) {
+      setFieldErrors(errs);
+      return;
+    }
+    setFieldErrors({});
     setSubmitting(true);
 
-    const mobile = sanitizePhone(form.phone);
+    const mobile = sanitizeIndianMobile(form.phone);
 
     const result = await submitLeadToCrm({
       name: form.name.trim(),
@@ -243,6 +259,9 @@ export function InstaPromptSourcePage({ promptContent }: Props) {
                   className="h-11 w-full border border-white/15 bg-black/40 px-3 text-sm text-white outline-none transition focus:border-primary/70"
                   placeholder="Your name"
                 />
+                {fieldErrors.name && (
+                  <p className="text-xs text-red-400 mt-1">{fieldErrors.name}</p>
+                )}
               </div>
 
               <div className="space-y-1">
@@ -262,6 +281,9 @@ export function InstaPromptSourcePage({ promptContent }: Props) {
                   className="h-11 w-full border border-white/15 bg-black/40 px-3 text-sm text-white outline-none transition focus:border-primary/70"
                   placeholder="you@example.com"
                 />
+                {fieldErrors.email && (
+                  <p className="text-xs text-red-400 mt-1">{fieldErrors.email}</p>
+                )}
               </div>
 
               <div className="space-y-1">
@@ -273,14 +295,22 @@ export function InstaPromptSourcePage({ promptContent }: Props) {
                 <input
                   id="phone"
                   type="tel"
+                  inputMode="numeric"
+                  maxLength={10}
                   required
                   value={form.phone}
                   onChange={(e) =>
-                    setForm((prev) => ({ ...prev, phone: e.target.value }))
+                    setForm((prev) => ({
+                      ...prev,
+                      phone: e.target.value.replace(/\D/g, "").slice(0, 10),
+                    }))
                   }
                   className="h-11 w-full border border-white/15 bg-black/40 px-3 text-sm text-white outline-none transition focus:border-primary/70"
                   placeholder="10 digit mobile"
                 />
+                {fieldErrors.phone && (
+                  <p className="text-xs text-red-400 mt-1">{fieldErrors.phone}</p>
+                )}
               </div>
 
               {submitError ? (

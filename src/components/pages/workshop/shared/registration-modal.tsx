@@ -4,6 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { X, Loader2, ChevronRight } from "lucide-react";
 import { fetchCrmCourses, submitLeadToCrm } from "@/lib/crm-api";
+import {
+  sanitizeIndianMobile,
+  validateIndianMobile,
+  validateEmail,
+  validateName,
+} from "@/lib/validators";
 import { useCountdown } from "../hooks";
 import type { WorkshopJson } from "../types";
 
@@ -50,11 +56,12 @@ export function RegistrationModal({ workshop, onClose, isEmbedded = false }: Pro
 
   function validate() {
     const e: Record<string, string> = {};
-    if (name.trim().length < 2) e.name = "Please enter your full name";
-    const digits = phone.replace(/\D/g, "");
-    if (digits.length !== 10) e.phone = "Enter a valid 10-digit mobile number";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-      e.email = "Enter a valid email address";
+    const nameErr = validateName(name);
+    if (nameErr) e.name = nameErr;
+    const phoneErr = validateIndianMobile(phone);
+    if (phoneErr) e.phone = phoneErr;
+    const emailErr = validateEmail(email);
+    if (emailErr) e.email = emailErr;
     return e;
   }
 
@@ -67,7 +74,7 @@ export function RegistrationModal({ workshop, onClose, isEmbedded = false }: Pro
     setErrors({});
     setSubmitError("");
     setIsSubmitting(true);
-    const mobile = phone.replace(/\D/g, "").slice(-10);
+    const mobile = sanitizeIndianMobile(phone);
     const result = await submitLeadToCrm({
       name,
       email,

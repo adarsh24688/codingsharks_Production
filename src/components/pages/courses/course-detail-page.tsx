@@ -31,6 +31,12 @@ import courses from "@/data/courses.json";
 import { ApplyNowButton } from "@/components/common/apply-now-button";
 import { openLeadModal } from "@/components/common/lead-modal";
 import { fetchCrmCourses, submitLeadToCrm } from "@/lib/crm-api";
+import {
+  sanitizeIndianMobile,
+  validateIndianMobile,
+  validateEmail,
+  validateName,
+} from "@/lib/validators";
 
 type Course = (typeof courses)[number];
 
@@ -206,6 +212,7 @@ function HeroForm({ course }: { course: Course }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [crmCourseId, setCrmCourseId] = useState<string>("");
   const [form, setForm] = useState({
     name: "",
@@ -229,13 +236,26 @@ function HeroForm({ course }: { course: Course }) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError(null);
+
+    const errs: Record<string, string> = {};
+    const nameErr = validateName(form.name);
+    if (nameErr) errs.name = nameErr;
+    const emailErr = validateEmail(form.email);
+    if (emailErr) errs.email = emailErr;
+    const phoneErr = validateIndianMobile(form.phone);
+    if (phoneErr) errs.phone = phoneErr;
+    if (Object.keys(errs).length) {
+      setFieldErrors(errs);
+      return;
+    }
+    setFieldErrors({});
+    setLoading(true);
 
     const result = await submitLeadToCrm({
       name: form.name,
       email: form.email,
-      mobile: form.phone.replace(/\D/g, "").slice(-10),
+      mobile: sanitizeIndianMobile(form.phone),
       courseInterest: crmCourseId || undefined,
       notes: form.background ? `Background: ${form.background}` : undefined,
     });
@@ -299,34 +319,56 @@ function HeroForm({ course }: { course: Course }) {
           </div>
 
           <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
-            <input
-              required
-              type="text"
-              placeholder="Your Full Name"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="w-full h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
-            />
-            <input
-              required
-              type="email"
-              placeholder="Email Address"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="w-full h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
-            />
-            <div className="flex gap-2">
-              <div className="shrink-0 w-16 h-11 bg-gray-50 border border-gray-200 flex items-center justify-center text-sm text-gray-600 font-semibold gap-1">
-                🇮🇳 +91
-              </div>
+            <div>
               <input
                 required
-                type="tel"
-                placeholder="WhatsApp Number"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className="flex-1 min-w-0 h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
+                type="text"
+                placeholder="Your Full Name"
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="w-full h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
               />
+              {fieldErrors.name && (
+                <p className="text-xs text-red-500 mt-1">{fieldErrors.name}</p>
+              )}
+            </div>
+            <div>
+              <input
+                required
+                type="email"
+                placeholder="Email Address"
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="w-full h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
+              />
+              {fieldErrors.email && (
+                <p className="text-xs text-red-500 mt-1">{fieldErrors.email}</p>
+              )}
+            </div>
+            <div>
+              <div className="flex gap-2">
+                <div className="shrink-0 w-16 h-11 bg-gray-50 border border-gray-200 flex items-center justify-center text-sm text-gray-600 font-semibold gap-1">
+                  🇮🇳 +91
+                </div>
+                <input
+                  required
+                  type="tel"
+                  inputMode="numeric"
+                  maxLength={10}
+                  placeholder="WhatsApp Number"
+                  value={form.phone}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      phone: e.target.value.replace(/\D/g, "").slice(0, 10),
+                    })
+                  }
+                  className="flex-1 min-w-0 h-11 bg-gray-50 border border-gray-200 px-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors"
+                />
+              </div>
+              {fieldErrors.phone && (
+                <p className="text-xs text-red-500 mt-1">{fieldErrors.phone}</p>
+              )}
             </div>
             <select
               value={form.background}
