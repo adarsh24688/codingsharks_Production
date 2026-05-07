@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Manrope, Space_Grotesk } from "next/font/google";
-import { Suspense } from "react";
 
 import "react-toastify/dist/ReactToastify.css";
 
 import "./globals.css";
 
+import { Clarity } from "@/components/common/clarity";
+import { GoogleAds } from "@/components/common/google-ads";
 import { MetaPixel } from "@/components/common/meta-pixel";
 import { AppToaster } from "@/components/common/toaster";
 import { PublicShell } from "@/components/common/public-shell";
@@ -117,9 +118,9 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${manrope.variable} ${spaceGrotesk.variable} font-sans min-h-dvh bg-background text-foreground antialiased`}>
-        <Suspense fallback={null}>
-          <MetaPixel />
-        </Suspense>
+        <MetaPixel />
+        <GoogleAds />
+        <Clarity />
         <StoreProvider>
           <PublicShell>{children}</PublicShell>
           <AppToaster />

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
 
@@ -13,10 +13,6 @@ declare global {
     fbq?: (...args: unknown[]) => void;
   }
 }
-
-type FbqStub = ((...args: unknown[]) => void) & {
-  queue?: unknown[][];
-};
 
 function trackEvent(eventName: string, retries = 10) {
   if (typeof window === "undefined") {
@@ -37,72 +33,118 @@ function trackEvent(eventName: string, retries = 10) {
   return false;
 }
 
-function ensurePixelStub() {
-  if (typeof window === "undefined" || typeof window.fbq === "function") {
-    return;
-  }
-
-  const fbqStub = ((...args: unknown[]) => {
-    fbqStub.queue = [...(fbqStub.queue ?? []), args];
-  }) as FbqStub;
-
-  window.fbq = fbqStub;
-}
-
-export function MetaPixel() {
+function MetaPixelRouteTracker({
+  onEvent,
+}: {
+  onEvent: (eventName: string, url: string) => void;
+}) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const pageViewTrackedUrlRef = useRef<string | null>(null);
   const leadTrackedUrlRef = useRef<string | null>(null);
-  const pixelInitializedRef = useRef(false);
-  const [sdkStatus, setSdkStatus] = useState("loading");
-  const [fbqStatus, setFbqStatus] = useState(() => {
-    if (typeof window === "undefined") {
-      return "unknown";
-    }
-
-    return typeof window.fbq === "function" ? "available" : "missing";
-  });
-  const [lastEvent, setLastEvent] = useState<string>("none");
-  const [lastUrl, setLastUrl] = useState<string>("");
-  const debugEnabled = useMemo(() => {
-    return (
-      process.env.NEXT_PUBLIC_META_PIXEL_DEBUG === "1" ||
-      searchParams.get("pixel-debug") === "1"
-    );
-  }, [searchParams]);
-
-  const emitEvent = (eventName: string, nextUrl: string) => {
-    window.setTimeout(() => {
-      setLastEvent(eventName);
-      setLastUrl(nextUrl);
-    }, 0);
-
-    if (eventName === "PageView") {
-      return trackEvent("PageView", 30);
-    }
-
-    if (eventName === "Lead") {
-      return trackEvent("Lead", 30);
-    }
-
-    return false;
-  };
 
   useEffect(() => {
     const query = searchParams.toString();
     const url = query ? `${pathname}?${query}` : pathname;
 
     if (pageViewTrackedUrlRef.current !== url) {
-      emitEvent("PageView", url);
+      trackEvent("PageView", 30);
+      onEvent("PageView", url);
       pageViewTrackedUrlRef.current = url;
     }
 
     if (pathname === "/thank-you" && leadTrackedUrlRef.current !== url) {
-      emitEvent("Lead", url);
+      trackEvent("Lead", 30);
+      onEvent("Lead", url);
       leadTrackedUrlRef.current = url;
     }
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams, onEvent]);
+
+  return null;
+}
+
+function MetaPixelDebugOverlay({
+  pathname,
+  sdkStatus,
+  fbqStatus,
+  lastEvent,
+  lastUrl,
+}: {
+  pathname: string;
+  sdkStatus: string;
+  fbqStatus: string;
+  lastEvent: string;
+  lastUrl: string;
+}) {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        right: 16,
+        bottom: 16,
+        zIndex: 2147483647,
+        width: 320,
+        borderRadius: 16,
+        border: "1px solid rgba(255,255,255,0.12)",
+        background: "rgba(10, 10, 10, 0.92)",
+        color: "#fff",
+        boxShadow: "0 16px 48px rgba(0,0,0,0.35)",
+        padding: 14,
+        fontSize: 12,
+        lineHeight: 1.5,
+        backdropFilter: "blur(10px)",
+      }}>
+      <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 10 }}>
+        Meta Pixel Debug
+      </div>
+      <div>
+        Hostname:{" "}
+        {typeof window !== "undefined" ? window.location.hostname : "n/a"}
+      </div>
+      <div>Path: {pathname}</div>
+      <div>Pixel ID: {PIXEL_ID}</div>
+      <div>SDK: {sdkStatus}</div>
+      <div>fbq: {fbqStatus}</div>
+      <div>Last event: {lastEvent}</div>
+      <div>Last url: {lastUrl || "n/a"}</div>
+      <div style={{ marginTop: 8, opacity: 0.75 }}>
+        Enable with <strong>?pixel-debug=1</strong> or{" "}
+        <strong>NEXT_PUBLIC_META_PIXEL_DEBUG=1</strong>
+      </div>
+    </div>
+  );
+}
+
+function DebugController({ onEnabled }: { onEnabled: (v: boolean) => void }) {
+  const searchParams = useSearchParams();
+  const enabled = useMemo(() => {
+    return (
+      process.env.NEXT_PUBLIC_META_PIXEL_DEBUG === "1" ||
+      searchParams.get("pixel-debug") === "1"
+    );
+  }, [searchParams]);
+
+  useEffect(() => {
+    onEnabled(enabled);
+  }, [enabled, onEnabled]);
+
+  return null;
+}
+
+export function MetaPixel() {
+  const pixelInitializedRef = useRef(false);
+  const pathnameClientRef = useRef<string>("");
+  const [sdkStatus, setSdkStatus] = useState("loading");
+  const [fbqStatus, setFbqStatus] = useState<string>("unknown");
+  const [lastEvent, setLastEvent] = useState<string>("none");
+  const [lastUrl, setLastUrl] = useState<string>("");
+  const [debugEnabled, setDebugEnabled] = useState(false);
+
+  const handleEvent = (eventName: string, url: string) => {
+    pathnameClientRef.current = url;
+    setLastEvent(eventName);
+    setLastUrl(url);
+  };
 
   return (
     <>
@@ -131,17 +173,11 @@ n.loaded=!0;n.version='2.0';n.queue=[];}(window, document,'script');`,
 
           if (!pixelInitializedRef.current) {
             window.fbq("init", PIXEL_ID);
+            window.fbq("track", "PageView");
             pixelInitializedRef.current = true;
           }
 
           setFbqStatus("available");
-
-          if (debugEnabled) {
-            console.info("[MetaPixel] SDK loaded and initialized", {
-              pixelId: PIXEL_ID,
-              pathname,
-            });
-          }
         }}
         onError={() => {
           setSdkStatus("error");
@@ -161,42 +197,19 @@ n.loaded=!0;n.version='2.0';n.queue=[];}(window, document,'script');`,
         />
       </noscript>
 
+      <Suspense fallback={null}>
+        <MetaPixelRouteTracker onEvent={handleEvent} />
+        <DebugController onEnabled={setDebugEnabled} />
+      </Suspense>
+
       {debugEnabled ? (
-        <div
-          style={{
-            position: "fixed",
-            right: 16,
-            bottom: 16,
-            zIndex: 2147483647,
-            width: 320,
-            borderRadius: 16,
-            border: "1px solid rgba(255,255,255,0.12)",
-            background: "rgba(10, 10, 10, 0.92)",
-            color: "#fff",
-            boxShadow: "0 16px 48px rgba(0,0,0,0.35)",
-            padding: 14,
-            fontSize: 12,
-            lineHeight: 1.5,
-            backdropFilter: "blur(10px)",
-          }}>
-          <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 10 }}>
-            Meta Pixel Debug
-          </div>
-          <div>
-            Hostname:{" "}
-            {typeof window !== "undefined" ? window.location.hostname : "n/a"}
-          </div>
-          <div>Path: {pathname}</div>
-          <div>Pixel ID: {PIXEL_ID}</div>
-          <div>SDK: {sdkStatus}</div>
-          <div>fbq: {fbqStatus}</div>
-          <div>Last event: {lastEvent}</div>
-          <div>Last url: {lastUrl || "n/a"}</div>
-          <div style={{ marginTop: 8, opacity: 0.75 }}>
-            Enable with <strong>?pixel-debug=1</strong> or{" "}
-            <strong>NEXT_PUBLIC_META_PIXEL_DEBUG=1</strong>
-          </div>
-        </div>
+        <MetaPixelDebugOverlay
+          pathname={pathnameClientRef.current}
+          sdkStatus={sdkStatus}
+          fbqStatus={fbqStatus}
+          lastEvent={lastEvent}
+          lastUrl={lastUrl}
+        />
       ) : null}
     </>
   );
