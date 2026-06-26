@@ -4,7 +4,7 @@ import { BasicPage } from "@/components/pages/basic-page";
 export const metadata: Metadata = {
   title: "About Coding Sharks — Our Mission, Mentors & Story",
   description:
-    "Learn about Coding Sharks — India's placement-focused coding bootcamp in Indore. Our mission is to transform careers through real-world projects, 1-on-1 mentorship from senior engineers, and guaranteed placement support.",
+    "Learn about Coding Sharks, India's placement-focused coding bootcamp in Indore that turns freshers and career-switchers into hired software engineers.",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com"}/about`,
   },

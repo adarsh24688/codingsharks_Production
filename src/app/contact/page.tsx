@@ -4,7 +4,7 @@ import { BasicPage } from "@/components/pages/basic-page";
 export const metadata: Metadata = {
   title: "Contact Coding Sharks — Talk to Our Team",
   description:
-    "Have questions about our coding programs? Contact Coding Sharks in Indore. Call us at +91 9424586286 or email info@thecodingsharks.com. Book a free career session today.",
+    "Have questions about our coding programs? Contact Coding Sharks in Indore. Call us at +91 9424586286 or email info@thecodingsharks.com.",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com"}/contact`,
   },

@@ -5,9 +5,10 @@ import { getBlogTemplate } from "@/components/blog/templates";
 import { MicrositeShell } from "@/components/layout/microsite-shell";
 import { getBlogTheme } from "@/components/blog/templates/shared";
 import { faqSchema } from "@/lib/seo-schema";
+import { SITE_URL } from "@/lib/site-config";
 import { JsonLd } from "@/components/seo/json-ld";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com";
+const BASE_URL = SITE_URL;
 
 type Props = {
   params: Promise<{ slug: string }>;

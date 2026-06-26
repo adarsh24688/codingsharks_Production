@@ -51,7 +51,7 @@ export const CODING_BOOTCAMP_INDORE: SeoLanding = {
   h1: "Coding Bootcamp in Indore with Placement Support",
   metaTitle: "Coding Bootcamp in Indore | 91%+ Placement | Coding Sharks",
   metaDescription:
-    "Coding Sharks is a placement-focused coding bootcamp in Indore offering live Full Stack, AI, Data Science, and DSA programs with 1-on-1 mentorship and a 91%+ placement rate. Book a free demo.",
+    "Placement-focused coding bootcamp in Indore. Live Full Stack, AI, Data Science and DSA programs with 1-on-1 mentorship and a 91%+ placement rate.",
   keywords: [
     "coding bootcamp Indore",
     "coding classes in Indore",
@@ -171,7 +171,7 @@ export const WHY_CODING_SHARKS: SeoLanding = {
   h1: "Why Choose Coding Sharks",
   metaTitle: "Why Choose Coding Sharks | Placement-Focused Coding Bootcamp",
   metaDescription:
-    "Coding Sharks gets you hired, not just certified: real product building, 1-on-1 mentorship from senior engineers, and a 91%+ placement rate. Here is what makes it different.",
+    "Coding Sharks gets you hired, not just certified: real product building, 1-on-1 mentorship from senior engineers, and a 91%+ placement rate.",
   keywords: [
     "why coding sharks",
     "is coding sharks good",
@@ -254,7 +254,7 @@ export const BOOTCAMP_VS_SELF_TAUGHT: SeoLanding = {
   h1: "Coding Bootcamp vs Self-Taught: Which Gets You Hired?",
   metaTitle: "Coding Bootcamp vs Self-Taught (2026) | Which Gets You Hired",
   metaDescription:
-    "Both teach coding, but they produce very different hiring outcomes. A clear comparison of self-teaching vs a placement-focused bootcamp, and who each path suits.",
+    "Self-taught vs a placement-focused bootcamp: the real differences in time, portfolio, interview prep, and hiring outcomes, and who each path suits.",
   keywords: [
     "coding bootcamp vs self taught",
     "self taught vs bootcamp developer",
@@ -335,7 +335,7 @@ export const FULL_STACK_COURSE: SeoLanding = {
   h1: "Full Stack Web Development Course with Placement",
   metaTitle: "Full Stack Web Development Course with Placement | Coding Sharks",
   metaDescription:
-    "A live, placement-focused Full Stack Web Development course. Build real projects in JavaScript, TypeScript, React, Next.js, and Node.js with 1-on-1 mentorship and placement support.",
+    "A live, placement-focused Full Stack course covering JavaScript, TypeScript, React, Next.js and Node.js, with 1-on-1 mentorship and placement support.",
   keywords: [
     "full stack web development course",
     "full stack developer course with placement",
@@ -423,7 +423,7 @@ export const AI_COURSE_INDIA: SeoLanding = {
   h1: "AI Engineering Course in India with Placement",
   metaTitle: "AI Course in India with Placement | AI Agents | Coding Sharks",
   metaDescription:
-    "A live, placement-focused AI Agents and Automation course. Build real AI products with Python, LangChain, LLM APIs, and vector databases, with 1-on-1 mentorship and placement support.",
+    "A live, placement-focused AI Agents course covering Python, LangChain, LLM APIs and vector databases, with 1-on-1 mentorship and placement support.",
   keywords: [
     "AI course India with placement",
     "AI engineering course",
@@ -512,7 +512,7 @@ export const DATA_SCIENCE_COURSE_INDIA: SeoLanding = {
   h1: "Data Science Course in India with Placement",
   metaTitle: "Data Science Course in India with Placement | Coding Sharks",
   metaDescription:
-    "A live, placement-focused Data Science and Machine Learning course. Build real data projects with Python, ML, and data pipelines, with 1-on-1 mentorship and placement support.",
+    "A live, placement-focused Data Science and ML course covering Python, ML and data pipelines, with 1-on-1 mentorship and placement support.",
   keywords: [
     "data science course India with placement",
     "data science bootcamp India",
@@ -680,7 +680,7 @@ export const NON_CS_BACKGROUND: SeoLanding = {
   h1: "From Non-CS Background to Software Engineer",
   metaTitle: "Non-CS to Software Engineer | No Degree Needed | Coding Sharks",
   metaDescription:
-    "61% of Coding Sharks students come from non-CS backgrounds and get placed as software engineers. See how career switchers from sales, teaching, and accounting made the jump.",
+    "61% of Coding Sharks students come from non-CS backgrounds and get placed as software engineers.",
   keywords: [
     "non-CS to software engineer",
     "career change to tech without degree",
@@ -762,7 +762,7 @@ export const FOR_FRESHERS: SeoLanding = {
   h1: "Coding Course for Freshers with Placement",
   metaTitle: "Coding Course for Freshers in India with Placement | Coding Sharks",
   metaDescription:
-    "A placement-focused coding program built for freshers and final-year students. Build a real portfolio, prepare for interviews, and land your first software job with Coding Sharks.",
+    "A placement-focused coding program for freshers: learn in-demand skills, build real projects, prepare for interviews, and land your first software job.",
   keywords: [
     "coding course for freshers India",
     "first software job for freshers",
@@ -838,7 +838,7 @@ export const DSA_COURSE: SeoLanding = {
   h1: "DSA Course for Placements and Coding Interviews",
   metaTitle: "DSA Course for Placements | Crack Coding Interviews | Coding Sharks",
   metaDescription:
-    "A focused Data Structures and Algorithms course built for product-company interviews. Learn the core patterns, practice the right problems, and crack coding rounds with mentorship.",
+    "A focused Data Structures and Algorithms course built for product-company interviews.",
   keywords: [
     "DSA course for placements",
     "data structures and algorithms course",
@@ -1012,7 +1012,7 @@ export const DEVELOPER_SALARY_INDIA: SeoLanding = {
   h1: "Software Developer Salary in India (2026)",
   metaTitle: "Software Developer Salary in India 2026 | By Role & Experience",
   metaDescription:
-    "Illustrative software developer salary ranges in India for 2026 by role and experience, plus what raises a developer's package. Directional figures from public ranges.",
+    "Illustrative software developer salary ranges in India for 2026 by role and experience, plus what raises a developer's package.",
   keywords: [
     "software developer salary India 2026",
     "full stack developer salary India",
@@ -1087,6 +1087,648 @@ export const DEVELOPER_SALARY_INDIA: SeoLanding = {
   ],
 };
 
+export const ONLINE_CODING_COURSE_INDIA: SeoLanding = {
+  slug: "online-coding-course-india",
+  eyebrow: "Online · Live Cohort",
+  h1: "Online Coding Course in India with Placement Support",
+  metaTitle: "Online Coding Course in India | Live + Placement | Coding Sharks",
+  metaDescription:
+    "Live online coding courses in India with 1-on-1 mentorship and placement support. Learn Full Stack, AI, and Data Science from anywhere. Book a free demo.",
+  keywords: [
+    "online coding course India",
+    "online full stack developer course India",
+    "learn coding online India",
+    "online programming course with placement",
+    "best online coding classes India",
+  ],
+  intro:
+    "Coding Sharks runs live, online coding courses for students across India, with the same cohort, 1-on-1 mentorship, and placement support as the in-person program. You learn Full Stack Web Development, AI, Data Science, DSA, and System Design from anywhere, building real projects with senior-engineer mentors. The institute reports a 91 to 96 percent placement rate.",
+  stats: [
+    { v: "91–96%", l: "placement rate" },
+    { v: "Live", l: "online cohorts (not recorded-only)" },
+    { v: "1-on-1", l: "mentorship" },
+    { v: "50+", l: "hiring partners" },
+  ],
+  sections: [
+    {
+      heading: "Are online coding courses as good as offline?",
+      body: [
+        "Yes, a live online coding course is as effective as offline when it keeps the cohort, mentorship, and projects live rather than just recorded videos. Coding Sharks runs real-time online classes with code reviews and 1-on-1 mentor sessions, so remote learners get the same structure and accountability as in-person students.",
+      ],
+    },
+    {
+      heading: "What can you learn in the online course?",
+      body: ["You can learn any of the Coding Sharks tracks fully online."],
+      bullets: [
+        "Full Stack Web Development (JavaScript, TypeScript, React, Next.js, Node.js)",
+        "AI Agents and Automation (Python, LangChain, LLM APIs)",
+        "Data Science and Machine Learning",
+        "DSA Mastery and System Design for interviews",
+      ],
+    },
+    {
+      heading: "How do the live online classes work?",
+      body: [
+        "Classes run live with your cohort on a fixed schedule, and every session is recorded and available within 24 hours so you never fall behind. Workshops, code reviews, and mentor sessions stay live, and you ship a project every week.",
+      ],
+    },
+    {
+      heading: "Do online students get the same placement support?",
+      body: [
+        "Yes. Online students get the same mock interviews, resume reviews, and direct referrals to 50+ hiring partners. Remote work has opened metro and global roles to learners anywhere in India, so location is no longer a barrier.",
+      ],
+    },
+    {
+      heading: "How do I join the online cohort?",
+      body: [
+        "Book a free demo session to meet a mentor and see how the live online cohort works. No payment is required to attend the demo.",
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "Is the online coding course live or recorded?",
+      a: "The Coding Sharks online coding course is live with your cohort, not recorded-only. Every live session is also recorded and available within 24 hours, while workshops, code reviews, and 1-on-1 mentor sessions stay fully live.",
+    },
+    {
+      q: "Can I get placed through an online coding course?",
+      a: "Yes. Online students at Coding Sharks receive the same placement support as in-person students, including mock interviews, resume reviews, and referrals to 50+ hiring partners. The institute reports a 91 to 96 percent placement rate.",
+    },
+    {
+      q: "Do I need to be in Indore to join?",
+      a: "No. The online cohort is open to students anywhere in India. You join the same live classes and mentorship remotely, and many graduates work remote roles for companies based in metros or abroad.",
+    },
+  ],
+  related: [
+    { label: "Full Stack course", href: "/full-stack-development-course" },
+    { label: "MERN Stack course", href: "/mern-stack-course" },
+    { label: "all programs", href: "/courses" },
+    { label: "book a free demo", href: "/book-demo" },
+  ],
+};
+
+export const MERN_STACK_COURSE: SeoLanding = {
+  slug: "mern-stack-course",
+  eyebrow: "MERN Stack",
+  h1: "MERN Stack Course with Placement Support",
+  metaTitle: "MERN Stack Course with Placement | MongoDB, Express, React, Node",
+  metaDescription:
+    "A live MERN stack course covering MongoDB, Express, React, and Node.js with real projects, 1-on-1 mentorship, and placement support. Book a free demo.",
+  keywords: [
+    "MERN stack course",
+    "MERN stack developer course",
+    "MERN stack course with placement",
+    "MongoDB Express React Node course",
+    "full stack MERN course India",
+  ],
+  intro:
+    "The MERN stack is a JavaScript-based web development stack made of MongoDB, Express, React, and Node.js, and Coding Sharks teaches it inside a live, placement-focused Full Stack program. You build and deploy real MERN applications with 1-on-1 mentorship from senior engineers, and the track is backed by a 91 to 96 percent placement rate.",
+  stats: [
+    { v: "MERN", l: "MongoDB · Express · React · Node" },
+    { v: "91–96%", l: "placement rate" },
+    { v: "3–5", l: "deployed projects" },
+    { v: "1-on-1", l: "mentorship" },
+  ],
+  sections: [
+    {
+      heading: "What is the MERN stack?",
+      body: [
+        "The MERN stack is a set of four JavaScript technologies used to build complete web applications: MongoDB for the database, Express for the backend framework, React for the frontend, and Node.js for the server runtime. Because all four use JavaScript, you build the whole application in one language.",
+      ],
+    },
+    {
+      heading: "What do you learn in the MERN course?",
+      body: ["The course takes you from fundamentals to deployed, full stack MERN applications."],
+      bullets: [
+        "JavaScript and TypeScript fundamentals",
+        "React and Next.js for the frontend",
+        "Node.js and Express for REST APIs",
+        "MongoDB data modeling, plus PostgreSQL for relational data",
+        "Authentication, deployment, and real-world project architecture",
+      ],
+    },
+    {
+      heading: "What projects will I build?",
+      body: [
+        "You build 3 to 5 production-grade MERN projects with real users, such as an inventory API, a job board, or a full social or e-commerce app. Each project includes authentication, a database, and a live deployed URL, which is exactly what interviewers review.",
+      ],
+    },
+    {
+      heading: "Does the MERN course include placement support?",
+      body: [
+        "Yes. The MERN course sits inside the Full Stack track, which includes mock interviews, resume reviews, and direct referrals to 50+ hiring partners, with a reported 91 to 96 percent placement rate.",
+      ],
+    },
+    {
+      heading: "How do I join?",
+      body: [
+        "Book a free demo session to meet a mentor and confirm the MERN and Full Stack track fits your goal. No payment is required to attend the demo.",
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "What is the MERN stack used for?",
+      a: "The MERN stack is used to build complete web applications using JavaScript end to end. MongoDB stores data, Express and Node.js run the backend and APIs, and React builds the frontend, so you can build and deploy a full app with a single language.",
+    },
+    {
+      q: "Is MERN stack good for getting a job in India?",
+      a: "Yes. MERN and JavaScript skills target the deepest web development job market in India. Coding Sharks teaches MERN inside a placement-focused Full Stack track with mock interviews and referrals to 50+ hiring partners.",
+    },
+    {
+      q: "Do I need experience to join the MERN course?",
+      a: "No prior experience is required. The course starts from JavaScript fundamentals, and a pre-cohort prep module plus 1-on-1 mentorship bring beginners up to speed before the harder topics.",
+    },
+  ],
+  related: [
+    { label: "Full Stack course", href: "/full-stack-development-course" },
+    { label: "Web Development course", href: "/web-development-course" },
+    { label: "online coding course", href: "/online-coding-course-india" },
+    { label: "book a free demo", href: "/book-demo" },
+  ],
+};
+
+export const WEB_DEVELOPMENT_COURSE: SeoLanding = {
+  slug: "web-development-course",
+  eyebrow: "Web Development",
+  h1: "Web Development Course in India with Placement",
+  metaTitle: "Web Development Course in India | Frontend + Backend | Coding Sharks",
+  metaDescription:
+    "A live, placement-focused web development course covering frontend and backend with real projects and 1-on-1 mentorship. Build and deploy full apps. Free demo.",
+  keywords: [
+    "web development course",
+    "web development course India",
+    "web development course with placement",
+    "frontend and backend course",
+    "full stack web development course",
+  ],
+  intro:
+    "Coding Sharks offers a live web development course in India that teaches both the frontend a user sees and the backend that powers it, so you graduate as a full stack web developer. You build and deploy real applications with 1-on-1 mentorship, and the program is backed by a 91 to 96 percent placement rate and referrals to 50+ hiring partners.",
+  stats: [
+    { v: "Frontend", l: "+ backend (full stack)" },
+    { v: "91–96%", l: "placement rate" },
+    { v: "3–5", l: "deployed projects" },
+    { v: "50+", l: "hiring partners" },
+  ],
+  sections: [
+    {
+      heading: "What is web development?",
+      body: [
+        "Web development is the work of building websites and web applications, split into frontend (the interface users interact with) and backend (the server, database, and logic behind it). A full stack web developer handles both, which is what most companies hiring for web roles want.",
+      ],
+    },
+    {
+      heading: "Frontend or backend, which should you learn?",
+      body: [
+        "Learn both, because companies hire web developers who can own a feature end to end. The Coding Sharks course starts with frontend (HTML, CSS, JavaScript, React, Next.js), then moves to backend (Node.js, Express, databases), so you can build a complete application yourself.",
+      ],
+    },
+    {
+      heading: "What does the web development course cover?",
+      body: ["The curriculum is built around shipping real, deployed web applications."],
+      bullets: [
+        "HTML, CSS, Tailwind, and responsive design",
+        "JavaScript, TypeScript, React, and Next.js",
+        "Node.js, Express, REST APIs, and authentication",
+        "PostgreSQL and MongoDB databases",
+        "Deployment, Git, and real project workflows",
+      ],
+    },
+    {
+      heading: "Does it include placement support?",
+      body: [
+        "Yes. The web development course includes mock interviews, resume and portfolio reviews, and direct referrals to 50+ hiring partners, with a reported 91 to 96 percent placement rate.",
+      ],
+    },
+    {
+      heading: "How do I start?",
+      body: [
+        "Book a free demo session to meet a mentor and see the live cohort. No payment is required to attend the demo.",
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "What is a web development course?",
+      a: "A web development course teaches you to build websites and web applications, covering frontend (HTML, CSS, JavaScript, React) and backend (Node.js, databases, APIs). The Coding Sharks course covers both as a full stack program with real projects and placement support.",
+    },
+    {
+      q: "How long does a web development course take?",
+      a: "A focused web development course typically takes a few months of consistent daily practice to reach job-ready level. At Coding Sharks, most students receive a first offer within 4 to 8 weeks of completing the program.",
+    },
+    {
+      q: "Can a beginner join a web development course?",
+      a: "Yes. The Coding Sharks web development course starts from fundamentals, and 61 percent of placed students come from non-CS backgrounds. No prior coding experience or CS degree is required.",
+    },
+  ],
+  related: [
+    { label: "Full Stack course", href: "/full-stack-development-course" },
+    { label: "MERN Stack course", href: "/mern-stack-course" },
+    { label: "online coding course", href: "/online-coding-course-india" },
+    { label: "book a free demo", href: "/book-demo" },
+  ],
+};
+
+export const CODING_COURSE_AFTER_12TH: SeoLanding = {
+  slug: "coding-course-after-12th",
+  eyebrow: "After 12th",
+  h1: "Coding Course After 12th: Start a Tech Career",
+  metaTitle: "Coding Course After 12th | Start a Tech Career | Coding Sharks",
+  metaDescription:
+    "The best coding course after 12th for any stream. Learn job-ready software skills, build real projects, and get placement support. No CS degree needed. Free demo.",
+  keywords: [
+    "coding course after 12th",
+    "best course after 12th for coding",
+    "programming course after 12th",
+    "software course after 12th",
+    "coding classes after 12th India",
+  ],
+  intro:
+    "After 12th, from any stream, you can start a software career through a placement-focused coding course without first completing a CS degree. Coding Sharks teaches job-ready skills in Full Stack, AI, and Data Science with 1-on-1 mentorship and real projects, and 61 percent of placed students come from non-CS backgrounds. The institute reports a 91 to 96 percent placement rate.",
+  stats: [
+    { v: "Any stream", l: "no CS degree required" },
+    { v: "61%", l: "placed students are non-CS" },
+    { v: "91–96%", l: "placement rate" },
+    { v: "1-on-1", l: "mentorship" },
+  ],
+  sections: [
+    {
+      heading: "Can I learn coding after 12th from any stream?",
+      body: [
+        "Yes, you can learn coding after 12th from any stream, including commerce and arts, not just science. Companies hire on demonstrated skills and projects, not your 12th stream. A pre-cohort prep module covers fundamentals so beginners start from zero comfortably.",
+      ],
+    },
+    {
+      heading: "Which coding course is best after 12th?",
+      body: [
+        "Full Stack Web Development is the best first coding course after 12th for most students, because it covers the deepest job market and lets you build complete applications. If your interest is data or AI, the Data Science or AI track is a strong alternative.",
+      ],
+    },
+    {
+      heading: "Do I need maths or a CS background?",
+      body: [
+        "No, you do not need strong maths or a CS background for most software roles, especially web development. Logical thinking matters more than advanced maths. Data Science and AI use more maths, and the program builds that gradually for interested students.",
+      ],
+    },
+    {
+      heading: "How long until I can get a job?",
+      body: [
+        "With consistent daily practice, most students become job-ready in several months. At Coding Sharks, most students receive a first offer within 4 to 8 weeks of completing the program, supported by mock interviews and referrals to 50+ hiring partners.",
+      ],
+    },
+    {
+      heading: "How do I start after 12th?",
+      body: [
+        "Book a free demo session with a mentor. You and your parents can see the live cohort, ask about the curriculum and placement support, and decide with a clear picture. No payment is required to attend.",
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "Which coding course is best after 12th?",
+      a: "Full Stack Web Development is the best coding course after 12th for most students, because it has the deepest job market and teaches you to build complete applications. Data Science and AI are strong alternatives if your interest is data rather than web development.",
+    },
+    {
+      q: "Can a commerce or arts student learn coding after 12th?",
+      a: "Yes. Commerce and arts students can learn coding after 12th and get hired as developers. Companies evaluate skills and projects, not your stream, and 61 percent of placed Coding Sharks students come from non-CS backgrounds.",
+    },
+    {
+      q: "Do I need a degree to get a coding job after 12th?",
+      a: "No, a degree is not strictly required for many software roles. A strong portfolio of real projects and good interview performance matter most. Many developers get hired on skills, and a placement-focused program with referrals shortens the path.",
+    },
+  ],
+  related: [
+    { label: "Full Stack course", href: "/full-stack-development-course" },
+    { label: "for freshers", href: "/for-freshers" },
+    { label: "non-CS background", href: "/non-cs-background" },
+    { label: "book a free demo", href: "/book-demo" },
+  ],
+};
+
+export const DATA_ANALYTICS_COURSE: SeoLanding = {
+  slug: "data-analytics-course-india",
+  eyebrow: "Data Analytics",
+  h1: "Data Analytics Course in India with Placement",
+  metaTitle: "Data Analytics Course in India | SQL, Python, Power BI | Coding Sharks",
+  metaDescription:
+    "A live, placement-focused data analytics course covering Excel, SQL, Python, and Power BI with real projects and 1-on-1 mentorship. Book a free demo.",
+  keywords: [
+    "data analytics course",
+    "data analytics course India",
+    "data analyst course with placement",
+    "SQL Power BI course",
+    "business analytics course India",
+  ],
+  intro:
+    "Coding Sharks offers a live, placement-focused data analytics course that trains you to turn raw data into business decisions using Excel, SQL, Python, and Power BI. You work on real datasets with 1-on-1 mentorship from practitioners, build a portfolio of dashboards and analyses, and get placement support backed by a 91 to 96 percent placement rate.",
+  stats: [
+    { v: "SQL · Python", l: "Excel · Power BI" },
+    { v: "91–96%", l: "placement rate" },
+    { v: "Real", l: "datasets and dashboards" },
+    { v: "1-on-1", l: "mentorship" },
+  ],
+  sections: [
+    {
+      heading: "What is data analytics?",
+      body: [
+        "Data analytics is the practice of examining data to find patterns and answer business questions, then presenting those findings clearly. A data analyst cleans data, runs queries, builds dashboards, and helps teams make decisions, which is one of the most accessible entry points into a data career.",
+      ],
+    },
+    {
+      heading: "What tools and skills does the course cover?",
+      body: ["The course is built around the tools employers actually use for analytics."],
+      bullets: [
+        "Excel for quick analysis and reporting",
+        "SQL for querying databases",
+        "Python (Pandas) for data cleaning and analysis",
+        "Power BI and visualization for dashboards",
+        "Statistics and storytelling with data",
+      ],
+    },
+    {
+      heading: "Data analyst vs data scientist, which should I pick?",
+      body: [
+        "Choose data analytics if you want a faster, more accessible entry into data work without heavy maths, and data science if you want to build machine learning models. Analytics focuses on querying, dashboards, and insight, while data science adds statistics and ML. Many analysts move into data science later.",
+      ],
+    },
+    {
+      heading: "Does the analytics course include placement support?",
+      body: [
+        "Yes. The data analytics course includes mock interviews, portfolio and resume reviews, and direct referrals to 50+ hiring partners, with a reported 91 to 96 percent placement rate.",
+      ],
+    },
+    {
+      heading: "How do I join?",
+      body: [
+        "Book a free demo session to meet a mentor and confirm the data analytics track fits your goal. No payment is required to attend the demo.",
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "What does a data analytics course teach?",
+      a: "A data analytics course teaches you to clean, query, analyze, and visualize data using tools like Excel, SQL, Python, and Power BI. The Coding Sharks course adds statistics, real-dataset projects, and placement support so you graduate job-ready.",
+    },
+    {
+      q: "Do I need coding for data analytics?",
+      a: "You need some coding, mainly SQL and basic Python, but far less than software engineering. Data analytics is one of the most accessible data roles, and the Coding Sharks course starts from fundamentals for beginners.",
+    },
+    {
+      q: "Is data analytics a good career in India?",
+      a: "Yes. Data analytics is a strong, growing career in India, with demand across product companies, startups, and enterprises. It is also a common stepping stone into data science and other data roles.",
+    },
+  ],
+  related: [
+    { label: "Data Science course", href: "/data-science-course-india" },
+    { label: "Machine Learning course", href: "/machine-learning-course" },
+    { label: "Python course", href: "/python-programming-course" },
+    { label: "book a free demo", href: "/book-demo" },
+  ],
+};
+
+export const PYTHON_COURSE: SeoLanding = {
+  slug: "python-programming-course",
+  eyebrow: "Python",
+  h1: "Python Programming Course with Placement",
+  metaTitle: "Python Programming Course | Data, AI & Automation | Coding Sharks",
+  metaDescription:
+    "A live Python programming course from fundamentals to data, AI, and automation, with real projects, 1-on-1 mentorship, and placement support. Book a free demo.",
+  keywords: [
+    "python course",
+    "python programming course",
+    "python course with placement",
+    "python for data science course",
+    "learn python India",
+  ],
+  intro:
+    "Coding Sharks offers a live Python programming course that takes you from fundamentals to real applications in data science, AI, and automation. Python is one of the most beginner-friendly languages and the dominant choice for data and AI, and the course pairs it with 1-on-1 mentorship, real projects, and placement support backed by a 91 to 96 percent placement rate.",
+  stats: [
+    { v: "Python", l: "data · AI · automation" },
+    { v: "91–96%", l: "placement rate" },
+    { v: "Beginner", l: "friendly start" },
+    { v: "1-on-1", l: "mentorship" },
+  ],
+  sections: [
+    {
+      heading: "Why learn Python?",
+      body: [
+        "Python is the best first language if your goal is data science, AI, machine learning, or automation, and it is one of the easiest languages for a complete beginner to read and write. Its simple syntax lets you focus on logic, and it powers most data and AI work in the industry.",
+      ],
+    },
+    {
+      heading: "What does the Python course cover?",
+      body: ["The course goes from core Python to applied, job-ready skills."],
+      bullets: [
+        "Python fundamentals: data types, loops, functions, OOP",
+        "Working with data using Pandas and NumPy",
+        "Automation and scripting for real tasks",
+        "Foundations for data science, ML, and AI",
+        "Building and deploying real Python projects",
+      ],
+    },
+    {
+      heading: "What can I do after the Python course?",
+      body: [
+        "After the Python course you can move into data analytics, data science, machine learning, AI engineering, or backend automation roles. Python is the shared foundation for all of these, so it opens several career paths from one language.",
+      ],
+    },
+    {
+      heading: "Does it include placement support?",
+      body: [
+        "Yes. The Python course includes mock interviews, resume and portfolio reviews, and direct referrals to 50+ hiring partners, with a reported 91 to 96 percent placement rate.",
+      ],
+    },
+    {
+      heading: "How do I start?",
+      body: [
+        "Book a free demo session to meet a mentor and see the live cohort. No payment is required to attend the demo.",
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "Is Python good for beginners?",
+      a: "Yes, Python is one of the best languages for beginners. Its simple, readable syntax lets you focus on problem-solving instead of complex rules, which is why it is widely recommended as a first language, especially for data and AI careers.",
+    },
+    {
+      q: "What jobs can I get after a Python course?",
+      a: "After a Python course you can target roles in data analytics, data science, machine learning, AI engineering, and backend automation. Python is the shared foundation across these fields, so one language opens several career paths.",
+    },
+    {
+      q: "Do I need maths to learn Python?",
+      a: "No, you do not need advanced maths to learn Python itself or to do automation and basic analytics. Data science and machine learning use more maths, and the Coding Sharks program builds that gradually for interested students.",
+    },
+  ],
+  related: [
+    { label: "Data Science course", href: "/data-science-course-india" },
+    { label: "Data Analytics course", href: "/data-analytics-course-india" },
+    { label: "AI course", href: "/ai-course-india" },
+    { label: "book a free demo", href: "/book-demo" },
+  ],
+};
+
+export const MACHINE_LEARNING_COURSE: SeoLanding = {
+  slug: "machine-learning-course",
+  eyebrow: "Machine Learning",
+  h1: "Machine Learning Course in India with Placement",
+  metaTitle: "Machine Learning Course in India | Python & ML | Coding Sharks",
+  metaDescription:
+    "A live machine learning course covering Python, ML algorithms, and model building with real projects, 1-on-1 mentorship, and placement support. Book a free demo.",
+  keywords: [
+    "machine learning course",
+    "machine learning course India",
+    "ML course with placement",
+    "machine learning and AI course",
+    "python machine learning course",
+  ],
+  intro:
+    "Coding Sharks offers a live machine learning course that teaches you to build, train, and evaluate models using Python and the core ML algorithms, as part of its Data Science and ML track. You work on real datasets with 1-on-1 mentorship, build an ML project portfolio, and get placement support backed by a 91 to 96 percent placement rate.",
+  stats: [
+    { v: "Python", l: "+ ML algorithms" },
+    { v: "91–96%", l: "placement rate" },
+    { v: "Real", l: "model projects" },
+    { v: "1-on-1", l: "mentorship" },
+  ],
+  sections: [
+    {
+      heading: "What is machine learning?",
+      body: [
+        "Machine learning is a branch of AI where systems learn patterns from data to make predictions, instead of following hand-written rules. It powers recommendations, fraud detection, forecasting, and more, and is one of the highest-paying skill areas in the Indian tech market.",
+      ],
+    },
+    {
+      heading: "What does the machine learning course cover?",
+      body: ["The course covers the practical ML workflow end to end."],
+      bullets: [
+        "Python, Pandas, and NumPy for data work",
+        "Supervised and unsupervised learning algorithms",
+        "Model training, evaluation, and tuning",
+        "Feature engineering and real datasets",
+        "An ML project portfolio for interviews",
+      ],
+    },
+    {
+      heading: "How much maths do I need for machine learning?",
+      body: [
+        "You need a working grasp of statistics, probability, and basic linear algebra for machine learning, but you do not need to be a maths expert to start. The Coding Sharks course builds the required maths alongside the practical skills, so motivated beginners can follow.",
+      ],
+    },
+    {
+      heading: "Does the ML course include placement support?",
+      body: [
+        "Yes. The machine learning track includes mock interviews, portfolio reviews, and direct referrals to 50+ hiring partners, with a reported 91 to 96 percent placement rate.",
+      ],
+    },
+    {
+      heading: "How do I join?",
+      body: [
+        "Book a free demo session to meet a mentor and confirm the machine learning track fits your goal. No payment is required to attend the demo.",
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "What is the difference between AI, machine learning, and data science?",
+      a: "AI is the broad goal of making machines act intelligently, machine learning is a method where systems learn from data, and data science is the wider practice of extracting insight from data, which often uses ML. Coding Sharks covers all three across its data and AI tracks.",
+    },
+    {
+      q: "Do I need to know Python before a machine learning course?",
+      a: "Not necessarily. The Coding Sharks machine learning track builds the required Python and data skills from the ground up, so beginners can start, though some prior Python helps you move faster.",
+    },
+    {
+      q: "Is machine learning a good career in India?",
+      a: "Yes. Machine learning and AI roles are among the highest-paying and fastest-growing in India, with strong demand for people who can build and ship real models, not just complete courses.",
+    },
+  ],
+  related: [
+    { label: "Data Science course", href: "/data-science-course-india" },
+    { label: "AI course", href: "/ai-course-india" },
+    { label: "Python course", href: "/python-programming-course" },
+    { label: "book a free demo", href: "/book-demo" },
+  ],
+};
+
+export const C_CPP_COURSE: SeoLanding = {
+  slug: "c-cpp-programming-course",
+  eyebrow: "C / C++",
+  h1: "C and C++ Programming Course",
+  metaTitle: "C and C++ Programming Course | Fundamentals + DSA | Coding Sharks",
+  metaDescription:
+    "A live C and C++ programming course building strong fundamentals and a foundation for DSA, with real practice and 1-on-1 mentorship. Book a free demo.",
+  keywords: [
+    "C programming course",
+    "C++ course",
+    "C and C++ course",
+    "C C++ course with placement",
+    "C++ programming course India",
+  ],
+  intro:
+    "Coding Sharks offers a live C and C++ programming course that builds rock-solid programming fundamentals and a strong foundation for data structures and algorithms. C and C++ teach you how computers really work, which makes you a sharper engineer, and the course pairs hands-on practice with 1-on-1 mentorship from senior engineers.",
+  stats: [
+    { v: "C / C++", l: "core fundamentals" },
+    { v: "DSA", l: "strong foundation" },
+    { v: "1-on-1", l: "mentorship" },
+    { v: "Hands-on", l: "practice" },
+  ],
+  sections: [
+    {
+      heading: "Why learn C and C++?",
+      body: [
+        "C and C++ teach you the fundamentals of how programs and memory actually work, which makes every other language easier to learn. C++ is also widely used in systems programming, game development, competitive programming, and performance-critical software, and it builds a strong base for data structures and algorithms.",
+      ],
+    },
+    {
+      heading: "What does the C and C++ course cover?",
+      body: ["The course builds from basics to confident problem-solving."],
+      bullets: [
+        "C fundamentals: variables, control flow, functions, pointers",
+        "Memory management and how computers run code",
+        "C++ and object-oriented programming",
+        "A strong foundation for data structures and algorithms",
+        "Hands-on problem-solving practice",
+      ],
+    },
+    {
+      heading: "Is C/C++ useful for placements and college?",
+      body: [
+        "Yes. C and C++ are excellent for building the fundamentals that DSA interviews test, and they are common in engineering college curricula. A strong C/C++ base makes it much easier to pick up DSA and then move into roles in software, systems, or competitive programming.",
+      ],
+    },
+    {
+      heading: "Who is the C and C++ course for?",
+      body: [
+        "The course suits students building their programming foundation, engineering students strengthening fundamentals, and anyone preparing for DSA-heavy interviews who wants a solid base before moving to higher-level languages.",
+      ],
+    },
+    {
+      heading: "How do I join?",
+      body: [
+        "Book a free demo session to meet a mentor and confirm the C and C++ course fits your goal. No payment is required to attend the demo.",
+      ],
+    },
+  ],
+  faqs: [
+    {
+      q: "Should I learn C or C++ first?",
+      a: "Learning C first gives you a clear view of fundamentals like memory and pointers, then C++ adds object-oriented programming on top. The Coding Sharks course covers both in sequence, so you build a strong base before moving to higher-level concepts.",
+    },
+    {
+      q: "Is C++ good for coding interviews?",
+      a: "Yes. C++ is a popular choice for data structures and algorithms interviews because it is fast and gives you fine control. A strong C and C++ base makes DSA much easier to learn, which is what most product-company interviews test.",
+    },
+    {
+      q: "Is C/C++ still worth learning today?",
+      a: "Yes. C and C++ remain valuable for fundamentals, systems programming, game development, and performance-critical software, and they build the foundation that makes learning other languages and DSA far easier.",
+    },
+  ],
+  related: [
+    { label: "DSA course for placements", href: "/dsa-course-for-placements" },
+    { label: "Full Stack course", href: "/full-stack-development-course" },
+    { label: "all programs", href: "/courses" },
+    { label: "book a free demo", href: "/book-demo" },
+  ],
+};
+
 export const SEO_LANDING_MAP: Record<string, SeoLanding> = {
   "coding-bootcamp-indore": CODING_BOOTCAMP_INDORE,
   "why-coding-sharks": WHY_CODING_SHARKS,
@@ -1100,4 +1742,12 @@ export const SEO_LANDING_MAP: Record<string, SeoLanding> = {
   "dsa-course-for-placements": DSA_COURSE,
   "system-design-course": SYSTEM_DESIGN_COURSE,
   "software-developer-salary-india": DEVELOPER_SALARY_INDIA,
+  "online-coding-course-india": ONLINE_CODING_COURSE_INDIA,
+  "mern-stack-course": MERN_STACK_COURSE,
+  "web-development-course": WEB_DEVELOPMENT_COURSE,
+  "coding-course-after-12th": CODING_COURSE_AFTER_12TH,
+  "data-analytics-course-india": DATA_ANALYTICS_COURSE,
+  "python-programming-course": PYTHON_COURSE,
+  "machine-learning-course": MACHINE_LEARNING_COURSE,
+  "c-cpp-programming-course": C_CPP_COURSE,
 };

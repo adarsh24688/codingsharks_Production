@@ -6,7 +6,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingshark
 export const metadata: Metadata = {
   title: "Free Coding Workshops & Live Events — Coding Sharks",
   description:
-    "Join free and paid live workshops on Full Stack Development, AI & Machine Learning, Data Science, DevOps and career roadmaps. Expert-led sessions by senior engineers. Register now.",
+    "Join free and paid live workshops on Full Stack Development, AI & Machine Learning, Data Science, DevOps and career roadmaps.",
   keywords: [
     "free coding workshop",
     "live coding event India",

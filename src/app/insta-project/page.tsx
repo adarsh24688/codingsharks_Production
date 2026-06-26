@@ -6,7 +6,7 @@ import { InstaPromptSourcePage } from "@/components/pages/insta/insta-prompt-sou
 export const metadata = {
   title: "Free AI Master Prompt + Source Code — Coding Sharks",
   description:
-    "Get the Coding Sharks AI master prompt instantly — a production-ready prompt template used by our engineers. Unlock source code by submitting a quick form. Free download.",
+    "Get the Coding Sharks AI master prompt instantly — a production-ready prompt template used by our engineers. Unlock source code by submitting a quick form.",
   robots: { index: true, follow: true },
 };
 

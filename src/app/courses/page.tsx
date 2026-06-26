@@ -8,7 +8,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingshark
 export const metadata: Metadata = {
   title: "Coding Courses & Programs — Full Stack, AI Agents, Data Science | Coding Sharks",
   description:
-    "Explore all Coding Sharks programs: Full Stack Engineering (6 months), AI Agents & Automation (4 months), Data Science, System Design, DSA Mastery and more. Live classes, real projects, 91%+ placement rate.",
+    "Explore all Coding Sharks programs: Full Stack Engineering (6 months), AI Agents & Automation (4 months), Data Science, System Design, DSA Mastery and more.",
   keywords: [
     "coding courses India",
     "full stack course",
@@ -36,7 +36,7 @@ export default function ProgramsPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Coding Sharks Courses",
-    description: "All coding programs offered by Coding Sharks",
+    description: "Explore all placement-focused coding programs at Coding Sharks: Full Stack, AI, Data Science, Data Analytics, DSA, System Design and Python.",
     url: `${BASE_URL}/courses`,
     numberOfItems: courses.length,
     itemListElement: courses.map((course, index) => ({

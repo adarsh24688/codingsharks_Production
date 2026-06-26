@@ -14,13 +14,14 @@ import { FaqSection } from "@/components/pages/home/faq-section";
 import { FinalCtaSection } from "@/components/pages/home/final-cta-section";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationSchema, webSiteSchema, faqSchema } from "@/lib/seo-schema";
+import { SITE_URL } from "@/lib/site-config";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com";
+const BASE_URL = SITE_URL;
 
 export const metadata: Metadata = {
   title: "Coding Sharks — Learn Coding. Get Placed. | #1 Coding Bootcamp India",
   description:
-    "India's #1 placement-focused coding bootcamp in Indore. Learn Full Stack Development, AI Agents & Automation, Data Science, and System Design with live mentorship from senior engineers. 91%+ placement rate, 2K+ careers transformed.",
+    "India's #1 placement-focused coding bootcamp in Indore. Learn Full Stack, AI, Data Science and System Design with live mentorship and 91%+ placement.",
   alternates: {
     canonical: BASE_URL,
   },
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     url: BASE_URL,
     title: "Coding Sharks — Learn Coding. Get Placed.",
     description:
-      "India's #1 placement-focused coding bootcamp. Live mentorship from senior engineers at Bolt, CRED, Zepto. Full Stack, AI Agents, Data Science. 91%+ placement rate.",
+      "India's #1 placement-focused coding bootcamp. Live mentorship from senior engineers at Bolt, CRED, Zepto. Full Stack, AI Agents, Data Science.",
   },
 };
 

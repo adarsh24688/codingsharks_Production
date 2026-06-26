@@ -4,7 +4,7 @@ import { BasicPage } from "@/components/pages/basic-page";
 export const metadata: Metadata = {
   title: "How We Teach — Coding Sharks Learning Model",
   description:
-    "Discover the Coding Sharks learning model: live classes, weekly project delivery, 1-on-1 mentorship, code reviews, and dedicated placement support — everything you need to go from learner to hired engineer.",
+    "The Coding Sharks learning model: live classes, weekly project delivery, 1-on-1 mentorship, code reviews, and dedicated placement support.",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com"}/learning`,
   },
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function LearningPage() {
   return (
     <BasicPage
-      title="Learning"
+      title="Learn coding the placement-focused way at Coding Sharks: live cohorts, 1-on-1 mentorship, code reviews, and dedicated placement support."
       description="Our learning model: live classes, projects, mentorship, and placement support."
     />
   );

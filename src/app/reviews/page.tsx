@@ -12,7 +12,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingshark
 export const metadata: Metadata = {
   title: { absolute: "Coding Sharks Reviews — Student Experiences | Coding Sharks" },
   description:
-    "Read what Coding Sharks students say about the mentorship, real projects, and placement support. Verified student experiences from the placement-focused coding bootcamp in Indore.",
+    "Read what Coding Sharks students say about the mentorship, real projects, and placement support.",
   alternates: { canonical: "/reviews" },
   openGraph: {
     type: "website",
@@ -79,6 +79,19 @@ export default function ReviewsPage() {
                 placement support that leads to offers within 4 to 8 weeks. Here is what they
                 say in their own words.
               </p>
+              <a
+                href="https://www.justdial.com/Indore/Coding-Sharks-Training-Internship-Above-Tinkus-Bhawarkuan-Bhawar-Kuan/0731PX731-X731-241023102145-S3S7_BZDET"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-flex items-center gap-2 border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-white/70 transition hover:border-primary/40 hover:text-white">
+                <span className="flex items-center gap-0.5 text-primary">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-3.5 w-3.5 fill-current" />
+                  ))}
+                </span>
+                <span className="font-semibold text-white">4.3/5</span>
+                <span className="text-white/45">on JustDial · 94 reviews</span>
+              </a>
             </div>
           </Container>
         </div>

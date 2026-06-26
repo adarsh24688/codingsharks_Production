@@ -27,6 +27,14 @@ Open these on the live site (after deploy) or locally via `npm run dev` → `loc
 | `/system-design-course` | "system design course India" |
 | `/software-developer-salary-india` | "software developer salary India" (AI-citable data) |
 | `/faq` | aggregated FAQ hub (AEO) |
+| `/online-coding-course-india` | "online coding course India" |
+| `/mern-stack-course` | "MERN stack course" |
+| `/web-development-course` | "web development course India" |
+| `/coding-course-after-12th` | "coding course after 12th" |
+| `/data-analytics-course-india` | "data analytics course India" |
+| `/python-programming-course` | "python course" |
+| `/machine-learning-course` | "machine learning course India" |
+| `/c-cpp-programming-course` | "C / C++ programming course" |
 | `/instructors` | mentors + Person schema (E-E-A-T) |
 
 ### Foundation (sitewide)
