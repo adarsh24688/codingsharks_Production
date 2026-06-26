@@ -58,7 +58,7 @@ export function WhyCodingSharksSection() {
           {/* Col 1 | Rows 4–5 — Image */}
           <div className="col-start-1 row-start-4 row-span-2 rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
             <img
-              src="https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&w=800&q=80"
+              src="/images/why/student-coding.jpg"
               alt="Student coding"
               className="w-full h-full object-cover"
             />
@@ -141,7 +141,7 @@ export function WhyCodingSharksSection() {
           {/* Col 3 | Rows 4–5 — Image */}
           <div className="col-start-3 row-start-4 row-span-2 rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
             <img
-              src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+              src="/images/why/technology-circuits.jpg"
               alt="Technology and circuits"
               className="w-full h-full object-cover"
             />
@@ -244,7 +244,7 @@ export function WhyCodingSharksSection() {
           {/* Image */}
           <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm h-48 sm:h-56">
             <img
-              src="https://images.unsplash.com/photo-1605379399642-870262d3d051?auto=format&fit=crop&w=800&q=80"
+              src="/images/why/student-coding.jpg"
               alt="Student coding"
               className="w-full h-full object-cover"
             />

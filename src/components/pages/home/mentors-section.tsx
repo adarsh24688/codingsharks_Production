@@ -59,7 +59,7 @@ export function MentorsSection() {
                   <p className="text-primary text-xs font-bold tracking-widest uppercase mt-1">{mentor.company}</p>
                 </div>
                 <svg
-                  className="shrink-0 text-white/30 transition-transform duration-300"
+                  className="shrink-0 text-white/45 transition-transform duration-300"
                   style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
                   width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M4.5 6.75L9 11.25L13.5 6.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>

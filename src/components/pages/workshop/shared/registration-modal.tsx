@@ -140,7 +140,7 @@ export function RegistrationModal({ workshop, onClose, isEmbedded = false }: Pro
           )}
         </div>
         <div>
-          <select
+          <select aria-label="Your career preference"
             value={preference}
             onChange={(e) => setPreference(e.target.value)}
             className="w-full border border-gray-200 rounded-2xl px-4 py-3 text-sm text-gray-900 outline-none focus:border-[#e8561a] focus:ring-4 focus:ring-[rgba(232,86,26,0.12)] transition-colors bg-[#fafaf8]">

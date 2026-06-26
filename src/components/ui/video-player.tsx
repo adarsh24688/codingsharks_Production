@@ -226,7 +226,15 @@ export const VideoPlayer: FC<VideoPlayerProps> = ({
         {/* Centre click overlay */}
         <div
           className="absolute inset-0 cursor-pointer"
+          role="button"
+          tabIndex={0}
           onClick={togglePlay}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              togglePlay();
+            }
+          }}
           aria-label={playing ? "Pause" : "Play"}
         />
 

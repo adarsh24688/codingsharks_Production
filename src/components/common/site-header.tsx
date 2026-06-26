@@ -107,7 +107,7 @@ export function SiteHeader() {
 
               {/* Nav links */}
               <div className="flex-1 overflow-y-auto px-4 py-5 space-y-1">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/30 px-3 mb-3">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/45 px-3 mb-3">
                   Menu
                 </p>
                 {nav.header.links.map((item) => {
@@ -146,7 +146,7 @@ export function SiteHeader() {
                   Free Demo Session
                   <ChevronRight className="size-4" />
                 </button>
-                <p className="text-[10px] text-white/25 text-center mt-3">
+                <p className="text-[10px] text-white/40 text-center mt-3">
                   100% free · No commitment required
                 </p>
               </div>

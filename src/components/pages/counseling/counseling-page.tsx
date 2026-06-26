@@ -102,7 +102,7 @@ export function CounselingPage({ data }: Props) {
             />
           </Link>
           <div className="flex items-center gap-4">
-            <span className="hidden text-xs font-semibold text-white/35 sm:block">
+            <span className="hidden text-xs font-semibold text-white/50 sm:block">
               100% Free · No Pitch
             </span>
             <a
@@ -152,12 +152,12 @@ export function CounselingPage({ data }: Props) {
                 height={40}
                 className="h-10 w-auto"
               />
-              <p className="max-w-sm text-sm leading-relaxed text-white/40">
+              <p className="max-w-sm text-sm leading-relaxed text-white/50">
                 {site.brand.description}
               </p>
             </div>
             <div className="space-y-2 sm:justify-self-end sm:text-right">
-              <p className="text-[10px] font-black tracking-[0.2em] text-white/25 uppercase">
+              <p className="text-[10px] font-black tracking-[0.2em] text-white/40 uppercase">
                 Contact
               </p>
               <a href={`tel:${site.contact.phone}`} className="block text-base font-bold text-primary">
@@ -166,12 +166,12 @@ export function CounselingPage({ data }: Props) {
               <a href={`mailto:${site.contact.email}`} className="block text-sm text-white/50">
                 {site.contact.email}
               </a>
-              <p className="text-sm text-white/35">
+              <p className="text-sm text-white/50">
                 {site.address.city}, {site.address.region}
               </p>
             </div>
           </div>
-          <div className="mt-8 border-t border-white/8 pt-4 text-xs text-white/25">
+          <div className="mt-8 border-t border-white/8 pt-4 text-xs text-white/40">
             © {new Date().getFullYear()} {site.brand.name}. One call. Lifetime clarity.
           </div>
         </div>

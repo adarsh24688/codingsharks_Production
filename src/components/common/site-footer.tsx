@@ -90,7 +90,7 @@ function FooterCol({
 }) {
   return (
     <div>
-      <p className="text-[10px] font-bold tracking-[0.2em] text-white/30 uppercase mb-5">
+      <p className="text-[10px] font-bold tracking-[0.2em] text-white/45 uppercase mb-5">
         {title}
       </p>
       <ul className="flex flex-col gap-3">
@@ -150,12 +150,12 @@ export function SiteFooter() {
 
           {/* ── Contact ── */}
           <div>
-            <p className="text-[10px] font-bold tracking-[0.2em] text-white/30 uppercase mb-5">
+            <p className="text-[10px] font-bold tracking-[0.2em] text-white/45 uppercase mb-5">
               Contact
             </p>
             <div className="flex flex-col gap-4 text-sm">
               <div>
-                <p className="text-white/30 text-[11px] uppercase tracking-widest mb-1">
+                <p className="text-white/45 text-[11px] uppercase tracking-widest mb-1">
                   Online · 11am – 8pm
                 </p>
                 <a
@@ -165,7 +165,7 @@ export function SiteFooter() {
                 </a>
               </div>
               <div>
-                <p className="text-white/30 text-[11px] uppercase tracking-widest mb-1">
+                <p className="text-white/45 text-[11px] uppercase tracking-widest mb-1">
                   Email
                 </p>
                 <a
@@ -175,7 +175,7 @@ export function SiteFooter() {
                 </a>
               </div>
               <div>
-                <p className="text-white/30 text-[11px] uppercase tracking-widest mb-1">
+                <p className="text-white/45 text-[11px] uppercase tracking-widest mb-1">
                   Address
                 </p>
                 <address className="not-italic text-white/45 text-[13px] leading-relaxed">
@@ -193,7 +193,7 @@ export function SiteFooter() {
 
         {/* ── Bottom bar ── */}
         <div className="mt-14 pt-6 border-t border-white/5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-white/25">
+          <p className="text-xs text-white/40">
             © {new Date().getFullYear()} {site.brand.name}. All rights reserved.
           </p>
           <div className="flex items-center gap-5">
@@ -201,7 +201,7 @@ export function SiteFooter() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-xs text-white/30 hover:text-white/60 transition-colors">
+                className="text-xs text-white/45 hover:text-white/60 transition-colors">
                 {item.label}
               </Link>
             ))}

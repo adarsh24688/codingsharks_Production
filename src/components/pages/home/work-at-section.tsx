@@ -9,13 +9,13 @@ export function WorkAtSection() {
       {/* Heading */}
       <Container>
         <div className="flex flex-col items-center text-center mb-10 sm:mb-12">
-          <p className="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-white/30 uppercase mb-3">
+          <p className="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-white/45 uppercase mb-3">
             Where Our Alumni Work
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white font-heading tracking-tight">
             Our Alumni Work At
           </h2>
-          <p className="mt-3 text-sm sm:text-base md:text-lg text-white/40 max-w-lg">
+          <p className="mt-3 text-sm sm:text-base md:text-lg text-white/50 max-w-lg">
             Our graduates are building products at India's top startups, unicorns, and global tech companies.
           </p>
         </div>

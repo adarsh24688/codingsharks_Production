@@ -82,6 +82,7 @@ export default function HomePage() {
           <img
             src="/images/grid/ezgif_81a45f823f76635f_54311c2d8a.webp"
             alt=""
+            fetchPriority="high"
             className="h-full w-full object-cover object-top opacity-90"
           />
         </picture>

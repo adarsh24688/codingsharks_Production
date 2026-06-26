@@ -180,7 +180,7 @@ export function PlacementsSection() {
             </h2>
 
             {/* Subtext */}
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/40 max-w-2xl leading-relaxed">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/50 max-w-2xl leading-relaxed">
               From non‑CS backgrounds to top tech roles. Every salary{" "}
               <span className="text-white/70 font-semibold">verified</span>.
               Scroll to explore.
@@ -219,7 +219,7 @@ export function PlacementsSection() {
             <div className="flex w-full flex-wrap items-center justify-center gap-3 sm:w-auto sm:flex-nowrap sm:justify-start">
               {" "}
               <Link
-                href="/programs"
+                href="/courses"
                 className="group inline-flex h-10 items-center gap-1.5 border border-white/12 bg-white/4 px-5 text-sm font-semibold text-white/65 hover:text-white hover:border-white/22 hover:bg-white/[0.07] transition-all">
                 All Courses
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />

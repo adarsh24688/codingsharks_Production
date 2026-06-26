@@ -120,7 +120,7 @@ export default function ReviewsPage() {
                     </span>
                     <div>
                       <p className="text-sm font-bold text-white">{r.name}</p>
-                      <p className="text-[11px] text-white/40">{r.role}</p>
+                      <p className="text-[11px] text-white/50">{r.role}</p>
                     </div>
                   </div>
                 </div>

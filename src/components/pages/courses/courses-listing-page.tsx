@@ -60,7 +60,7 @@ function CourseCard({ course }: { course: Course }) {
         <h3 className="text-base font-bold text-white leading-snug group-hover:text-primary transition-colors">
           {course.title}
         </h3>
-        <p className="text-xs text-white/40 leading-relaxed flex-1">
+        <p className="text-xs text-white/50 leading-relaxed flex-1">
           {course.tagline}
         </p>
 
@@ -73,7 +73,7 @@ function CourseCard({ course }: { course: Course }) {
                 key={i}
                 className="flex items-center gap-2 text-xs text-white/45">
                 <MetaIcon
-                  className="h-3.5 w-3.5 text-white/25 shrink-0"
+                  className="h-3.5 w-3.5 text-white/40 shrink-0"
                   strokeWidth={1.5}
                 />
                 {m.text}
@@ -87,7 +87,7 @@ function CourseCard({ course }: { course: Course }) {
           <span className="text-xs font-bold text-primary tracking-wider uppercase flex items-center gap-1.5 group-hover:gap-3 transition-all">
             View Program <ArrowRight className="h-3.5 w-3.5" />
           </span>
-          <span className="text-xs text-white/30">{course.duration}</span>
+          <span className="text-xs text-white/45">{course.duration}</span>
         </div>
       </div>
     </Link>
@@ -101,7 +101,7 @@ export function CoursesListingPage() {
       <div className="relative overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-20">
         {/* Background image */}
         <Image
-          src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1920&q=80"
+          src="/images/hero/courses-hero.jpg"
           alt=""
           fill
           className="object-cover scale-105 blur-sm"
@@ -161,7 +161,7 @@ export function CoursesListingPage() {
                   <span className="text-2xl sm:text-3xl font-bold text-white font-heading">
                     {s.value}
                   </span>
-                  <span className="text-xs text-white/35 tracking-wide">
+                  <span className="text-xs text-white/50 tracking-wide">
                     {s.label}
                   </span>
                 </div>
@@ -180,7 +180,7 @@ export function CoursesListingPage() {
               On-Campus Programs
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-white/30">
+          <p className="text-xs sm:text-sm text-white/45">
             {courses.length} programs available
           </p>
         </div>

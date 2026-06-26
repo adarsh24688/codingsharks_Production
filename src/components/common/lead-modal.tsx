@@ -274,7 +274,7 @@ export function LeadModal() {
                 <p className="text-white/70 text-xs font-semibold">
                   Neeraj Pawar
                 </p>
-                <p className="text-white/35 text-[10px]">
+                <p className="text-white/50 text-[10px]">
                   Software Engineer · Cohort 2
                 </p>
               </div>
@@ -385,7 +385,7 @@ export function LeadModal() {
                   <label className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
                     Which Program?
                   </label>
-                  <select
+                  <select aria-label="Which program are you interested in"
                     value={form.courseId}
                     onChange={(e) =>
                       setForm({ ...form, courseId: e.target.value })
