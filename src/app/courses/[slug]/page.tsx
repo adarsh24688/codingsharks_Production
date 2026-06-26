@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import { CourseDetailPage } from "@/components/pages/courses/course-detail-page";
 import { JsonLd } from "@/components/seo/json-ld";
 import courses from "@/data/courses.json";
+import { SITE_URL } from "@/lib/site-config";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com";
+const BASE_URL = SITE_URL;
 
 type Props = {
   params: Promise<{ slug: string }>;

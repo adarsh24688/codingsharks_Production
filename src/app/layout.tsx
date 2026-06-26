@@ -7,6 +7,7 @@ import "./globals.css";
 
 import { Analytics } from "@/components/common/analytics";
 import { PublicShell } from "@/components/common/public-shell";
+import { SITE_URL } from "@/lib/site-config";
 // Body / UI font — Manrope (clean, modern sans-serif)
 const manrope = Manrope({
   variable: "--font-sans",
@@ -23,7 +24,8 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com";
+// Always the production domain (ignores vercel.app/localhost) — see site-config.
+const BASE_URL = SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -32,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Coding Sharks",
   },
   description:
-    "India's #1 placement-focused coding bootcamp in Indore. Learn Full Stack Development, AI Agents, Data Science & System Design with live mentorship from senior engineers at top startups. 91%+ placement rate. Join 15,000+ developers.",
+    "India's #1 placement-focused coding bootcamp in Indore. Learn Full Stack, AI, Data Science and System Design with live mentorship and 91%+ placement.",
   keywords: [
     "coding bootcamp India",
     "full stack developer course",
@@ -61,7 +63,7 @@ export const metadata: Metadata = {
     siteName: "Coding Sharks",
     title: "Coding Sharks — Learn Coding. Get Placed.",
     description:
-      "India's #1 placement-focused coding bootcamp. Live mentorship from senior engineers at top startups. Full Stack, AI Agents, Data Science & System Design. 91%+ placement rate.",
+      "India's #1 placement-focused coding bootcamp. Live mentorship from senior engineers at top startups. Full Stack, AI Agents, Data Science & System Design.",
     images: [
       {
         url: "/og-default.png",

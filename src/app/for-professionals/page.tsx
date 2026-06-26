@@ -4,7 +4,7 @@ import { BasicPage } from "@/components/pages/basic-page";
 export const metadata: Metadata = {
   title: "For Working Professionals — Upskill & Advance Your Career | Coding Sharks",
   description:
-    "Designed for working professionals who want to upskill without quitting their job. Learn Full Stack, AI, or System Design with flexible live sessions, real project work, and expert mentorship. Advance your career in 3–6 months.",
+    "Designed for working professionals who want to upskill without quitting their job.",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com"}/for-professionals`,
   },

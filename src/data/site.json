@@ -34,9 +34,9 @@
     }
   ],
   "socials": {
-    "instagram": "https://www.instagram.com/thecodingsharks",
-    "linkedin": "https://www.linkedin.com/company/codingsharks",
-    "youtube": "https://www.youtube.com/@codingsharks"
-  },
-  "_socialsNote": "PLACEHOLDER best-guess profile URLs — owner to confirm/replace. site-config.ts builds sameAs from these (empty values are dropped)."
+    "instagram": "https://www.instagram.com/thecodingsharks_official",
+    "linkedin": "https://www.linkedin.com/company/codingsharks/",
+    "youtube": "https://www.youtube.com/@codingsharksofficial",
+    "justdial": "https://www.justdial.com/Indore/Coding-Sharks-Training-Internship-Above-Tinkus-Bhawarkuan-Bhawar-Kuan/0731PX731-X731-241023102145-S3S7_BZDET"
+  }
 }

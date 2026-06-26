@@ -12,7 +12,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingshark
 export const metadata: Metadata = {
   title: { absolute: "Placements & Outcomes | 91%+ Placement Rate | Coding Sharks" },
   description:
-    "Coding Sharks reports a 91 to 96 percent placement rate, with graduates hired as software engineers at Zepto, Razorpay, Swiggy, CRED, and Meesho. See real student outcomes.",
+    "Coding Sharks reports a 91 to 96 percent placement rate, with graduates hired as software engineers at Zepto, Razorpay, Swiggy, CRED, and Meesho.",
   alternates: { canonical: "/placements" },
   openGraph: {
     type: "website",

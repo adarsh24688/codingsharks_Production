@@ -5,9 +5,14 @@ import site from "@/data/site.json";
  * Everything SEO-related (schema, metadata, footer, llms.txt) reads from here.
  * Canonical host = thecodingsharks.com (env override allowed). No trailing slash.
  */
-export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? site.url ?? "https://www.thecodingsharks.com"
-).replace(/\/$/, "");
+const PROD_URL = (site.url ?? "https://www.thecodingsharks.com").replace(/\/$/, "");
+const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+
+// Canonical/SEO URLs must always point at the production domain. Ignore the
+// Vercel preview host and localhost even if NEXT_PUBLIC_SITE_URL is set to them,
+// so canonical tags, sitemap, and schema never point at *.vercel.app.
+export const SITE_URL =
+  envUrl && !/vercel\.app|localhost|127\.0\.0\.1/i.test(envUrl) ? envUrl : PROD_URL;
 
 const sameAs = Object.values(site.socials).filter(
   (u): u is string => typeof u === "string" && u.startsWith("http"),

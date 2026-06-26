@@ -8,7 +8,7 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingshark
 export const metadata: Metadata = {
   title: "Free Career Counseling for College Students — Coding Sharks",
   description:
-    "Confused about your tech career? Get a free 30-min 1:1 counseling session with Coding Sharks. No sales pitch — just clarity on which course, which path, and how to get placed.",
+    "Confused about your tech career? Get a free 30-min 1:1 counseling session with Coding Sharks.",
   keywords: [
     "free career counseling",
     "career guidance for college students",

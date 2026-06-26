@@ -4,7 +4,7 @@ import { BasicPage } from "@/components/pages/basic-page";
 export const metadata: Metadata = {
   title: "Hire Developers from Coding Sharks — Job-Ready Engineers",
   description:
-    "Hire pre-vetted, job-ready developers from Coding Sharks. Our graduates have built real products, passed technical interviews, and are ready to contribute from day one. Access India's top tech talent.",
+    "Hire pre-vetted, job-ready developers from Coding Sharks. Our graduates ship real products, clear technical interviews, and contribute from day one.",
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com"}/hire-from-us`,
   },
