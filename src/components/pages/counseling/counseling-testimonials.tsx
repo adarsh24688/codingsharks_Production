@@ -23,7 +23,7 @@ export function CounselingTestimonials({ testimonials }: Props) {
               <span className="text-primary/65">Real Results.</span>
             </h2>
           </div>
-          <p className="hidden max-w-40 text-right text-sm leading-relaxed text-white/35 sm:block">
+          <p className="hidden max-w-40 text-right text-sm leading-relaxed text-white/50 sm:block">
             One call. Changed everything.
           </p>
         </div>
@@ -59,7 +59,7 @@ export function CounselingTestimonials({ testimonials }: Props) {
                     </div>
                     <div>
                       <p className="text-sm font-bold text-white">{t.name}</p>
-                      <p className="text-xs text-white/35">{t.college}</p>
+                      <p className="text-xs text-white/50">{t.college}</p>
                     </div>
                     <span
                       className={`border px-3 py-1 text-xs font-bold ${ACCENT_BORDER[i]}`}>
@@ -84,7 +84,7 @@ export function CounselingTestimonials({ testimonials }: Props) {
               </div>
             ))}
           </div>
-          <p className="text-sm text-white/40">
+          <p className="text-sm text-white/50">
             <span className="font-semibold text-white/65">500+ students</span> have already booked their free session
           </p>
         </div>

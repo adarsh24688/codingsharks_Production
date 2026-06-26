@@ -64,7 +64,7 @@ export function ComparisonSection() {
             </div>
             {/* VS badge */}
             <div className="shrink-0 w-8 flex items-center justify-center bg-white/5 border-y border-white/10">
-              <span className="text-[8px] font-bold text-white/30 tracking-wider">VS</span>
+              <span className="text-[8px] font-bold text-white/45 tracking-wider">VS</span>
             </div>
             {/* Others */}
             <div className="flex-1 bg-white/3 border border-l-0 border-white/8 px-3 py-3 flex items-center gap-2 min-w-0">
@@ -74,8 +74,8 @@ export function ComparisonSection() {
                 </svg>
               </div>
               <div className="min-w-0">
-                <p className="text-white/40 font-bold text-xs leading-tight truncate">{comparison.them.name}</p>
-                <p className="text-white/25 text-[9px] font-medium mt-0.5">Typical programs</p>
+                <p className="text-white/50 font-bold text-xs leading-tight truncate">{comparison.them.name}</p>
+                <p className="text-white/40 text-[9px] font-medium mt-0.5">Typical programs</p>
               </div>
             </div>
           </div>
@@ -110,7 +110,7 @@ export function ComparisonSection() {
                   <circle cx="11" cy="11" r="11" fill="rgba(239,68,68,0.1)"/>
                   <path d="M7.5 7.5l7 7M14.5 7.5l-7 7" stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round"/>
                 </svg>
-                <span className="text-white/30 text-sm leading-relaxed line-through decoration-white/15">
+                <span className="text-white/45 text-sm leading-relaxed line-through decoration-white/15">
                   {comparison.them.points[i]}
                 </span>
               </div>
@@ -138,7 +138,7 @@ export function ComparisonSection() {
             </div>
             <div className="flex items-center justify-center">
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center z-10">
-                <span className="text-[10px] font-bold text-white/40 tracking-wider">VS</span>
+                <span className="text-[10px] font-bold text-white/50 tracking-wider">VS</span>
               </div>
             </div>
             <div className="bg-white/3 border border-b-0 border-white/8 px-6 py-5 flex items-center gap-3">
@@ -148,8 +148,8 @@ export function ComparisonSection() {
                 </svg>
               </div>
               <div>
-                <p className="text-white/40 font-bold text-lg leading-tight">{comparison.them.name}</p>
-                <p className="text-white/25 text-xs font-medium tracking-wide mt-0.5">Typical programs</p>
+                <p className="text-white/50 font-bold text-lg leading-tight">{comparison.them.name}</p>
+                <p className="text-white/40 text-xs font-medium tracking-wide mt-0.5">Typical programs</p>
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@ export function ComparisonSection() {
                     <circle cx="11" cy="11" r="11" fill="rgba(239,68,68,0.1)"/>
                     <path d="M7.5 7.5l7 7M14.5 7.5l-7 7" stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round"/>
                   </svg>
-                  <span className="text-white/30 text-sm sm:text-[15px] leading-relaxed line-through decoration-white/15">
+                  <span className="text-white/45 text-sm sm:text-[15px] leading-relaxed line-through decoration-white/15">
                     {comparison.them.points[i]}
                   </span>
                 </div>

@@ -250,7 +250,7 @@ function ThankYouContent() {
                 {courseName ? `${courseName} brochure` : "Your brochure"} is
                 downloading…
               </p>
-              <p className="text-white/40 text-xs mt-0.5">
+              <p className="text-white/50 text-xs mt-0.5">
                 Check your Downloads folder
               </p>
             </div>
@@ -265,7 +265,7 @@ function ThankYouContent() {
               background: "rgba(255,255,255,0.03)",
               border: "1px solid rgba(255,255,255,0.07)",
             }}>
-            <p className="text-[10px] font-bold tracking-[0.2em] text-white/30 uppercase px-5 pt-4 pb-3 border-b border-white/5">
+            <p className="text-[10px] font-bold tracking-[0.2em] text-white/45 uppercase px-5 pt-4 pb-3 border-b border-white/5">
               What happens next
             </p>
             {[
@@ -302,7 +302,7 @@ function ThankYouContent() {
               }}
             />
           </div>
-          <p className="text-white/30 text-xs">
+          <p className="text-white/45 text-xs">
             Redirecting in{" "}
             <span className="text-white/60 font-semibold tabular-nums">
               {count}s
@@ -313,7 +313,7 @@ function ThankYouContent() {
         {/* Manual back link */}
         <button
           onClick={() => router.push(from)}
-          className="mt-6 text-xs text-white/25 hover:text-white/50 transition-colors underline underline-offset-2">
+          className="mt-6 text-xs text-white/40 hover:text-white/50 transition-colors underline underline-offset-2">
           Go back now
         </button>
       </div>

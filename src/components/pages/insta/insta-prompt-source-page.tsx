@@ -419,7 +419,7 @@ export function InstaPromptSourcePage({ promptContent }: Props) {
             </div>
 
             <div className="space-y-3 sm:justify-self-end sm:text-right">
-              <p className="text-[11px] font-semibold tracking-[0.14em] text-white/35 uppercase">
+              <p className="text-[11px] font-semibold tracking-[0.14em] text-white/50 uppercase">
                 Contact
               </p>
               <a
@@ -438,7 +438,7 @@ export function InstaPromptSourcePage({ promptContent }: Props) {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-white/10 pt-4 text-xs text-white/35">
+          <div className="mt-8 border-t border-white/10 pt-4 text-xs text-white/50">
             © {new Date().getFullYear()} {site.brand.name}. Built for creators.
           </div>
         </div>

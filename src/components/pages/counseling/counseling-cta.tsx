@@ -194,7 +194,7 @@ export function CounselingCta({ data }: Props) {
                 <label className="text-xs font-bold tracking-wider text-white/50 uppercase">
                   Biggest Doubt
                 </label>
-                <select
+                <select aria-label="Your biggest doubt"
                   value={form.doubt}
                   onChange={set("doubt")}
                   className={`${inputCls} cursor-pointer`}>
@@ -216,7 +216,7 @@ export function CounselingCta({ data }: Props) {
                 {submitting ? "Booking..." : "Book My Free Session →"}
               </button>
 
-              <p className="text-center text-xs text-white/35">
+              <p className="text-center text-xs text-white/50">
                 No spam. No sales calls. Just pure guidance.
               </p>
             </form>

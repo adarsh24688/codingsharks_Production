@@ -86,7 +86,7 @@ function CourseCard({
             const IconComp = META_ICON_MAP[m.icon] ?? Briefcase;
             return (
               <li key={j} className="text-sm text-white/50 flex items-center gap-2.5">
-                <IconComp className="h-3.5 w-3.5 text-white/30 shrink-0" strokeWidth={1.5} />
+                <IconComp className="h-3.5 w-3.5 text-white/45 shrink-0" strokeWidth={1.5} />
                 {m.text}
               </li>
             );
@@ -135,7 +135,7 @@ export function CoursesSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white font-heading tracking-tight">
             Programs To Help You Upskill
           </h2>
-          <p className="mt-4 text-sm sm:text-base md:text-lg text-white/40 max-w-xl">
+          <p className="mt-4 text-sm sm:text-base md:text-lg text-white/50 max-w-xl">
             Structured programs built around real projects, 1-on-1 mentorship,
             and guaranteed placement support.
           </p>

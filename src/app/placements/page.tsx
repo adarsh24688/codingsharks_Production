@@ -135,7 +135,7 @@ export default function PlacementsPage() {
         {/* Companies */}
         <Section className="py-12">
           <Container>
-            <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/35">
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
               Graduates hired at
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
@@ -144,7 +144,7 @@ export default function PlacementsPage() {
                   {c}
                 </span>
               ))}
-              <span className="text-sm text-white/35">+ 50 more hiring partners</span>
+              <span className="text-sm text-white/50">+ 50 more hiring partners</span>
             </div>
           </Container>
         </Section>
@@ -166,14 +166,14 @@ export default function PlacementsPage() {
                     </span>
                     <div>
                       <p className="text-sm font-bold text-white">{s.name}</p>
-                      <p className="text-[11px] uppercase tracking-wider text-white/35">
+                      <p className="text-[11px] uppercase tracking-wider text-white/50">
                         {s.cohort} · {s.city}
                       </p>
                     </div>
                   </div>
 
                   <div className="mt-5 flex items-center gap-2 text-xs">
-                    <span className="text-white/40">{s.fromRole}</span>
+                    <span className="text-white/50">{s.fromRole}</span>
                     <ArrowRight className="h-3.5 w-3.5 text-primary" />
                     <span className="font-semibold text-white">{s.toRole}</span>
                   </div>

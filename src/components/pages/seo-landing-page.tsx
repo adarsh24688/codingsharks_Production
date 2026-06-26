@@ -72,7 +72,7 @@ export function SeoLandingPage({ data }: { data: SeoLanding }) {
               <table className="w-full text-left text-sm">
                 <thead>
                   <tr className="border-b border-white/8 bg-white/[0.03]">
-                    <th className="p-4 font-semibold text-white/40"> </th>
+                    <th className="p-4 font-semibold text-white/50"> </th>
                     <th className="p-4 font-semibold text-white/60">
                       {data.comparison.columns[0]}
                     </th>
@@ -93,7 +93,7 @@ export function SeoLandingPage({ data }: { data: SeoLanding }) {
               </table>
             </div>
             {data.comparison.caption && (
-              <p className="mx-auto mt-3 max-w-3xl text-xs text-white/35">
+              <p className="mx-auto mt-3 max-w-3xl text-xs text-white/50">
                 {data.comparison.caption}
               </p>
             )}
@@ -159,7 +159,7 @@ export function SeoLandingPage({ data }: { data: SeoLanding }) {
         <Container>
           <div className="mx-auto max-w-3xl">
             <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm text-white/50">
-              <span className="font-semibold uppercase tracking-wider text-white/35">
+              <span className="font-semibold uppercase tracking-wider text-white/50">
                 Explore:
               </span>
               {data.related.map((r, i) => (

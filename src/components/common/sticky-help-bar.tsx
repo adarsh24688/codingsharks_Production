@@ -28,7 +28,7 @@ export function StickyHelpBar() {
           094-2458-6286
         </a>
       </span>
-      <span className="text-white/40 hidden sm:inline">or</span>
+      <span className="text-white/50 hidden sm:inline">or</span>
       <button
         onClick={() => openLeadModal("sticky-bar")}
         className="hidden sm:inline-flex items-center gap-1 text-white font-bold tracking-wider uppercase text-xs hover:underline underline-offset-2">

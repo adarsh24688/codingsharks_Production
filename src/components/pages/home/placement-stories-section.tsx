@@ -62,12 +62,12 @@ function StoryCard({
           <p className="text-base font-bold text-white leading-tight">
             {story.name}
           </p>
-          <p className="mt-0.5 text-xs text-white/40">
+          <p className="mt-0.5 text-xs text-white/50">
             {story.cohort} · {story.city}
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-white/40">
+        <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-white/50">
           <span>{story.fromRole}</span>
           <ArrowRight className="size-3 shrink-0 text-primary" />
           <span className="font-semibold text-[#38bdf8]">

@@ -75,7 +75,7 @@ function WorkshopCard({ workshop }: { workshop: WorkshopJson }) {
  {/* Content */}
  <div className="flex flex-col flex-1 p-5 gap-3 border-t border-primary/20">
  {/* Meta */}
- <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold tracking-[0.12em] text-white/30 uppercase">
+ <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold tracking-[0.12em] text-white/45 uppercase">
  {workshop.event_date && (
  <span className="flex items-center gap-1.5">
  <Calendar className="h-3 w-3 shrink-0" />
@@ -108,14 +108,14 @@ function WorkshopCard({ workshop }: { workshop: WorkshopJson }) {
 
  {/* Tagline or short desc */}
  {(workshop.tagline || workshop.short_description) && (
- <p className="text-xs text-white/40 leading-relaxed flex-1 line-clamp-2">
+ <p className="text-xs text-white/50 leading-relaxed flex-1 line-clamp-2">
  {workshop.tagline || workshop.short_description}
  </p>
  )}
 
  {/* Footer */}
  <div className="flex items-center justify-between mt-1 pt-3 border-t border-white/5">
- <div className="flex items-center gap-2 text-[10px] text-white/30 uppercase font-bold tracking-wider">
+ <div className="flex items-center gap-2 text-[10px] text-white/45 uppercase font-bold tracking-wider">
  <MapPin className="h-3 w-3" />
  {workshop.mode ==='online' ? (workshop.platform ||'Online') :'Offline'}
  </div>
@@ -137,7 +137,7 @@ export function WorkshopListingPage() {
  {/* ── Hero ─────────────────────────────────────────────────────── */}
  <div className="relative overflow-hidden pt-24 pb-14 sm:pt-32 sm:pb-16">
  <Image
- src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1920&q=80"
+ src="/images/hero/workshops-hero.jpg"
  alt=""
  fill
  className="object-cover scale-105 blur-sm"
@@ -184,7 +184,7 @@ export function WorkshopListingPage() {
  {active.length === 0 ? (
  <div className="border border-white/8 bg-white/3 py-24 flex flex-col items-center text-center gap-4">
  <p className="text-white/50 text-base font-medium">No workshops scheduled</p>
- <p className="text-white/25 text-sm">Check back soon — new events are on the way.</p>
+ <p className="text-white/40 text-sm">Check back soon — new events are on the way.</p>
  </div>
  ) : (
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

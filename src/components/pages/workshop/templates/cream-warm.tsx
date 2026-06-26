@@ -905,7 +905,7 @@ export function TemplateCreamWarm({ workshop }: { workshop: WorkshopJson }) {
           <p className="text-xs font-medium">
             CodingSharks - Empowering Engineering Students to Build Real Careers
           </p>
-          <p className="mt-2 text-[11px] font-medium text-white/40">
+          <p className="mt-2 text-[11px] font-medium text-white/50">
             © {new Date().getFullYear()} CodingSharks. All rights reserved.
           </p>
         </footer>

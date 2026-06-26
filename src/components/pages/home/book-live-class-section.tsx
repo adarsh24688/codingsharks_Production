@@ -105,7 +105,7 @@ export function BookLiveClassSection() {
             Become the <span className="text-primary">Top 1%</span> in Tech
           </h2>
 
-          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/40 max-w-2xl leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/50 max-w-2xl leading-relaxed">
             Experience our high-intensity, placement-focused model. Join{" "}
             <span className="text-white/70 font-semibold">3,000+ students</span>{" "}
             who&apos;ve transformed their careers with real mentorship.
@@ -139,7 +139,7 @@ export function BookLiveClassSection() {
                   <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight mb-1 font-heading leading-none">
                     {s.value}
                   </div>
-                  <div className="text-[9px] sm:text-[10px] text-white/35 uppercase tracking-wide font-semibold leading-tight">
+                  <div className="text-[9px] sm:text-[10px] text-white/50 uppercase tracking-wide font-semibold leading-tight">
                     {s.label}
                   </div>
                 </div>
@@ -177,7 +177,7 @@ export function BookLiveClassSection() {
                 <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1.5 font-heading tracking-tight">
                   {live.form.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-white/35 flex items-center gap-1.5">
+                <p className="text-xs sm:text-sm text-white/50 flex items-center gap-1.5">
                   <Clock className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
                   Fills in under 60s · Limited seats
                 </p>
@@ -188,11 +188,11 @@ export function BookLiveClassSection() {
                 onSubmit={handleSubmit}>
                 {/* Program Select */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-white/35">
+                  <label className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-white/50">
                     Choose Program
                   </label>
                   <div className="relative">
-                    <select
+                    <select aria-label="Choose a program"
                       required
                       value={form.courseId}
                       onChange={(e) =>
@@ -208,7 +208,7 @@ export function BookLiveClassSection() {
                         </option>
                       ))}
                     </select>
-                    <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-white/30">
+                    <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-white/45">
                       <ArrowRight className="h-4 w-4 rotate-90" />
                     </div>
                   </div>
@@ -220,7 +220,7 @@ export function BookLiveClassSection() {
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full h-11 sm:h-12 min-w-0 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/30 focus:border-primary focus:outline-none transition-all hover:border-white/20"
+                    className="w-full h-11 sm:h-12 min-w-0 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/45 focus:border-primary focus:outline-none transition-all hover:border-white/20"
                     placeholder="Full Name"
                   />
                   {fieldErrors.name && (
@@ -235,7 +235,7 @@ export function BookLiveClassSection() {
                     required
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full h-11 sm:h-12 min-w-0 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/30 focus:border-primary focus:outline-none transition-all hover:border-white/20"
+                    className="w-full h-11 sm:h-12 min-w-0 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/45 focus:border-primary focus:outline-none transition-all hover:border-white/20"
                     placeholder="Email Address"
                   />
                   {fieldErrors.email && (
@@ -261,7 +261,7 @@ export function BookLiveClassSection() {
                           phone: e.target.value.replace(/\D/g, "").slice(0, 10),
                         })
                       }
-                      className="flex-1 min-w-0 h-11 sm:h-12 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/30 focus:border-primary focus:outline-none transition-all hover:border-white/20"
+                      className="flex-1 min-w-0 h-11 sm:h-12 border border-white/10 bg-white/5 px-3 sm:px-4 text-sm text-white placeholder:text-white/45 focus:border-primary focus:outline-none transition-all hover:border-white/20"
                       placeholder="WhatsApp Number"
                     />
                   </div>
@@ -312,7 +312,7 @@ export function BookLiveClassSection() {
                 {/* Trust Row */}
                 <div className="flex flex-col xs:flex-row xs:items-center xs:justify-between gap-2 pt-3 border-t border-white/8">
                   <div>
-                    <p className="text-[10px] sm:text-[11px] font-bold text-white/30 uppercase tracking-wide">
+                    <p className="text-[10px] sm:text-[11px] font-bold text-white/45 uppercase tracking-wide">
                       {live.cta.note}
                     </p>
                     <p className="text-[10px] sm:text-[11px] text-primary font-semibold mt-0.5">
