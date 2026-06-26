@@ -8,12 +8,14 @@ import { LeadModal } from "./lead-modal";
 
 export function PublicShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isAdmin = pathname.startsWith("/admin");
   const isWorkshopDetail = /^\/workshops\/[^/]+/.test(pathname);
   const isInstaProjectPage = pathname.startsWith("/insta-project");
   const isCounselingPage = pathname.startsWith("/counseling");
+  // Only the blog DETAIL page is a light microsite with its own chrome.
+  // The /blog listing keeps the normal dark site chrome.
+  const isBlogDetail = pathname.startsWith("/blog/");
 
-  if (isAdmin || isWorkshopDetail || isInstaProjectPage || isCounselingPage) {
+  if (isWorkshopDetail || isInstaProjectPage || isCounselingPage || isBlogDetail) {
     return <>{children}</>;
   }
 
