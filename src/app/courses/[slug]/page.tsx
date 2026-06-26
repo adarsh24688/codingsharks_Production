@@ -10,6 +10,12 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+// Course detail UI is a large client component (CourseDetailPage). Render it
+// on-demand instead of at build time — Googlebot still receives full server HTML,
+// and this avoids the static-export prerender crash. Revisit by server-rendering
+// CourseDetailPage with client islands to restore full SSG.
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() {
   return courses.map((c) => ({ slug: c.slug }));
 }
@@ -72,9 +78,9 @@ export default async function CourseDetailRoute({ params }: Props) {
     url: `${BASE_URL}/courses/${course.slug}`,
     provider: {
       "@type": "EducationalOrganization",
+      "@id": `${BASE_URL}/#organization`,
       name: "Coding Sharks",
       url: BASE_URL,
-      sameAs: `${BASE_URL}/#organization`,
     },
     courseMode: course.mode?.toLowerCase().includes("online") ? "online" : "blended",
     educationalLevel: course.level,
@@ -105,21 +111,8 @@ export default async function CourseDetailRoute({ params }: Props) {
         worksFor: { "@type": "Organization", name: "Coding Sharks" },
       },
     },
-    offers: {
-      "@type": "Offer",
-      price: course.price?.replace(/[₹,]/g, "") ?? "0",
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      url: `${BASE_URL}/book-demo`,
-      validFrom: new Date().toISOString().split("T")[0],
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "180",
-      bestRating: "5",
-      worstRating: "1",
-    },
+    // No `offers`/price — course fees are never exposed in schema (owner rule).
+    // No `aggregateRating` — self-serving rating omitted (LAW 5); add genuine Review data only.
   };
 
   const breadcrumbSchema = {

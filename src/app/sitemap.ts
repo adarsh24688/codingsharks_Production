@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import courses from "@/data/courses.json";
 import workshops from "@/data/workshops.json";
+import blogs from "@/data/blog.json";
 
 const BASE_URL = "https://www.thecodingsharks.com";
 
@@ -21,16 +22,100 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: `${BASE_URL}/about`,
+      url: `${BASE_URL}/coding-bootcamp-indore`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/placements`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/reviews`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/why-coding-sharks`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/blog`,
+      url: `${BASE_URL}/full-stack-development-course`,
       lastModified: now,
-      changeFrequency: "daily",
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/coding-bootcamp-vs-self-taught`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/ai-course-india`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/data-science-course-india`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/coding-bootcamp-vs-college-degree`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/non-cs-background`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/for-freshers`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/dsa-course-for-placements`,
+      lastModified: now,
+      changeFrequency: "monthly",
       priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/system-design-course`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/software-developer-salary-india`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/faq`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/about`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/workshops`,
@@ -98,5 +183,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     }));
 
-  return [...staticPages, ...coursePages, ...workshopPages];
+  const blogPages: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/blog`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    ...(blogs as Array<{ slug: string; publishDate?: string }>).map((blog) => ({
+      url: `${BASE_URL}/blog/${blog.slug}`,
+      lastModified: blog.publishDate ? new Date(blog.publishDate) : now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+    })),
+  ];
+
+  return [...staticPages, ...coursePages, ...workshopPages, ...blogPages];
 }

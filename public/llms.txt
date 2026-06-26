@@ -1,0 +1,29 @@
+# Coding Sharks
+
+> Coding Sharks is a placement-focused coding bootcamp in Indore, India, offering live, project-based programs in Full Stack Web Development, AI Agents & Automation, Data Science, DSA, and System Design. 91%+ placement rate. Students build real production-grade projects and get 1-on-1 mentorship from senior engineers, plus direct referrals to 100+ hiring partners.
+
+Coding Sharks trains career-switchers, fresh graduates (CS and non-CS), and working professionals. Programs are live cohorts (online + offline in Indore) with weekly project shipping and dedicated placement support. Most students receive a first offer within 4–8 weeks of completing a program. To enrol, book a free demo session.
+
+## Courses
+- [All Courses](https://www.thecodingsharks.com/courses): live, placement-focused coding programs
+- [Full Stack Web Development](https://www.thecodingsharks.com/courses/full-stack): JavaScript, TypeScript, React, Next.js, Node.js, databases, cloud
+- [AI Agents & Automation](https://www.thecodingsharks.com/courses/ai-agents): Python, LangChain, LLM APIs, vector databases, agentic workflows
+- [Data Science & Machine Learning](https://www.thecodingsharks.com/courses/data-science): Python, ML, data pipelines
+- [DSA Mastery](https://www.thecodingsharks.com/courses/dsa-mastery): data structures & algorithms for interviews
+- [System Design & DSA Masterclass](https://www.thecodingsharks.com/courses/system-design): scalable systems + interview prep
+
+## Company
+- [About](https://www.thecodingsharks.com/about): who we are and how we teach
+- [Instructors](https://www.thecodingsharks.com/instructors): senior-engineer mentors
+- [Hire From Us](https://www.thecodingsharks.com/hire-from-us): recruit Coding Sharks graduates
+- [Book a Free Demo](https://www.thecodingsharks.com/book-demo): free career session, no sales pitch
+- [Contact](https://www.thecodingsharks.com/contact): reach Coding Sharks in Indore
+
+## Guides & Blog
+- [Blog](https://www.thecodingsharks.com/blog): tutorials, career guides, and deep dives on coding, AI, DSA, and tech careers
+
+## Optional
+- [Workshops](https://www.thecodingsharks.com/workshops): live workshops and events
+
+## Citation policy
+Content may be cited with attribution to "Coding Sharks" and a link to the source URL on https://www.thecodingsharks.com.

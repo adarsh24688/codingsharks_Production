@@ -5,13 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./globals.css";
 
-import { Clarity } from "@/components/common/clarity";
-import { GoogleAds } from "@/components/common/google-ads";
-import { MetaPixel } from "@/components/common/meta-pixel";
-import { AppToaster } from "@/components/common/toaster";
+import { Analytics } from "@/components/common/analytics";
 import { PublicShell } from "@/components/common/public-shell";
-import { StoreProvider } from "@/store/provider";
-
 // Body / UI font — Manrope (clean, modern sans-serif)
 const manrope = Manrope({
   variable: "--font-sans",
@@ -104,8 +99,6 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
   },
 };
 
@@ -118,13 +111,8 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${manrope.variable} ${spaceGrotesk.variable} font-sans min-h-dvh bg-background text-foreground antialiased`}>
-        <MetaPixel />
-        <GoogleAds />
-        <Clarity />
-        <StoreProvider>
-          <PublicShell>{children}</PublicShell>
-          <AppToaster />
-        </StoreProvider>
+        <Analytics />
+        <PublicShell>{children}</PublicShell>
       </body>
     </html>
   );

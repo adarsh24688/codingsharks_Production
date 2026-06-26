@@ -151,6 +151,54 @@
   --accent-green: #22c55e;
 }
 
+/* ════════════════════════════════════════════════════════════════
+   BLOG MICROSITE — light, elegant editorial theme.
+   The rest of the site runs in forced .dark mode; the blog opts OUT
+   by redefining the semantic tokens on .blog-microsite. Everything
+   inside (chrome + templates) reads light automatically.
+   ════════════════════════════════════════════════════════════════ */
+.blog-microsite {
+  --brand-color: #ff6b2c;
+  --acc: #ff6b2c;          /* per-article accent overrides this inline */
+  --ink: #1b1b29;          /* deep editorial ink (text, not background) */
+
+  --background: #fbfaf7;   /* warm paper */
+  --foreground: #1b1b29;   /* deep ink */
+  --card: #ffffff;
+  --card-foreground: #1b1b29;
+  --popover: #ffffff;
+  --popover-foreground: #1b1b29;
+  --primary: var(--brand-color);
+  --primary-foreground: #ffffff;
+  --secondary: #f2efe9;
+  --secondary-foreground: #1b1b29;
+  --muted: #f2efe9;
+  --muted-foreground: #5c5b66;  /* ~5.3:1 on paper */
+  --accent: #f2efe9;
+  --accent-foreground: #1b1b29;
+  --destructive: #d23b3b;
+  --border: #e7e2d8;
+  --input: #e7e2d8;
+  --ring: var(--brand-color);
+
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Elegant serif headings — editorial feel, blog only */
+.blog-microsite h1,
+.blog-microsite h2,
+.blog-microsite h3,
+.blog-microsite .font-heading {
+  font-family: var(--font-blog-display), Georgia, "Times New Roman", serif !important;
+  letter-spacing: -0.018em;
+}
+.blog-microsite h1 {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.08;
+  font-weight: 600;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

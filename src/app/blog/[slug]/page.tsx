@@ -1,105 +1,112 @@
 import type { Metadata } from "next";
-import { BlogDetailPage } from "@/components/pages/blog/blog-detail-page";
+import { notFound } from "next/navigation";
+import { getBlogs, getBlogBySlug, getRelatedBlogs } from "@/lib/blog-data";
+import { getBlogTemplate } from "@/components/blog/templates";
+import { MicrositeShell } from "@/components/layout/microsite-shell";
+import { getBlogTheme } from "@/components/blog/templates/shared";
+import { faqSchema } from "@/lib/seo-schema";
 import { JsonLd } from "@/components/seo/json-ld";
-import { BlogService } from "@/backend/services/blog";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.thecodingsharks.com";
 
-interface Props {
+type Props = {
   params: Promise<{ slug: string }>;
+};
+
+export async function generateStaticParams() {
+  return getBlogs().map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+  const article = getBlogBySlug(slug);
+  if (!article) return { title: "Article Not Found" };
 
-  try {
-    const blog = await BlogService.getBySlug(slug);
-    const url = `${BASE_URL}/blog/${slug}`;
-    const title = `${blog.title} | Coding Sharks Blog`;
-    const description =
-      blog.excerpt ??
-      "Read expert insights on coding, career growth, and tech from the Coding Sharks team.";
+  const title = `${article.title} — Coding Sharks Blog`;
+  const url = `${BASE_URL}/blog/${article.slug}`;
 
-    return {
+  return {
+    title,
+    description: article.excerpt,
+    keywords: article.tags,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      url,
       title,
-      description,
-      alternates: { canonical: url },
-      openGraph: {
-        type: "article",
-        url,
-        title,
-        description,
-        publishedTime: blog.created_at,
-        authors: ["Coding Sharks Team"],
-        images: blog.base_url
-          ? [{ url: blog.base_url, width: 1200, height: 630, alt: blog.title }]
-          : [{ url: "/og-default.png", width: 1200, height: 630, alt: blog.title }],
-        tags: blog.tags?.map((t) => t.name) ?? [],
-      },
-      twitter: {
-        card: "summary_large_image",
-        title,
-        description,
-        images: [blog.base_url ?? "/og-default.png"],
-      },
-    };
-  } catch {
-    return {
-      title: "Blog Post | Coding Sharks",
-      description:
-        "Read expert insights on coding, career growth, and tech from the Coding Sharks team.",
-    };
-  }
+      description: article.excerpt,
+      publishedTime: article.publishDate,
+      authors: [article.author],
+      tags: article.tags,
+      images: [{ url: article.featuredImage, width: 1200, height: 630, alt: article.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description: article.excerpt,
+      images: [article.featuredImage],
+    },
+  };
 }
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function BlogDetailRoute({ params }: Props) {
   const { slug } = await params;
+  const article = getBlogBySlug(slug);
+  if (!article) notFound();
 
-  let blogSchema = null;
+  const related = getRelatedBlogs(slug, article.category);
+  const theme = getBlogTheme(article);
+  const Template = getBlogTemplate(article.design ?? "");
 
-  try {
-    const blog = await BlogService.getBySlug(slug);
-    const url = `${BASE_URL}/blog/${slug}`;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: article.title,
+    description: article.excerpt,
+    author: {
+      "@type": "Person",
+      name: article.author,
+      ...(article.authorRole ? { jobTitle: article.authorRole } : {}),
+    },
+    datePublished: article.publishDate,
+    dateModified: article.publishDate,
+    image: [article.featuredImage],
+    articleSection: article.category,
+    keywords: article.tags,
+    publisher: {
+      "@type": "Organization",
+      "@id": `${BASE_URL}/#organization`,
+      name: "Coding Sharks",
+      url: BASE_URL,
+      logo: { "@type": "ImageObject", url: `${BASE_URL}/logo.png` },
+    },
+    isPartOf: { "@id": `${BASE_URL}/#website` },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/blog/${article.slug}`,
+    },
+  };
 
-    blogSchema = {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: blog.title,
-      description: blog.excerpt ?? "",
-      url,
-      image: blog.base_url ?? `${BASE_URL}/og-default.png`,
-      datePublished: blog.created_at,
-      dateModified: blog.updated_at ?? blog.created_at,
-      author: {
-        "@type": "Organization",
-        name: "Coding Sharks Team",
-        url: BASE_URL,
-      },
-      publisher: {
-        "@type": "Organization",
-        name: "Coding Sharks",
-        url: BASE_URL,
-        logo: {
-          "@type": "ImageObject",
-          url: `${BASE_URL}/logo.png`,
-        },
-      },
-      mainEntityOfPage: {
-        "@type": "WebPage",
-        "@id": url,
-      },
-      keywords: blog.tags?.map((t) => t.name).join(", ") ?? "",
-      articleSection: "Technology & Career",
-      inLanguage: "en-IN",
-    };
-  } catch {
-    // Blog not found — BlogDetailPage handles 404 UI
-  }
+  const blogFaq = article.faqs?.length ? faqSchema(article.faqs) : null;
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE_URL}/blog` },
+      { "@type": "ListItem", position: 3, name: article.title, item: `${BASE_URL}/blog/${article.slug}` },
+    ],
+  };
 
   return (
     <>
-      {blogSchema && <JsonLd data={blogSchema} />}
-      <BlogDetailPage slug={slug} />
+      <JsonLd data={articleSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      {blogFaq && <JsonLd data={blogFaq} />}
+      <MicrositeShell title={article.title} theme={theme}>
+        <Template article={article} related={related} />
+      </MicrositeShell>
     </>
   );
 }

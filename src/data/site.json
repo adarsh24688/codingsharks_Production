@@ -1,4 +1,9 @@
 {
+  "name": "Coding Sharks",
+  "alternateName": "CodingSharks",
+  "url": "https://www.thecodingsharks.com",
+  "tagline": "Learn Coding. Get Placed.",
+  "foundingDate": "2022",
   "brand": {
     "name": "Coding Sharks",
     "taglineShort": "Placement Focused",
@@ -6,17 +11,32 @@
   },
   "contact": {
     "email": "info@thecodingsharks.com",
-    "phone": "+91 9424586286"
+    "phone": "+91 9424586286",
+    "phoneE164": "+919424586286"
   },
   "address": {
     "line1": "3rd Floor, Veda Complex, Room No. 301, Bhawarkua Main Road, Bhawarkua Square",
     "city": "Indore",
     "region": "Madhya Pradesh",
-    "country": "India"
+    "country": "India",
+    "postalCode": "452001",
+    "countryCode": "IN"
   },
+  "geo": {
+    "latitude": 22.7196,
+    "longitude": 75.8577
+  },
+  "hours": [
+    {
+      "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    }
+  ],
   "socials": {
-    "instagram": "",
-    "linkedin": "",
-    "youtube": ""
-  }
+    "instagram": "https://www.instagram.com/thecodingsharks",
+    "linkedin": "https://www.linkedin.com/company/codingsharks",
+    "youtube": "https://www.youtube.com/@codingsharks"
+  },
+  "_socialsNote": "PLACEHOLDER best-guess profile URLs — owner to confirm/replace. site-config.ts builds sameAs from these (empty values are dropped)."
 }
