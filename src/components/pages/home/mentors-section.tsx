@@ -55,11 +55,11 @@ export function MentorsSection() {
                 />
                 <div className="flex-1 min-w-0">
                   <p className="text-white font-bold text-base leading-tight">{mentor.name}</p>
-                  <p className="text-white/50 text-sm mt-0.5 truncate">{mentor.role}</p>
+                  <p className="text-white/60 text-sm mt-0.5 truncate">{mentor.role}</p>
                   <p className="text-primary text-xs font-bold tracking-widest uppercase mt-1">{mentor.company}</p>
                 </div>
                 <svg
-                  className="shrink-0 text-white/45 transition-transform duration-300"
+                  className="shrink-0 text-white/55 transition-transform duration-300"
                   style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
                   width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M4.5 6.75L9 11.25L13.5 6.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -219,7 +219,7 @@ function MentorCard({
           <h3 className="text-white font-bold text-3xl leading-tight">
             {mentor.name}
           </h3>
-          <p className="text-white/50 text-base mt-2">{mentor.role}</p>
+          <p className="text-white/60 text-base mt-2">{mentor.role}</p>
         </div>
         <div className="flex items-center gap-3">
           <div className="h-px w-6 bg-primary/70 shrink-0" />

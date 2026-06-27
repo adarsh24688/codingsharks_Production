@@ -51,14 +51,14 @@ function BlogCard({ article }: { article: BlogArticle }) {
         )}
         <div className="absolute inset-x-0 bottom-0 h-10 bg-linear-to-t from-[#111] to-transparent" />
         <div className="absolute left-3 top-3">
-          <span className="bg-[#ff6b2c]/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white">
+          <span className="bg-[#d24509]/90 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white">
             {article.category}
           </span>
         </div>
       </div>
 
       <div className="flex flex-1 flex-col gap-3 border-t border-primary/20 p-5">
-        <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white/45">
+        <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold uppercase tracking-[0.12em] text-white/55">
           <span className="flex items-center gap-1.5">
             <Calendar className="h-3 w-3 shrink-0" />
             {formatDate(article.publishDate)}
@@ -73,12 +73,12 @@ function BlogCard({ article }: { article: BlogArticle }) {
           {article.title}
         </h2>
         {article.excerpt && (
-          <p className="flex-1 text-xs leading-relaxed text-white/50 line-clamp-2">
+          <p className="flex-1 text-xs leading-relaxed text-white/60 line-clamp-2">
             {article.excerpt}
           </p>
         )}
         <div className="mt-1 flex items-center justify-between border-t border-white/5 pt-3">
-          <span className="text-[10px] font-bold uppercase tracking-wider text-white/45">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-white/55">
             {article.author}
           </span>
           <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-primary transition-all group-hover:gap-2.5">
@@ -98,8 +98,8 @@ export function BlogExplorer({ blogs }: { blogs: BlogArticle[] }) {
   return (
     <Container className="pb-20 pt-4 sm:pb-24">
       <div className="mb-8 flex flex-wrap items-center gap-3">
-        <Filter className="h-4 w-4 text-white/50" />
-        <span className="text-xs font-semibold uppercase tracking-wider text-white/50">
+        <Filter className="h-4 w-4 text-white/60" />
+        <span className="text-xs font-semibold uppercase tracking-wider text-white/60">
           Categories
         </span>
         {["All", ...categories].map((cat) => (
@@ -125,7 +125,7 @@ export function BlogExplorer({ blogs }: { blogs: BlogArticle[] }) {
           ))}
         </div>
       ) : (
-        <p className="py-16 text-center text-sm text-white/50">
+        <p className="py-16 text-center text-sm text-white/60">
           No articles in this category yet.
         </p>
       )}

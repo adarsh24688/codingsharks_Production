@@ -180,7 +180,7 @@ export function PlacementsSection() {
             </h2>
 
             {/* Subtext */}
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/50 max-w-2xl leading-relaxed">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/60 max-w-2xl leading-relaxed">
               From non‑CS backgrounds to top tech roles. Every salary{" "}
               <span className="text-white/70 font-semibold">verified</span>.
               Scroll to explore.

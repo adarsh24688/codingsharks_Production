@@ -22,7 +22,7 @@ type Props = { data: CtaData };
 type FormState = { name: string; email: string; phone: string; doubt: string };
 
 const inputCls =
-  "h-11 w-full border border-black/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/50 outline-none transition focus:border-white/60 focus:bg-white/15";
+  "h-11 w-full border border-black/20 bg-white/10 px-3 text-sm text-white placeholder:text-white/60 outline-none transition focus:border-white/60 focus:bg-white/15";
 
 export function CounselingCta({ data }: Props) {
   const [form, setForm] = useState<FormState>({ name: "", email: "", phone: "", doubt: "" });
@@ -127,14 +127,14 @@ export function CounselingCta({ data }: Props) {
             <form onSubmit={onSubmit} className="space-y-5">
               <div>
                 <h3 className="font-heading text-2xl font-bold text-white">Book Your Free Slot</h3>
-                <p className="mt-1 text-sm text-white/50">
+                <p className="mt-1 text-sm text-white/60">
                   Fill in the form — our counselor will call you within 24 hours.
                 </p>
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold tracking-wider text-white/50 uppercase">
+                  <label className="text-xs font-bold tracking-wider text-white/60 uppercase">
                     Full Name
                   </label>
                   <input
@@ -149,7 +149,7 @@ export function CounselingCta({ data }: Props) {
                   )}
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold tracking-wider text-white/50 uppercase">
+                  <label className="text-xs font-bold tracking-wider text-white/60 uppercase">
                     Phone
                   </label>
                   <input
@@ -174,7 +174,7 @@ export function CounselingCta({ data }: Props) {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-bold tracking-wider text-white/50 uppercase">
+                <label className="text-xs font-bold tracking-wider text-white/60 uppercase">
                   Email
                 </label>
                 <input
@@ -191,7 +191,7 @@ export function CounselingCta({ data }: Props) {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-bold tracking-wider text-white/50 uppercase">
+                <label className="text-xs font-bold tracking-wider text-white/60 uppercase">
                   Biggest Doubt
                 </label>
                 <select aria-label="Your biggest doubt"
@@ -216,7 +216,7 @@ export function CounselingCta({ data }: Props) {
                 {submitting ? "Booking..." : "Book My Free Session →"}
               </button>
 
-              <p className="text-center text-xs text-white/50">
+              <p className="text-center text-xs text-white/60">
                 No spam. No sales calls. Just pure guidance.
               </p>
             </form>
