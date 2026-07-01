@@ -59,7 +59,7 @@ export default function BlogListingPage() {
               Insights for the{" "}
               <span className="italic text-primary">modern developer</span>
             </h1>
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/45 sm:text-base">
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-white/55 sm:text-base">
               Tutorials, deep dives, and career guides — written by the engineers who
               build and teach at Coding Sharks.
             </p>

@@ -143,7 +143,7 @@ function ThankYouContent() {
               style={{ animation: "drawCheck 0.5s ease 0.3s both" }}>
               <path
                 d="M9 22l9 9 17-17"
-                stroke="#ff6b2c"
+                stroke="#d24509"
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -165,7 +165,7 @@ function ThankYouContent() {
           You&apos;re{" "}
           <span
             style={{
-              background: "linear-gradient(90deg, #ff6b2c, #ff9a5c)",
+              background: "linear-gradient(90deg, #d24509, #ff9a5c)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}>
@@ -173,7 +173,7 @@ function ThankYouContent() {
           </span>
         </h1>
 
-        <p className="text-white/50 text-base leading-relaxed mb-2">
+        <p className="text-white/60 text-base leading-relaxed mb-2">
           {isWorkshop
             ? "Join our WhatsApp group for workshop updates!"
             : "A CodingSharks advisor will reach out within"}
@@ -238,7 +238,7 @@ function ThankYouContent() {
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path
                   d="M9 2v10M5 8l4 4 4-4M2 16h14"
-                  stroke="#ff6b2c"
+                  stroke="#d24509"
                   strokeWidth="1.6"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -250,7 +250,7 @@ function ThankYouContent() {
                 {courseName ? `${courseName} brochure` : "Your brochure"} is
                 downloading…
               </p>
-              <p className="text-white/50 text-xs mt-0.5">
+              <p className="text-white/60 text-xs mt-0.5">
                 Check your Downloads folder
               </p>
             </div>
@@ -265,7 +265,7 @@ function ThankYouContent() {
               background: "rgba(255,255,255,0.03)",
               border: "1px solid rgba(255,255,255,0.07)",
             }}>
-            <p className="text-[10px] font-bold tracking-[0.2em] text-white/45 uppercase px-5 pt-4 pb-3 border-b border-white/5">
+            <p className="text-[10px] font-bold tracking-[0.2em] text-white/55 uppercase px-5 pt-4 pb-3 border-b border-white/5">
               What happens next
             </p>
             {[
@@ -279,7 +279,7 @@ function ThankYouContent() {
                 className="flex items-center gap-4 px-5 py-3 border-b border-white/5 last:border-0">
                 <span
                   className="shrink-0 text-[10px] font-bold tabular-nums"
-                  style={{ color: "#ff6b2c" }}>
+                  style={{ color: "#d24509" }}>
                   {step}
                 </span>
                 <span className="text-white/55 text-sm">{text}</span>
@@ -298,11 +298,11 @@ function ThankYouContent() {
               className="h-full rounded-full transition-all duration-1000 ease-linear"
               style={{
                 width: `${progress}%`,
-                background: "linear-gradient(90deg, #ff6b2c, #ff9a5c)",
+                background: "linear-gradient(90deg, #d24509, #ff9a5c)",
               }}
             />
           </div>
-          <p className="text-white/45 text-xs">
+          <p className="text-white/55 text-xs">
             Redirecting in{" "}
             <span className="text-white/60 font-semibold tabular-nums">
               {count}s
@@ -313,7 +313,7 @@ function ThankYouContent() {
         {/* Manual back link */}
         <button
           onClick={() => router.push(from)}
-          className="mt-6 text-xs text-white/40 hover:text-white/50 transition-colors underline underline-offset-2">
+          className="mt-6 text-xs text-white/40 hover:text-white/60 transition-colors underline underline-offset-2">
           Go back now
         </button>
       </div>

@@ -107,7 +107,7 @@ export function SiteHeader() {
 
               {/* Nav links */}
               <div className="flex-1 overflow-y-auto px-4 py-5 space-y-1">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/45 px-3 mb-3">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/55 px-3 mb-3">
                   Menu
                 </p>
                 {nav.header.links.map((item) => {
@@ -142,7 +142,7 @@ export function SiteHeader() {
                     closeMenu();
                     openLeadModal("navbar-mobile");
                   }}
-                  className="h-12 w-full bg-primary text-white text-sm font-bold tracking-wide shadow-[0_0_24px_-4px_#ff6b2c] hover:bg-[#ff7b42] transition-colors flex items-center justify-center gap-2">
+                  className="h-12 w-full bg-primary text-white text-sm font-bold tracking-wide shadow-[0_0_24px_-4px_#d24509] hover:bg-[#ff7b42] transition-colors flex items-center justify-center gap-2">
                   Free Demo Session
                   <ChevronRight className="size-4" />
                 </button>
