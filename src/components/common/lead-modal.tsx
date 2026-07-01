@@ -217,7 +217,7 @@ export function LeadModal() {
               <br />
               <span className="text-primary italic">Starts Here</span>
             </h2>
-            <p className="text-white/45 text-sm leading-relaxed mb-8">
+            <p className="text-white/55 text-sm leading-relaxed mb-8">
               Fill in the form and a Shark will reach out within 24 hours to
               help you pick the right program.
             </p>
@@ -242,12 +242,12 @@ export function LeadModal() {
                       cx="9"
                       cy="9"
                       r="9"
-                      fill="#ff6b2c"
+                      fill="#d24509"
                       fillOpacity="0.2"
                     />
                     <path
                       d="M5 9l3 3 5-5"
-                      stroke="#ff6b2c"
+                      stroke="#d24509"
                       strokeWidth="1.6"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -274,7 +274,7 @@ export function LeadModal() {
                 <p className="text-white/70 text-xs font-semibold">
                   Neeraj Pawar
                 </p>
-                <p className="text-white/50 text-[10px]">
+                <p className="text-white/60 text-[10px]">
                   Software Engineer · Cohort 2
                 </p>
               </div>
@@ -418,10 +418,10 @@ export function LeadModal() {
                         className="text-xs px-3 py-1.5 border transition-all"
                         style={{
                           borderColor:
-                            form.background === bg ? "#ff6b2c" : "#e5e7eb",
+                            form.background === bg ? "#d24509" : "#e5e7eb",
                           background:
                             form.background === bg ? "#fff5ee" : "#fff",
-                          color: form.background === bg ? "#ff6b2c" : "#6b7280",
+                          color: form.background === bg ? "#d24509" : "#6b7280",
                           fontWeight: form.background === bg ? 600 : 400,
                         }}>
                         {bg}

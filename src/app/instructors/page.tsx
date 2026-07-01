@@ -98,7 +98,7 @@ export default function InstructorsPage() {
                   </div>
                   <h2 className="mt-5 text-lg font-bold text-white">{m.name}</h2>
                   <p className="text-sm font-medium text-primary">{m.role}</p>
-                  <p className="text-xs uppercase tracking-wider text-white/50">{m.company}</p>
+                  <p className="text-xs uppercase tracking-wider text-white/60">{m.company}</p>
                   <p className="mt-4 text-sm leading-relaxed text-white/55">{m.description}</p>
                 </div>
               ))}
@@ -113,7 +113,7 @@ export default function InstructorsPage() {
               <h2 className="font-heading text-xl font-bold text-white sm:text-2xl">
                 Learn directly from them
               </h2>
-              <p className="mx-auto mt-2 max-w-md text-sm text-white/50">
+              <p className="mx-auto mt-2 max-w-md text-sm text-white/60">
                 Book a free demo and sit in on a live session with a mentor.
               </p>
               <Link

@@ -60,7 +60,7 @@ function CourseCard({ course }: { course: Course }) {
         <h3 className="text-base font-bold text-white leading-snug group-hover:text-primary transition-colors">
           {course.title}
         </h3>
-        <p className="text-xs text-white/50 leading-relaxed flex-1">
+        <p className="text-xs text-white/60 leading-relaxed flex-1">
           {course.tagline}
         </p>
 
@@ -71,7 +71,7 @@ function CourseCard({ course }: { course: Course }) {
             return (
               <li
                 key={i}
-                className="flex items-center gap-2 text-xs text-white/45">
+                className="flex items-center gap-2 text-xs text-white/55">
                 <MetaIcon
                   className="h-3.5 w-3.5 text-white/40 shrink-0"
                   strokeWidth={1.5}
@@ -87,7 +87,7 @@ function CourseCard({ course }: { course: Course }) {
           <span className="text-xs font-bold text-primary tracking-wider uppercase flex items-center gap-1.5 group-hover:gap-3 transition-all">
             View Program <ArrowRight className="h-3.5 w-3.5" />
           </span>
-          <span className="text-xs text-white/45">{course.duration}</span>
+          <span className="text-xs text-white/55">{course.duration}</span>
         </div>
       </div>
     </Link>
@@ -144,7 +144,7 @@ export function CoursesListingPage() {
               Build Skills That{" "}
               <span className="text-primary italic">Get You Hired</span>
             </h1>
-            <p className="mt-5 text-sm sm:text-base text-white/45 max-w-xl leading-relaxed">
+            <p className="mt-5 text-sm sm:text-base text-white/55 max-w-xl leading-relaxed">
               Every program is designed around real projects, 1-on-1 mentorship,
               and direct placement support — not just video lectures.
             </p>
@@ -161,7 +161,7 @@ export function CoursesListingPage() {
                   <span className="text-2xl sm:text-3xl font-bold text-white font-heading">
                     {s.value}
                   </span>
-                  <span className="text-xs text-white/50 tracking-wide">
+                  <span className="text-xs text-white/60 tracking-wide">
                     {s.label}
                   </span>
                 </div>
@@ -180,7 +180,7 @@ export function CoursesListingPage() {
               On-Campus Programs
             </span>
           </div>
-          <p className="text-xs sm:text-sm text-white/45">
+          <p className="text-xs sm:text-sm text-white/55">
             {courses.length} programs available
           </p>
         </div>
@@ -198,7 +198,7 @@ export function CoursesListingPage() {
             <h3 className="text-xl sm:text-2xl font-bold text-white font-heading">
               Not sure which program to pick?
             </h3>
-            <p className="mt-2 text-sm text-white/45">
+            <p className="mt-2 text-sm text-white/55">
               Book a free 30-min career call with one of our advisors.
             </p>
           </div>

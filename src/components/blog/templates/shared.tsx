@@ -10,7 +10,7 @@ export interface BlogTemplateProps {
   related: BlogArticle[];
 }
 
-export const DEFAULT_BLOG_THEME = { acc: "#ff6b2c", ink: "#0f0f1a" };
+export const DEFAULT_BLOG_THEME = { acc: "#d24509", ink: "#0f0f1a" };
 
 export function getBlogTheme(article: BlogArticle) {
   return article.theme ?? DEFAULT_BLOG_THEME;

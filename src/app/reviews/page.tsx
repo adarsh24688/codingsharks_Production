@@ -90,7 +90,7 @@ export default function ReviewsPage() {
                   ))}
                 </span>
                 <span className="font-semibold text-white">4.3/5</span>
-                <span className="text-white/45">on JustDial · 94 reviews</span>
+                <span className="text-white/55">on JustDial · 94 reviews</span>
               </a>
             </div>
           </Container>
@@ -120,7 +120,7 @@ export default function ReviewsPage() {
                     </span>
                     <div>
                       <p className="text-sm font-bold text-white">{r.name}</p>
-                      <p className="text-[11px] text-white/50">{r.role}</p>
+                      <p className="text-[11px] text-white/60">{r.role}</p>
                     </div>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ export default function ReviewsPage() {
               <h2 className="font-heading text-xl font-bold text-white sm:text-2xl">
                 See it for yourself
               </h2>
-              <p className="mx-auto mt-2 max-w-md text-sm text-white/50">
+              <p className="mx-auto mt-2 max-w-md text-sm text-white/60">
                 Book a free demo and talk to a mentor. Decide with real experience, not just
                 reviews.
               </p>

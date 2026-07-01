@@ -171,7 +171,7 @@ export default function FaqPage() {
               <h2 className="font-heading text-xl font-bold text-white sm:text-2xl">
                 Still have a question?
               </h2>
-              <p className="mx-auto mt-2 max-w-md text-sm text-white/50">
+              <p className="mx-auto mt-2 max-w-md text-sm text-white/60">
                 Book a free demo and ask a mentor directly. No sales pitch.
               </p>
               <Link

@@ -362,7 +362,7 @@ export const VideoPlayer: FC<VideoPlayerProps> = ({
                 />
 
                 {/* Time */}
-                <span className="text-[10px] sm:text-xs text-white/50 font-mono ml-1">
+                <span className="text-[10px] sm:text-xs text-white/60 font-mono ml-1">
                   {formatTime(currentTime)} / {formatTime(duration)}
                 </span>
 

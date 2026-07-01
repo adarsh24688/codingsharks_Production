@@ -36,7 +36,7 @@ export function CounselingBenefits({ benefits }: Props) {
                   <h3 className="text-lg font-bold text-white transition-colors group-hover:text-primary sm:text-2xl">
                     {benefit.title}
                   </h3>
-                  <p className="mt-2.5 max-w-md text-sm leading-relaxed text-white/50 sm:text-base">
+                  <p className="mt-2.5 max-w-md text-sm leading-relaxed text-white/60 sm:text-base">
                     {benefit.desc}
                   </p>
                 </div>
@@ -50,7 +50,7 @@ export function CounselingBenefits({ benefits }: Props) {
 
         {/* Bottom CTA row */}
         <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border border-white/8 bg-white/2 px-6 py-5">
-          <p className="text-sm text-white/50">
+          <p className="text-sm text-white/60">
             All of this — in a single free 30-minute call.
           </p>
           <a

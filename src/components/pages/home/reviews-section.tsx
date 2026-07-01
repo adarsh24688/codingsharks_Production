@@ -18,7 +18,7 @@ function StarRating({ rating }: { rating: number }) {
           }`}
         />
       ))}
-      <span className="ml-1 text-xs font-semibold text-white/50">
+      <span className="ml-1 text-xs font-semibold text-white/60">
         {rating}.0
       </span>
     </div>
@@ -50,7 +50,7 @@ function ReviewCard({ review }: { review: Review }) {
           <p className="text-sm font-bold text-white leading-tight">
             {review.name}
           </p>
-          <p className="text-xs text-white/50 mt-0.5">{review.role}</p>
+          <p className="text-xs text-white/60 mt-0.5">{review.role}</p>
         </div>
       </div>
 

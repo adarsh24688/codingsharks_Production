@@ -62,7 +62,7 @@ export function FinalCtaSection() {
           {finalCta.headline1}{" "}
           <span className="text-primary italic">{finalCta.headline2}</span>
         </h2>
-        <p className="mt-5 text-sm sm:text-base text-white/50 max-w-md">
+        <p className="mt-5 text-sm sm:text-base text-white/60 max-w-md">
           {finalCta.subline}
         </p>
         <ApplyNowButton

@@ -125,7 +125,7 @@ export default function PlacementsPage() {
               {STATS.map((s) => (
                 <div key={s.l}>
                   <p className="text-2xl font-bold text-primary md:text-3xl">{s.v}</p>
-                  <p className="mt-1 text-[11px] leading-snug text-white/45">{s.l}</p>
+                  <p className="mt-1 text-[11px] leading-snug text-white/55">{s.l}</p>
                 </div>
               ))}
             </div>
@@ -135,7 +135,7 @@ export default function PlacementsPage() {
         {/* Companies */}
         <Section className="py-12">
           <Container>
-            <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/50">
+            <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-white/60">
               Graduates hired at
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
@@ -144,7 +144,7 @@ export default function PlacementsPage() {
                   {c}
                 </span>
               ))}
-              <span className="text-sm text-white/50">+ 50 more hiring partners</span>
+              <span className="text-sm text-white/60">+ 50 more hiring partners</span>
             </div>
           </Container>
         </Section>
@@ -166,14 +166,14 @@ export default function PlacementsPage() {
                     </span>
                     <div>
                       <p className="text-sm font-bold text-white">{s.name}</p>
-                      <p className="text-[11px] uppercase tracking-wider text-white/50">
+                      <p className="text-[11px] uppercase tracking-wider text-white/60">
                         {s.cohort} · {s.city}
                       </p>
                     </div>
                   </div>
 
                   <div className="mt-5 flex items-center gap-2 text-xs">
-                    <span className="text-white/50">{s.fromRole}</span>
+                    <span className="text-white/60">{s.fromRole}</span>
                     <ArrowRight className="h-3.5 w-3.5 text-primary" />
                     <span className="font-semibold text-white">{s.toRole}</span>
                   </div>
@@ -184,7 +184,7 @@ export default function PlacementsPage() {
                     </span>
                   </div>
 
-                  <p className="mt-4 text-sm leading-relaxed text-white/50 italic">
+                  <p className="mt-4 text-sm leading-relaxed text-white/60 italic">
                     &ldquo;{s.quote}&rdquo;
                   </p>
                 </div>
@@ -225,7 +225,7 @@ export default function PlacementsPage() {
               <h2 className="font-heading text-xl font-bold text-white sm:text-2xl">
                 Want outcomes like these?
               </h2>
-              <p className="mx-auto mt-2 max-w-md text-sm text-white/50">
+              <p className="mx-auto mt-2 max-w-md text-sm text-white/60">
                 Book a free career session. We discuss your background, target role, and which
                 program fits. No sales pitch, just an honest assessment.
               </p>

@@ -232,7 +232,7 @@ export function RegistrationModal({ workshop, onClose, isEmbedded = false }: Pro
                     {item.l}
                   </span>
                 </div>
-                {i < 3 && <span className="text-white/50 font-bold">:</span>}
+                {i < 3 && <span className="text-white/60 font-bold">:</span>}
               </div>
             ))}
           </div>

@@ -324,7 +324,7 @@ export function InstaPromptSourcePage({ promptContent }: Props) {
                 {submitting ? "Unlocking..." : "Unlock Source Code"}
               </button>
 
-              <p className="text-xs leading-relaxed text-white/50">
+              <p className="text-xs leading-relaxed text-white/60">
                 By submitting, you agree to receive project updates and coding
                 opportunities from CodingSharks.
               </p>
@@ -419,7 +419,7 @@ export function InstaPromptSourcePage({ promptContent }: Props) {
             </div>
 
             <div className="space-y-3 sm:justify-self-end sm:text-right">
-              <p className="text-[11px] font-semibold tracking-[0.14em] text-white/50 uppercase">
+              <p className="text-[11px] font-semibold tracking-[0.14em] text-white/60 uppercase">
                 Contact
               </p>
               <a
@@ -438,7 +438,7 @@ export function InstaPromptSourcePage({ promptContent }: Props) {
             </div>
           </div>
 
-          <div className="mt-8 border-t border-white/10 pt-4 text-xs text-white/50">
+          <div className="mt-8 border-t border-white/10 pt-4 text-xs text-white/60">
             © {new Date().getFullYear()} {site.brand.name}. Built for creators.
           </div>
         </div>

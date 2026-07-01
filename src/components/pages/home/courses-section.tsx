@@ -85,8 +85,8 @@ function CourseCard({
           {course.meta.map((m, j) => {
             const IconComp = META_ICON_MAP[m.icon] ?? Briefcase;
             return (
-              <li key={j} className="text-sm text-white/50 flex items-center gap-2.5">
-                <IconComp className="h-3.5 w-3.5 text-white/45 shrink-0" strokeWidth={1.5} />
+              <li key={j} className="text-sm text-white/60 flex items-center gap-2.5">
+                <IconComp className="h-3.5 w-3.5 text-white/55 shrink-0" strokeWidth={1.5} />
                 {m.text}
               </li>
             );
@@ -96,7 +96,8 @@ function CourseCard({
         <div className="flex flex-col gap-2 mt-1">
           <Link
             href={`/courses/${course.slug}`}
-            className="h-11 border border-white/10 text-xs font-bold text-white/50 hover:text-white hover:border-white/25 transition-all flex items-center justify-center tracking-[0.15em] uppercase">
+            aria-label={`Go to ${course.title} program`}
+            className="h-11 border border-white/10 text-xs font-bold text-white/60 hover:text-white hover:border-white/25 transition-all flex items-center justify-center tracking-[0.15em] uppercase">
             Go To Program
           </Link>
           <BrochureButton
@@ -135,7 +136,7 @@ export function CoursesSection() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white font-heading tracking-tight">
             Programs To Help You Upskill
           </h2>
-          <p className="mt-4 text-sm sm:text-base md:text-lg text-white/50 max-w-xl">
+          <p className="mt-4 text-sm sm:text-base md:text-lg text-white/60 max-w-xl">
             Structured programs built around real projects, 1-on-1 mentorship,
             and guaranteed placement support.
           </p>
@@ -173,7 +174,7 @@ export function CoursesSection() {
           onClick={() => scroll("left")}
           aria-label="Previous"
           className="absolute left-0 top-0 bottom-0 z-20 w-20 sm:w-28 flex items-center justify-start pl-3 sm:pl-5 bg-linear-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent group cursor-pointer">
-          <span className="h-10 w-10 border border-white/15 bg-[#1c1c1c]/90 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white/35 group-hover:bg-[#252525] transition-all">
+          <span className="h-10 w-10 border border-white/15 bg-[#1c1c1c]/90 flex items-center justify-center text-white/60 group-hover:text-white group-hover:border-white/35 group-hover:bg-[#252525] transition-all">
             <ChevronLeft className="h-5 w-5" />
           </span>
         </button>
@@ -181,7 +182,7 @@ export function CoursesSection() {
           onClick={() => scroll("right")}
           aria-label="Next"
           className="absolute right-0 top-0 bottom-0 z-20 w-20 sm:w-28 flex items-center justify-end pr-3 sm:pr-5 bg-linear-to-l from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent group cursor-pointer">
-          <span className="h-10 w-10 border border-white/15 bg-[#1c1c1c]/90 flex items-center justify-center text-white/50 group-hover:text-white group-hover:border-white/35 group-hover:bg-[#252525] transition-all">
+          <span className="h-10 w-10 border border-white/15 bg-[#1c1c1c]/90 flex items-center justify-center text-white/60 group-hover:text-white group-hover:border-white/35 group-hover:bg-[#252525] transition-all">
             <ChevronRight className="h-5 w-5" />
           </span>
         </button>

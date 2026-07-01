@@ -102,7 +102,7 @@ export function CounselingPage({ data }: Props) {
             />
           </Link>
           <div className="flex items-center gap-4">
-            <span className="hidden text-xs font-semibold text-white/50 sm:block">
+            <span className="hidden text-xs font-semibold text-white/60 sm:block">
               100% Free · No Pitch
             </span>
             <a
@@ -152,7 +152,7 @@ export function CounselingPage({ data }: Props) {
                 height={40}
                 className="h-10 w-auto"
               />
-              <p className="max-w-sm text-sm leading-relaxed text-white/50">
+              <p className="max-w-sm text-sm leading-relaxed text-white/60">
                 {site.brand.description}
               </p>
             </div>
@@ -163,10 +163,10 @@ export function CounselingPage({ data }: Props) {
               <a href={`tel:${site.contact.phone}`} className="block text-base font-bold text-primary">
                 {site.contact.phone}
               </a>
-              <a href={`mailto:${site.contact.email}`} className="block text-sm text-white/50">
+              <a href={`mailto:${site.contact.email}`} className="block text-sm text-white/60">
                 {site.contact.email}
               </a>
-              <p className="text-sm text-white/50">
+              <p className="text-sm text-white/60">
                 {site.address.city}, {site.address.region}
               </p>
             </div>

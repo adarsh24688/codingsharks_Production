@@ -110,7 +110,7 @@ function CurriculumAccordion({ modules }: { modules: Course["curriculum"] }) {
               {isOpen ? (
                 <ChevronUp className="shrink-0 h-4 w-4 text-primary" />
               ) : (
-                <ChevronDown className="shrink-0 h-4 w-4 text-white/45" />
+                <ChevronDown className="shrink-0 h-4 w-4 text-white/55" />
               )}
             </button>
             <div
@@ -148,7 +148,7 @@ function CurriculumAccordion({ modules }: { modules: Course["curriculum"] }) {
                 <span className="font-semibold text-sm text-white">
                   {mod.module}
                 </span>
-                <ChevronDown className="shrink-0 h-4 w-4 text-white/45" />
+                <ChevronDown className="shrink-0 h-4 w-4 text-white/55" />
               </div>
             ))}
           </div>
@@ -169,12 +169,12 @@ function CurriculumAccordion({ modules }: { modules: Course["curriculum"] }) {
                     width="18"
                     height="11"
                     rx="2"
-                    stroke="#ff6b2c"
+                    stroke="#d24509"
                     strokeWidth="1.8"
                   />
                   <path
                     d="M7 11V7a5 5 0 0 1 10 0v4"
-                    stroke="#ff6b2c"
+                    stroke="#d24509"
                     strokeWidth="1.8"
                     strokeLinecap="round"
                   />
@@ -183,7 +183,7 @@ function CurriculumAccordion({ modules }: { modules: Course["curriculum"] }) {
               <p className="text-white font-bold text-sm mb-1">
                 more modules inside
               </p>
-              <p className="text-white/50 text-xs mb-4">
+              <p className="text-white/60 text-xs mb-4">
                 Download the full curriculum to see all topics
               </p>
               <button
@@ -303,7 +303,7 @@ function HeroForm({ course }: { course: Course }) {
           {/* Trust row */}
           <div className="flex items-center gap-3 mb-5 pb-5 border-b border-gray-100">
             <div className="flex -space-x-2">
-              {["#ff6b2c", "#1e40af", "#16a34a"].map((c, i) => (
+              {["#d24509", "#1e40af", "#16a34a"].map((c, i) => (
                 <div
                   key={i}
                   className="size-7 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold text-white"
@@ -450,7 +450,7 @@ export function CourseDetailPage({ slug }: { slug: string }) {
     return (
       <div className="bg-[#0a0a0a] min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <p className="text-white/50 text-lg">Course not found</p>
+          <p className="text-white/60 text-lg">Course not found</p>
           <Link
             href="/courses"
             className="mt-4 inline-block text-primary hover:underline">
@@ -507,7 +507,7 @@ export function CourseDetailPage({ slug }: { slug: string }) {
           {/* Breadcrumb */}
           <Link
             href="/courses"
-            className="relative z-10 inline-flex items-center gap-2 text-white/50 text-sm hover:text-white transition-colors mb-5">
+            className="relative z-10 inline-flex items-center gap-2 text-white/60 text-sm hover:text-white transition-colors mb-5">
             <ArrowLeft className="h-4 w-4" /> All Programs
           </Link>
 
@@ -544,7 +544,7 @@ export function CourseDetailPage({ slug }: { slug: string }) {
                       key={i}
                       className="inline-flex items-center gap-2 text-xs text-white/70 border border-white/20 px-3 py-1.5 bg-white/5">
                       <MetaIcon
-                        className="h-3.5 w-3.5 text-white/50"
+                        className="h-3.5 w-3.5 text-white/60"
                         strokeWidth={1.5}
                       />
                       {m.text}
@@ -566,7 +566,7 @@ export function CourseDetailPage({ slug }: { slug: string }) {
                     <span className="text-lg sm:text-xl font-bold text-white font-heading leading-none">
                       {s.value}
                     </span>
-                    <span className="text-[10px] text-white/50 mt-1 leading-tight whitespace-nowrap">
+                    <span className="text-[10px] text-white/60 mt-1 leading-tight whitespace-nowrap">
                       {s.label}
                     </span>
                   </div>
@@ -587,12 +587,12 @@ export function CourseDetailPage({ slug }: { slug: string }) {
                         cx="8"
                         cy="8"
                         r="8"
-                        fill="#ff6b2c"
+                        fill="#d24509"
                         fillOpacity="0.2"
                       />
                       <path
                         d="M4.5 8.5l2.5 2.5 4.5-4.5"
-                        stroke="#ff6b2c"
+                        stroke="#d24509"
                         strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -654,12 +654,12 @@ export function CourseDetailPage({ slug }: { slug: string }) {
                         cx="9"
                         cy="9"
                         r="9"
-                        fill="#ff6b2c"
+                        fill="#d24509"
                         fillOpacity="0.15"
                       />
                       <path
                         d="M5 9.5l3 3 5-5"
-                        stroke="#ff6b2c"
+                        stroke="#d24509"
                         strokeWidth="1.6"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -697,7 +697,7 @@ export function CourseDetailPage({ slug }: { slug: string }) {
                       </span>
                       <h4 className="font-bold text-white text-sm">{p.name}</h4>
                     </div>
-                    <p className="text-xs text-white/45 leading-relaxed pl-11">
+                    <p className="text-xs text-white/55 leading-relaxed pl-11">
                       {p.desc}
                     </p>
                   </div>
@@ -716,7 +716,7 @@ export function CourseDetailPage({ slug }: { slug: string }) {
                     <h4 className="font-bold text-white text-sm mb-2">
                       {w.title}
                     </h4>
-                    <p className="text-xs text-white/45 leading-relaxed">
+                    <p className="text-xs text-white/55 leading-relaxed">
                       {w.desc}
                     </p>
                   </div>
@@ -758,7 +758,7 @@ export function CourseDetailPage({ slug }: { slug: string }) {
                     <div
                       key={item.label}
                       className="flex justify-between text-sm">
-                      <span className="text-white/50">{item.label}</span>
+                      <span className="text-white/60">{item.label}</span>
                       <span className="text-white/75 font-medium">
                         {item.value}
                       </span>
@@ -788,7 +788,7 @@ export function CourseDetailPage({ slug }: { slug: string }) {
 
             {/* Included */}
             <div className="border border-white/8 bg-white/3 p-5">
-              <p className="text-xs font-bold text-white/50 uppercase tracking-widest mb-4">
+              <p className="text-xs font-bold text-white/60 uppercase tracking-widest mb-4">
                 What&apos;s Included
               </p>
               <ul className="flex flex-col gap-2.5">
@@ -802,18 +802,18 @@ export function CourseDetailPage({ slug }: { slug: string }) {
                 ].map((item, i) => (
                   <li
                     key={i}
-                    className="flex items-center gap-2.5 text-xs text-white/50">
+                    className="flex items-center gap-2.5 text-xs text-white/60">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                       <circle
                         cx="7"
                         cy="7"
                         r="7"
-                        fill="#ff6b2c"
+                        fill="#d24509"
                         fillOpacity="0.15"
                       />
                       <path
                         d="M4 7l2.5 2.5 4-4"
-                        stroke="#ff6b2c"
+                        stroke="#d24509"
                         strokeWidth="1.4"
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -835,7 +835,7 @@ export function CourseDetailPage({ slug }: { slug: string }) {
             <h2 className="text-3xl sm:text-4xl font-bold text-white font-heading tracking-tight">
               Ready to start your journey?
             </h2>
-            <p className="text-sm text-white/50 max-w-md">
+            <p className="text-sm text-white/60 max-w-md">
               Apply in 15 minutes. Get a decision in 48 hours. Start building in
               days.
             </p>

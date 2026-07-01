@@ -90,7 +90,7 @@ function FooterCol({
 }) {
   return (
     <div>
-      <p className="text-[10px] font-bold tracking-[0.2em] text-white/45 uppercase mb-5">
+      <p className="text-[10px] font-bold tracking-[0.2em] text-white/55 uppercase mb-5">
         {title}
       </p>
       <ul className="flex flex-col gap-3">
@@ -124,7 +124,7 @@ export function SiteFooter() {
                 className="h-20 w-auto"
               />
             </Link>
-            <p className="text-sm text-white/45 leading-relaxed max-w-xs">
+            <p className="text-sm text-white/55 leading-relaxed max-w-xs">
               {site.brand.description}
             </p>
             <div className="flex items-center gap-3 mt-1">
@@ -135,7 +135,7 @@ export function SiteFooter() {
                   aria-label={s.label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="size-9 rounded-full border border-white/10 bg-white/4 flex items-center justify-center text-white/50 hover:text-white hover:border-primary/50 hover:bg-primary/10 transition-all">
+                  className="size-9 rounded-full border border-white/10 bg-white/4 flex items-center justify-center text-white/60 hover:text-white hover:border-primary/50 hover:bg-primary/10 transition-all">
                   {s.icon}
                 </a>
               ))}
@@ -150,12 +150,12 @@ export function SiteFooter() {
 
           {/* ── Contact ── */}
           <div>
-            <p className="text-[10px] font-bold tracking-[0.2em] text-white/45 uppercase mb-5">
+            <p className="text-[10px] font-bold tracking-[0.2em] text-white/55 uppercase mb-5">
               Contact
             </p>
             <div className="flex flex-col gap-4 text-sm">
               <div>
-                <p className="text-white/45 text-[11px] uppercase tracking-widest mb-1">
+                <p className="text-white/55 text-[11px] uppercase tracking-widest mb-1">
                   Online · 11am – 8pm
                 </p>
                 <a
@@ -165,7 +165,7 @@ export function SiteFooter() {
                 </a>
               </div>
               <div>
-                <p className="text-white/45 text-[11px] uppercase tracking-widest mb-1">
+                <p className="text-white/55 text-[11px] uppercase tracking-widest mb-1">
                   Email
                 </p>
                 <a
@@ -175,10 +175,10 @@ export function SiteFooter() {
                 </a>
               </div>
               <div>
-                <p className="text-white/45 text-[11px] uppercase tracking-widest mb-1">
+                <p className="text-white/55 text-[11px] uppercase tracking-widest mb-1">
                   Address
                 </p>
-                <address className="not-italic text-white/45 text-[13px] leading-relaxed">
+                <address className="not-italic text-white/55 text-[13px] leading-relaxed">
                   {site.address.line1}
                   <br />
                   {site.address.city}, {site.address.region}{" "}
@@ -201,7 +201,7 @@ export function SiteFooter() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-xs text-white/45 hover:text-white/60 transition-colors">
+                className="text-xs text-white/55 hover:text-white/60 transition-colors">
                 {item.label}
               </Link>
             ))}
