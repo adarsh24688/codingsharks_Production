@@ -60,7 +60,7 @@ function WorkshopCard({ workshop }: { workshop: WorkshopJson }) {
  <span className={`text-[10px] font-bold tracking-[0.12em] uppercase px-2.5 py-1 ${
  workshop.is_free
  ?'bg-emerald-500/90 text-white'
- :'bg-[#ff6b2c]/90 text-white'
+ :'bg-[#d24509]/90 text-white'
  }`}>
  {workshop.is_free ?'Free' : workshop.price}
  </span>
@@ -75,7 +75,7 @@ function WorkshopCard({ workshop }: { workshop: WorkshopJson }) {
  {/* Content */}
  <div className="flex flex-col flex-1 p-5 gap-3 border-t border-primary/20">
  {/* Meta */}
- <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold tracking-[0.12em] text-white/45 uppercase">
+ <div className="flex flex-wrap items-center gap-3 text-[10px] font-bold tracking-[0.12em] text-white/55 uppercase">
  {workshop.event_date && (
  <span className="flex items-center gap-1.5">
  <Calendar className="h-3 w-3 shrink-0" />
@@ -108,14 +108,14 @@ function WorkshopCard({ workshop }: { workshop: WorkshopJson }) {
 
  {/* Tagline or short desc */}
  {(workshop.tagline || workshop.short_description) && (
- <p className="text-xs text-white/50 leading-relaxed flex-1 line-clamp-2">
+ <p className="text-xs text-white/60 leading-relaxed flex-1 line-clamp-2">
  {workshop.tagline || workshop.short_description}
  </p>
  )}
 
  {/* Footer */}
  <div className="flex items-center justify-between mt-1 pt-3 border-t border-white/5">
- <div className="flex items-center gap-2 text-[10px] text-white/45 uppercase font-bold tracking-wider">
+ <div className="flex items-center gap-2 text-[10px] text-white/55 uppercase font-bold tracking-wider">
  <MapPin className="h-3 w-3" />
  {workshop.mode ==='online' ? (workshop.platform ||'Online') :'Offline'}
  </div>
@@ -172,7 +172,7 @@ export function WorkshopListingPage() {
  Learn Live from{''}
  <span className="text-primary italic">Industry Experts</span>
  </h1>
- <p className="mt-5 text-sm sm:text-base text-white/45 max-w-xl leading-relaxed">
+ <p className="mt-5 text-sm sm:text-base text-white/55 max-w-xl leading-relaxed">
  Free and paid live workshops on cutting-edge tech — join thousands of engineers levelling up their skills.
  </p>
  </div>
@@ -183,7 +183,7 @@ export function WorkshopListingPage() {
  <Container className="pt-4 pb-20 sm:pb-24">
  {active.length === 0 ? (
  <div className="border border-white/8 bg-white/3 py-24 flex flex-col items-center text-center gap-4">
- <p className="text-white/50 text-base font-medium">No workshops scheduled</p>
+ <p className="text-white/60 text-base font-medium">No workshops scheduled</p>
  <p className="text-white/40 text-sm">Check back soon — new events are on the way.</p>
  </div>
  ) : (
@@ -199,7 +199,7 @@ export function WorkshopListingPage() {
  <h3 className="text-xl sm:text-2xl font-bold text-white font-heading">
  Want structured learning?
  </h3>
- <p className="mt-2 text-sm text-white/45">
+ <p className="mt-2 text-sm text-white/55">
  Explore our full-length courses with placement support.
  </p>
  </div>

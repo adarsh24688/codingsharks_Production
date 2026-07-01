@@ -50,7 +50,7 @@ export function CounselingHero({ data }: Props) {
               </svg>
             ))}
           </div>
-          <span className="text-xs font-bold tracking-[0.16em] text-white/50 uppercase">
+          <span className="text-xs font-bold tracking-[0.16em] text-white/60 uppercase">
             500+ students counseled &nbsp;·&nbsp; 100% free &nbsp;·&nbsp; No sales pitch
           </span>
         </div>
@@ -85,7 +85,7 @@ export function CounselingHero({ data }: Props) {
               </a>
               <a
                 href="#what-you-get"
-                className="text-sm font-semibold text-white/50 underline underline-offset-4 transition hover:text-white/75">
+                className="text-sm font-semibold text-white/60 underline underline-offset-4 transition hover:text-white/75">
                 See what&apos;s included
               </a>
             </div>
@@ -139,7 +139,7 @@ export function CounselingHero({ data }: Props) {
                     <p className="text-xs font-bold text-primary/80">
                       Answered in your free session
                     </p>
-                    <p className="mt-1.5 text-xs leading-relaxed text-white/50">
+                    <p className="mt-1.5 text-xs leading-relaxed text-white/60">
                       Our counselor addresses your specific doubt — no generic advice, ever.
                     </p>
                   </div>
@@ -154,7 +154,7 @@ export function CounselingHero({ data }: Props) {
                     className="h-1 rounded-full transition-all duration-500"
                     style={{
                       width: i === wordIndex ? "20px" : "6px",
-                      background: i === wordIndex ? "var(--color-primary, #ff6b2c)" : "rgba(255,255,255,0.15)",
+                      background: i === wordIndex ? "var(--color-primary, #d24509)" : "rgba(255,255,255,0.15)",
                     }}
                   />
                 ))}
@@ -170,7 +170,7 @@ export function CounselingHero({ data }: Props) {
           {data.stats.map((stat) => (
             <div key={stat.label} className="flex flex-col items-center justify-center py-5 text-center">
               <p className="font-heading text-2xl font-black text-primary sm:text-3xl">{stat.value}</p>
-              <p className="mt-1 text-[9px] font-bold uppercase tracking-[0.18em] text-white/45">
+              <p className="mt-1 text-[9px] font-bold uppercase tracking-[0.18em] text-white/55">
                 {stat.label}
               </p>
             </div>

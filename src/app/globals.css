@@ -100,7 +100,7 @@
      BRAND COLOR — change ONLY this one value to update
      the entire site's accent/orange color everywhere.
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-  --brand-color: #ff6b2c;
+  --brand-color: #d24509;
 
   --dot-grid: 110 209 144;
   --background: #000000;
@@ -158,8 +158,8 @@
    inside (chrome + templates) reads light automatically.
    ════════════════════════════════════════════════════════════════ */
 .blog-microsite {
-  --brand-color: #ff6b2c;
-  --acc: #ff6b2c;          /* per-article accent overrides this inline */
+  --brand-color: #d24509;
+  --acc: #d24509;          /* per-article accent overrides this inline */
   --ink: #1b1b29;          /* deep editorial ink (text, not background) */
 
   --background: #fbfaf7;   /* warm paper */
@@ -286,7 +286,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #ff6b2c;
+  background-color: #d24509;
 }
 .blog-content ol {
   list-style: none;
@@ -309,7 +309,7 @@
   background: rgba(255, 107, 44, 0.15);
   border: 1px solid rgba(255, 107, 44, 0.25);
   border-radius: 50%;
-  color: #ff6b2c;
+  color: #d24509;
   font-size: 0.7rem;
   font-weight: 700;
   display: flex;
@@ -323,7 +323,7 @@
   position: relative;
   margin: 1.8rem 0;
   padding: 1.1rem 1.4rem;
-  border-left: 3px solid #ff6b2c;
+  border-left: 3px solid #d24509;
   background: rgba(255, 107, 44, 0.06);
   border-radius: 0 0.75rem 0.75rem 0;
   color: rgba(255, 255, 255, 0.65);
@@ -343,7 +343,7 @@
   padding: 0.15em 0.45em;
   font-family: var(--font-mono);
   font-size: 0.875em;
-  color: #ff6b2c;
+  color: #d24509;
 }
 .blog-content pre {
   background: #111;
@@ -362,13 +362,13 @@
 }
 
 .blog-content a {
-  color: #ff6b2c;
+  color: #d24509;
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-color: rgba(255,107,44,0.4);
   transition: text-decoration-color 0.2s;
 }
-.blog-content a:hover { text-decoration-color: #ff6b2c; }
+.blog-content a:hover { text-decoration-color: #d24509; }
 
 .blog-content hr {
   border: none;

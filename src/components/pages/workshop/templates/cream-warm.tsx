@@ -813,7 +813,7 @@ export function TemplateCreamWarm({ workshop }: { workshop: WorkshopJson }) {
                   <span className="block font-mono text-3xl font-extrabold leading-none text-[#f9a825] sm:text-4xl">
                     {String(i.value).padStart(2, "0")}
                   </span>
-                  <span className="mt-1 block text-[10px] font-bold uppercase tracking-widest text-white/50">
+                  <span className="mt-1 block text-[10px] font-bold uppercase tracking-widest text-white/60">
                     {i.label}
                   </span>
                 </div>
@@ -826,7 +826,7 @@ export function TemplateCreamWarm({ workshop }: { workshop: WorkshopJson }) {
               Register Now {"->"}
             </button>
 
-            <p className="mt-4 text-xs font-medium text-white/50">
+            <p className="mt-4 text-xs font-medium text-white/60">
               Only <strong className="text-[#e8561a]">50 seats</strong> for this
               batch.
             </p>
@@ -905,7 +905,7 @@ export function TemplateCreamWarm({ workshop }: { workshop: WorkshopJson }) {
           <p className="text-xs font-medium">
             CodingSharks - Empowering Engineering Students to Build Real Careers
           </p>
-          <p className="mt-2 text-[11px] font-medium text-white/50">
+          <p className="mt-2 text-[11px] font-medium text-white/60">
             © {new Date().getFullYear()} CodingSharks. All rights reserved.
           </p>
         </footer>

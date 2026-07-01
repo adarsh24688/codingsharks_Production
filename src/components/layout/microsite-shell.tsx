@@ -14,7 +14,7 @@ interface MicrositeShellProps {
  */
 export function MicrositeShell({ children, theme }: MicrositeShellProps) {
   const style = {
-    "--acc": theme?.acc ?? "#ff6b2c",
+    "--acc": theme?.acc ?? "#d24509",
     "--ink": theme?.ink ?? "#1b1b29",
   } as CSSProperties;
 

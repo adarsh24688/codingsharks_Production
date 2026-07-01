@@ -29,7 +29,7 @@ export default function GlobalError({
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#ff6b2c",
+              color: "#d24509",
             }}>
             Error
           </p>
@@ -46,7 +46,7 @@ export default function GlobalError({
               padding: "10px 24px",
               borderRadius: 9999,
               border: "none",
-              background: "#ff6b2c",
+              background: "#d24509",
               color: "#fff",
               fontSize: 14,
               fontWeight: 600,

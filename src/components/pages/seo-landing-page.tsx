@@ -57,7 +57,7 @@ export function SeoLandingPage({ data }: { data: SeoLanding }) {
             {data.stats.map((s) => (
               <div key={s.l}>
                 <p className="text-2xl font-bold text-primary md:text-3xl">{s.v}</p>
-                <p className="mt-1 text-[11px] leading-snug text-white/45">{s.l}</p>
+                <p className="mt-1 text-[11px] leading-snug text-white/55">{s.l}</p>
               </div>
             ))}
           </div>
@@ -72,7 +72,7 @@ export function SeoLandingPage({ data }: { data: SeoLanding }) {
               <table className="w-full text-left text-sm">
                 <thead>
                   <tr className="border-b border-white/8 bg-white/[0.03]">
-                    <th className="p-4 font-semibold text-white/50"> </th>
+                    <th className="p-4 font-semibold text-white/60"> </th>
                     <th className="p-4 font-semibold text-white/60">
                       {data.comparison.columns[0]}
                     </th>
@@ -85,7 +85,7 @@ export function SeoLandingPage({ data }: { data: SeoLanding }) {
                   {data.comparison.rows.map((row) => (
                     <tr key={row.label} className="border-b border-white/8 last:border-0">
                       <td className="p-4 font-semibold text-white/70">{row.label}</td>
-                      <td className="p-4 text-white/45">{row.a}</td>
+                      <td className="p-4 text-white/55">{row.a}</td>
                       <td className="p-4 text-white/80">{row.b}</td>
                     </tr>
                   ))}
@@ -93,7 +93,7 @@ export function SeoLandingPage({ data }: { data: SeoLanding }) {
               </table>
             </div>
             {data.comparison.caption && (
-              <p className="mx-auto mt-3 max-w-3xl text-xs text-white/50">
+              <p className="mx-auto mt-3 max-w-3xl text-xs text-white/60">
                 {data.comparison.caption}
               </p>
             )}
@@ -158,8 +158,8 @@ export function SeoLandingPage({ data }: { data: SeoLanding }) {
       <Section className="border-t border-white/8 py-14 md:py-20">
         <Container>
           <div className="mx-auto max-w-3xl">
-            <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm text-white/50">
-              <span className="font-semibold uppercase tracking-wider text-white/50">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-sm text-white/60">
+              <span className="font-semibold uppercase tracking-wider text-white/60">
                 Explore:
               </span>
               {data.related.map((r, i) => (
@@ -176,7 +176,7 @@ export function SeoLandingPage({ data }: { data: SeoLanding }) {
               <h2 className="text-xl font-bold text-white sm:text-2xl font-heading">
                 Ready to start in Indore?
               </h2>
-              <p className="mx-auto mt-2 max-w-md text-sm text-white/50">
+              <p className="mx-auto mt-2 max-w-md text-sm text-white/60">
                 Book a free demo session. Meet a mentor, see the live cohort, and get an honest
                 assessment of which program fits you.
               </p>

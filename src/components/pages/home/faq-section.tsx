@@ -72,7 +72,7 @@ export function FaqSection() {
                     {/* Number */}
                     <span
                       className="shrink-0 text-xs font-bold tabular-nums transition-colors"
-                      style={{ color: isOpen ? "#ff6b2c" : "rgba(0,0,0,0.2)" }}
+                      style={{ color: isOpen ? "#d24509" : "rgba(0,0,0,0.45)" }}
                     >
                       {num}
                     </span>
@@ -87,7 +87,7 @@ export function FaqSection() {
                     <span
                       className="shrink-0 size-8 rounded-full flex items-center justify-center transition-all duration-300"
                       style={{
-                        background: isOpen ? "#ff6b2c" : "rgba(0,0,0,0.05)",
+                        background: isOpen ? "#d24509" : "rgba(0,0,0,0.05)",
                         transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                       }}
                     >
