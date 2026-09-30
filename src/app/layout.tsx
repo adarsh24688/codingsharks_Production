@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Space_Grotesk } from "next/font/google";
+import { JetBrains_Mono, Manrope, Space_Grotesk } from "next/font/google";
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -8,6 +8,7 @@ import "./globals.css";
 import { Analytics } from "@/components/common/analytics";
 import { PublicShell } from "@/components/common/public-shell";
 import { SITE_URL } from "@/lib/site-config";
+import { getNavData } from "@/lib/nav-data";
 // Body / UI font — Manrope (clean, modern sans-serif)
 const manrope = Manrope({
   variable: "--font-sans",
@@ -21,6 +22,13 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
@@ -112,9 +120,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${manrope.variable} ${spaceGrotesk.variable} font-sans min-h-dvh bg-background text-foreground antialiased`}>
+        className={`${manrope.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans min-h-dvh bg-background text-foreground antialiased`}>
         <Analytics />
-        <PublicShell>{children}</PublicShell>
+        <PublicShell nav={getNavData()}>{children}</PublicShell>
       </body>
     </html>
   );

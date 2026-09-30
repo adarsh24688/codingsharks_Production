@@ -5,8 +5,15 @@ import { SiteHeader } from "./site-header";
 import { SiteFooter } from "./site-footer";
 import { StickyHelpBar } from "./sticky-help-bar";
 import { LeadModal } from "./lead-modal";
+import type { NavData } from "@/lib/nav-data";
 
-export function PublicShell({ children }: { children: React.ReactNode }) {
+export function PublicShell({
+  children,
+  nav,
+}: {
+  children: React.ReactNode;
+  nav: NavData;
+}) {
   const pathname = usePathname();
   const isWorkshopDetail = /^\/workshops\/[^/]+/.test(pathname);
   const isInstaProjectPage = pathname.startsWith("/insta-project");
@@ -21,7 +28,7 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <SiteHeader />
+      <SiteHeader nav={nav} />
       <main className="min-h-[calc(100dvh-4rem)]">{children}</main>
       <SiteFooter />
       <StickyHelpBar />

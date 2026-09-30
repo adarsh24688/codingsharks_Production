@@ -1,126 +1,180 @@
 "use client";
 
-import { useState } from "react";
-import { Container } from "@/components/layout/container";
+import Image from "next/image";
+import { useRef, useState, type KeyboardEvent } from "react";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
+import { Plus } from "lucide-react";
+
 import home from "@/data/home.json";
+import { Container } from "@/components/layout/container";
+import { openLeadModal } from "@/components/common/lead-modal";
+import { useSectionMotion } from "./use-section-motion";
+
+const focusRing =
+  "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary";
+
+const HIGHLIGHT = "before joining";
+
+function splitHeadline(text: string) {
+  const at = text.lastIndexOf(HIGHLIGHT);
+  if (at < 0) return { before: text, mark: "", after: "" };
+  return { before: text.slice(0, at), mark: HIGHLIGHT, after: text.slice(at + HIGHLIGHT.length) };
+}
 
 export function FaqSection() {
   const { faq } = home;
-  const [open, setOpen] = useState<number>(0);
+  const title = splitHeadline(faq.headline);
+  const count = faq.items.length;
+  const sectionRef = useRef<HTMLElement>(null);
+  const buttonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [open, setOpen] = useState(0);
+
+  useSectionMotion(sectionRef, ({ gsap }) => {
+    gsap.from("[data-faq-head] > *", {
+      opacity: 0,
+      y: 24,
+      duration: 0.8,
+      ease: "power3.out",
+      stagger: 0.09,
+      scrollTrigger: { trigger: "[data-faq-head]", start: "top 82%", once: true },
+    });
+
+    gsap.fromTo(
+      "[data-faq-photo]",
+      { scale: 1.25 },
+      {
+        scale: 1,
+        ease: "none",
+        scrollTrigger: { trigger: "[data-faq-frame]", start: "top bottom", end: "center 45%", scrub: 0.6 },
+      },
+    );
+
+    gsap.from("[data-faq-row]", {
+      opacity: 0,
+      y: 28,
+      duration: 0.7,
+      ease: "power3.out",
+      stagger: 0.07,
+      scrollTrigger: { trigger: "[data-faq-list]", start: "top 84%", once: true },
+    });
+  });
+
+  const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    const target =
+      event.key === "ArrowDown"
+        ? (index + 1) % count
+        : event.key === "ArrowUp"
+          ? (index - 1 + count) % count
+          : event.key === "Home"
+            ? 0
+            : event.key === "End"
+              ? count - 1
+              : -1;
+    if (target < 0) return;
+    event.preventDefault();
+    buttonRefs.current[target]?.focus();
+  };
 
   return (
-    <section className="bg-linear-to-b from-[#fff7ee] via-[#fffbf7] to-white py-16 sm:py-20 md:py-28 border-t border-orange-100">
+    <section ref={sectionRef} className="bg-cs-paper py-16 text-cs-on-paper sm:py-20 lg:py-24">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20 items-start">
-
-          {/* ── Left: sticky header ── */}
-          <div className="lg:sticky lg:top-28">
-            <span className="inline-block text-[10px] font-bold tracking-[0.28em] text-primary uppercase border border-primary/30 px-4 py-1.5 mb-6">
-              {faq.eyebrow}
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 font-heading tracking-tight leading-tight">
-              {faq.headline}
-              <br />
-              <span className="text-primary italic">{faq.subline}</span>
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20">
+          <div data-faq-head className="lg:sticky lg:top-28">
+            <h2 className="font-heading text-[32px] font-medium leading-[1.05] tracking-[-0.03em] text-balance sm:text-[44px] lg:text-[56px]">
+              {title.before}
+              {title.mark ? <span className="text-primary">{title.mark}</span> : null}
+              {title.after}
             </h2>
-            <p className="mt-5 text-sm sm:text-base text-gray-500 leading-relaxed max-w-sm">
-              Can&apos;t find your answer? We&apos;re happy to chat — reach us anytime.
+            <p className="mt-4 max-w-[420px] text-[15px] leading-relaxed text-cs-on-paper/72 sm:text-[17px]">
+              {faq.subline}
             </p>
-            <a
-              href="/contact"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline underline-offset-4"
-            >
-              Talk to our team
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
-
-            {/* Decorative element */}
-            <div className="hidden lg:block mt-14">
-              <div className="relative w-36 h-36">
-                <div className="absolute inset-0 rounded-full bg-primary/10 animate-pulse" />
-                <div className="absolute inset-4 rounded-full bg-primary/15" />
-                <div className="absolute inset-0 flex items-center justify-center text-5xl select-none">
-                  🦈
-                </div>
+            <div className="mt-7">
+              <button
+                type="button"
+                onClick={() => openLeadModal("home-faq")}
+                className={`inline-flex min-h-11 items-center justify-center rounded-full border border-cs-on-paper/28 px-5 py-2 text-left text-sm font-medium text-cs-on-paper transition-colors duration-150 hover:border-cs-on-paper hover:bg-cs-on-paper hover:text-cs-paper ${focusRing}`}>
+                Still have a question? Talk to us
+              </button>
+            </div>
+            <div
+              data-faq-frame
+              className="relative mt-10 aspect-16/10 w-full overflow-hidden rounded-[20px] lg:aspect-4/5 lg:h-[38vh] lg:max-h-[400px] lg:w-auto">
+              <div data-faq-photo className="absolute inset-0 will-change-transform">
+                <Image
+                  src="/images/sections/group-macbook.webp"
+                  alt="Four smiling people around a MacBook"
+                  fill
+                  sizes="(min-width: 1024px) 320px, calc(100vw - 32px)"
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
 
-          {/* ── Right: accordion ── */}
-          <div className="flex flex-col gap-3">
-            {faq.items.map((item, i) => {
-              const isOpen = open === i;
-              const num = String(i + 1).padStart(2, "0");
-              return (
-                <div
-                  key={i}
-                  className="border overflow-hidden transition-all duration-300"
-                  style={{
-                    borderColor: isOpen ? "rgba(255,107,44,0.35)" : "rgba(0,0,0,0.07)",
-                    background: isOpen ? "#fff5ee" : "#ffffff",
-                    boxShadow: isOpen
-                      ? "0 4px 24px rgba(255,107,44,0.08)"
-                      : "0 1px 4px rgba(0,0,0,0.04)",
-                  }}
-                >
-                  <button
-                    className="w-full flex items-center gap-4 px-6 py-5 text-left"
-                    onClick={() => setOpen(isOpen ? -1 : i)}
-                  >
-                    {/* Number */}
-                    <span
-                      className="shrink-0 text-xs font-bold tabular-nums transition-colors"
-                      style={{ color: isOpen ? "#d24509" : "rgba(0,0,0,0.45)" }}
-                    >
-                      {num}
-                    </span>
-                    {/* Question */}
-                    <span
-                      className="flex-1 text-sm sm:text-base font-semibold leading-snug transition-colors"
-                      style={{ color: isOpen ? "#1a1a1a" : "#374151" }}
-                    >
-                      {item.question}
-                    </span>
-                    {/* Chevron */}
-                    <span
-                      className="shrink-0 size-8 rounded-full flex items-center justify-center transition-all duration-300"
-                      style={{
-                        background: isOpen ? "#d24509" : "rgba(0,0,0,0.05)",
-                        transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-                      }}
-                    >
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                        <path
-                          d="M3 5.5l4 4 4-4"
-                          stroke={isOpen ? "#fff" : "#6b7280"}
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </span>
-                  </button>
-
-                  <div
-                    style={{
-                      maxHeight: isOpen ? "320px" : "0px",
-                      overflow: "hidden",
-                      transition: "max-height 0.4s cubic-bezier(0.4,0,0.2,1)",
-                    }}
-                  >
-                    {/* Orange left-border accent */}
-                    <div className="mx-6 mb-6 pl-4 border-l-2 border-primary/40">
-                      <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
-                        {item.answer}
-                      </p>
+          <MotionConfig reducedMotion="user">
+            <div data-faq-list className="border-t border-cs-on-paper/16">
+              {faq.items.map((item, i) => {
+                const isOpen = open === i;
+                const buttonId = `home-faq-question-${i}`;
+                const panelId = `home-faq-answer-${i}`;
+                return (
+                  <div key={item.question} data-faq-row className="relative border-b border-cs-on-paper/16 pl-5 sm:pl-6">
+                    <motion.span
+                      aria-hidden="true"
+                      initial={false}
+                      animate={{ scaleY: isOpen ? 1 : 0 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      style={{ originY: 0 }}
+                      className="absolute top-6 bottom-6 left-0 w-[3px] rounded-full bg-primary sm:top-7 sm:bottom-7"
+                    />
+                    <h3>
+                      <button
+                        ref={(el) => {
+                          buttonRefs.current[i] = el;
+                        }}
+                        type="button"
+                        id={buttonId}
+                        aria-expanded={isOpen}
+                        aria-controls={panelId}
+                        onClick={() => setOpen(isOpen ? -1 : i)}
+                        onKeyDown={(event) => onKeyDown(event, i)}
+                        className={`group flex w-full items-start justify-between gap-6 py-6 text-left sm:py-7 ${focusRing}`}>
+                        <span
+                          className={`font-heading text-[18px] font-medium leading-[1.3] tracking-[-0.01em] transition-[translate,color] duration-200 ease-out motion-safe:pointer-fine:group-hover:translate-x-1.5 sm:text-[21px] ${isOpen ? "text-primary" : "text-cs-on-paper/84"}`}>
+                          {item.question}
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          className={`mt-0.5 grid size-8 shrink-0 place-items-center rounded-full border transition-colors duration-200 ${isOpen ? "border-primary bg-primary text-white" : "border-cs-on-paper/28 text-cs-on-paper"}`}>
+                          <Plus
+                            className={`size-4 transition-transform duration-200 ease-out motion-reduce:transition-none ${isOpen ? "rotate-45" : ""}`}
+                          />
+                        </span>
+                      </button>
+                    </h3>
+                    <div id={panelId}>
+                      <AnimatePresence initial={false}>
+                        {isOpen ? (
+                          <motion.div
+                            key="answer"
+                            role="region"
+                            aria-labelledby={buttonId}
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
+                            className="pr-10 pb-7 sm:pr-14">
+                            <p className="max-w-[640px] text-[15px] leading-relaxed text-cs-on-paper/76 sm:text-base">
+                              {item.answer}
+                            </p>
+                          </motion.div>
+                        ) : null}
+                      </AnimatePresence>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          </MotionConfig>
         </div>
       </Container>
     </section>

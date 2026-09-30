@@ -1,199 +1,441 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef } from "react";
-import { BrochureButton } from "@/components/common/apply-now-button";
-import {
-  ChevronLeft,
-  ChevronRight,
-  ChevronDown,
-  ChevronUp,
-  Download,
-  Briefcase,
-  Clock,
-  CheckSquare,
-} from "lucide-react";
-import { Container } from "@/components/layout/container";
-import courses from "@/data/courses.json";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { ArrowRight, Download, X } from "lucide-react";
+import gsap from "gsap";
 
-type Course = (typeof courses)[number];
+import courses from "@/data/courses.json";
+import { Container } from "@/components/layout/container";
+import { BrochureButton } from "@/components/common/apply-now-button";
+import { useSectionMotion } from "./use-section-motion";
+
+const focusRing = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary";
 
 const COURSE_IMAGE: Record<string, string> = {
-  "full-stack":              "/images/courses/full-stack.jpg",
-  "ai-agents":               "/images/courses/ai-agents.jpg",
+  "full-stack": "/images/courses/full-stack.jpg",
+  "ai-agents": "/images/courses/ai-agents.jpg",
   "python-for-data-science": "/images/courses/python-for-data-science.jpg",
-  "data-science":            "/images/courses/data-science.jpg",
-  "data-analytics":          "/images/courses/data-analytics.jpg",
-  "system-design":           "/images/courses/system-design.jpg",
-  "c-cpp":                   "/images/courses/c-cpp.jpg",
-  "dsa-mastery":             "/images/courses/dsa-mastery.jpg",
+  "data-science": "/images/courses/data-science.jpg",
+  "data-analytics": "/images/courses/data-analytics.jpg",
+  "system-design": "/images/courses/system-design.jpg",
+  "c-cpp": "/images/courses/c-cpp.jpg",
+  "dsa-mastery": "/images/courses/dsa-mastery.jpg",
 };
 
-const META_ICON_MAP: Record<string, React.ElementType> = {
-  briefcase: Briefcase,
-  clock: Clock,
-  check: CheckSquare,
-};
+const FALLBACK_IMAGE = "/images/home/1517694712202-14dd9538aa97.jpg";
 
-function CourseCard({
-  course,
-  className = "",
-}: {
-  course: Course;
-  className?: string;
-}) {
-  const img = COURSE_IMAGE[course.slug];
-  return (
+const LONG_DASH = new RegExp(`\\s+[${String.fromCharCode(8212, 8211)}]\\s+`);
+
+const PROGRAMS = courses.map((course) => ({
+  slug: course.slug,
+  title: course.title,
+  duration: course.duration,
+  line: course.tagline.split(LONG_DASH)[0].trim(),
+  image: COURSE_IMAGE[course.slug] ?? FALLBACK_IMAGE,
+}));
+
+type Program = (typeof PROGRAMS)[number];
+
+const HEADLINE = "Pick what you want to";
+const HEADLINE_PHRASE = "become";
+
+const SPINES = [
+  { veil: "bg-cs-ink/72", band: "bg-primary", height: "h-[90%]" },
+  { veil: "bg-primary/85", band: "bg-cs-ink", height: "h-full" },
+  { veil: "bg-cs-ink/60", band: "bg-cs-paper", height: "h-[84%]" },
+  { veil: "bg-cs-accent-press/85", band: "bg-cs-paper", height: "h-[95%]" },
+  { veil: "bg-cs-ink/72", band: "bg-primary", height: "h-[88%]" },
+  { veil: "bg-primary/85", band: "bg-cs-ink", height: "h-[97%]" },
+  { veil: "bg-cs-ink/60", band: "bg-primary", height: "h-[86%]" },
+  { veil: "bg-cs-accent-press/85", band: "bg-cs-paper", height: "h-[93%]" },
+];
+
+type Opened = { index: number; from: DOMRect };
+
+function OpenBook({ program, from, onClosed }: { program: Program; from: DOMRect; onClosed: () => void }) {
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const bookRef = useRef<HTMLDivElement>(null);
+  const coverRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
+  const closing = useRef(false);
+  const [vertical] = useState(() => window.innerWidth < 768);
+
+  const close = () => {
+    if (closing.current) return;
+    closing.current = true;
+    const tl = tlRef.current;
+    if (!tl || tl.duration() === 0) {
+      onClosed();
+      return;
+    }
+    tl.eventCallback("onReverseComplete", onClosed);
+    tl.timeScale(1.6).reverse();
+  };
+  const closeEvent = useRef(close);
+  useEffect(() => {
+    closeEvent.current = close;
+  });
+
+  useEffect(() => {
+    const overlay = overlayRef.current;
+    const book = bookRef.current;
+    const cover = coverRef.current;
+    if (!overlay || !book || !cover) return;
+    const html = document.documentElement;
+    const previous = html.style.overflow;
+    html.style.overflow = "hidden";
+    closeRef.current?.focus({ preventScroll: true });
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const box = book.getBoundingClientRect();
+    const coverBox = cover.getBoundingClientRect();
+    const cx = coverBox.left + coverBox.width / 2;
+    const cy = coverBox.top + coverBox.height / 2;
+    const originX = ((cx - box.left) / box.width) * 100;
+    const originY = ((cy - box.top) / box.height) * 100;
+    const scale = Math.min(from.height / coverBox.height, from.width / coverBox.width) * 1.02;
+
+    const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
+    if (reduced) {
+      gsap.set(overlay, { opacity: 1 });
+      gsap.set(cover, vertical ? { rotationX: 180 } : { rotationY: -180 });
+    } else {
+      tl.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 0)
+        .fromTo(
+          book,
+          {
+            transformOrigin: `${originX}% ${originY}%`,
+            x: from.left + from.width / 2 - cx,
+            y: from.top + from.height / 2 - cy,
+            scale,
+            rotation: -4,
+          },
+          { x: 0, y: 0, scale: 1, rotation: 0, duration: 0.75 },
+          0,
+        )
+        .to(cover, vertical ? { rotationX: 180, duration: 0.9 } : { rotationY: -180, duration: 0.9 }, 0.62)
+        .fromTo(
+          book.querySelectorAll("[data-page-line]"),
+          { opacity: 0, y: 14 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.45,
+            stagger: 0.05,
+            ease: "power3.out",
+          },
+          1.05,
+        );
+    }
+    tlRef.current = tl;
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeEvent.current();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      html.style.overflow = previous;
+      tl.kill();
+    };
+  }, [from, vertical]);
+
+  const pageRound = vertical ? "rounded-b-[16px]" : "rounded-r-[16px]";
+  const leafRound = vertical ? "rounded-t-[16px]" : "rounded-l-[16px]";
+
+  return createPortal(
     <div
-      className={`border border-white/8 bg-[#111] overflow-hidden flex flex-col hover:border-primary/30 transition-colors ${className}`}>
+      ref={overlayRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={program.title}
+      style={{ opacity: 0 }}
+      className="fixed inset-0 z-[70] grid place-items-center bg-cs-ink/80 p-4"
+      onClick={(event) => {
+        if (event.target === event.currentTarget) close();
+      }}>
+      <button
+        ref={closeRef}
+        type="button"
+        onClick={close}
+        aria-label="Close"
+        className={`absolute right-4 top-4 z-10 grid size-12 place-items-center rounded-full bg-primary text-white transition-transform duration-300 hover:rotate-90 sm:right-8 sm:top-8 ${focusRing}`}>
+        <X className="size-5" aria-hidden />
+      </button>
 
-      {/* Image / gradient header */}
-      <div className={`h-44 sm:h-48 relative overflow-hidden bg-linear-to-br ${course.gradient}`}>
-        {img ? (
-          <Image
-            src={img}
-            alt={course.title}
-            fill
-            className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
-            sizes="(max-width: 768px) 100vw, 320px"
-          />
-        ) : null}
-        {/* gradient overlay so text stays readable */}
-        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
-        {course.isNew && (
-          <span className="absolute top-3 right-3 bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 z-10">
-            New
-          </span>
-        )}
-      </div>
+      <div style={{ perspective: "2200px" }} className="w-full max-w-[920px]">
+        <div
+          ref={bookRef}
+          className={`relative mx-auto will-change-transform [transform-style:preserve-3d] ${
+            vertical ? "h-[min(78svh,640px)] w-full max-w-[420px]" : "aspect-[16/10] w-full"
+          }`}>
+          <div
+            className={`absolute bg-cs-paper text-cs-on-paper ${pageRound} ${
+              vertical ? "inset-x-0 bottom-0 h-1/2" : "inset-y-0 right-0 w-1/2"
+            }`}>
+            <span
+              aria-hidden
+              className={`absolute from-cs-on-paper/14 to-transparent ${
+                vertical ? "inset-x-0 top-0 h-6 bg-linear-to-b" : "inset-y-0 left-0 w-8 bg-linear-to-r"
+              }`}
+            />
+            <div className="relative flex h-full flex-col justify-center overflow-y-auto p-6 sm:p-10">
+              <p data-page-line className="font-mono text-[13px] text-cs-on-paper/60">
+                {program.duration}
+              </p>
+              <h3
+                data-page-line
+                className="mt-2 font-heading text-[24px] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-[34px]">
+                {program.title}
+              </h3>
+              <p data-page-line className="mt-3 text-[15px] leading-relaxed text-cs-on-paper/72 sm:text-[17px]">
+                {program.line}
+              </p>
+              <p data-page-line className="mt-3 hidden text-[14px] leading-relaxed text-cs-on-paper/64 sm:block">
+                Live classes on campus in Indore, real projects, weekly code reviews and placement support.
+              </p>
+              <div data-page-line className="mt-5 flex flex-wrap items-center gap-3">
+                <Link
+                  href={`/courses/${program.slug}`}
+                  className={`group inline-flex h-11 items-center gap-2 rounded-full bg-primary px-6 text-[15px] font-semibold text-white transition-colors duration-150 hover:bg-cs-accent-press ${focusRing}`}>
+                  View program
+                  <ArrowRight
+                    className="size-4 transition-transform duration-150 group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
+                </Link>
+                <BrochureButton
+                  source={`brochure-home-${program.slug}`}
+                  className={`inline-flex h-11 items-center gap-2 rounded-full border border-cs-on-paper/20 px-5 text-[15px] font-semibold text-cs-on-paper transition-colors duration-150 hover:border-primary hover:text-primary ${focusRing}`}>
+                  <Download aria-hidden="true" className="size-4" />
+                  Brochure
+                </BrochureButton>
+              </div>
+            </div>
+          </div>
 
-      {/* Card content */}
-      <div className="flex flex-col flex-1 p-5 gap-3 border-t border-primary/20">
-        <p className="text-xs font-bold tracking-[0.15em] text-primary/60 uppercase flex items-center gap-1.5">
-          <span className="h-3 w-3 border border-primary/30 inline-flex items-center justify-center shrink-0">
-            <span className="h-1 w-1 bg-primary/50" />
-          </span>
-          {course.badge}
-        </p>
-
-        <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
-          {course.title}
-        </h3>
-
-        <ul className="space-y-2 flex-1">
-          {course.meta.map((m, j) => {
-            const IconComp = META_ICON_MAP[m.icon] ?? Briefcase;
-            return (
-              <li key={j} className="text-sm text-white/60 flex items-center gap-2.5">
-                <IconComp className="h-3.5 w-3.5 text-white/55 shrink-0" strokeWidth={1.5} />
-                {m.text}
-              </li>
-            );
-          })}
-        </ul>
-
-        <div className="flex flex-col gap-2 mt-1">
-          <Link
-            href={`/courses/${course.slug}`}
-            aria-label={`Go to ${course.title} program`}
-            className="h-11 border border-white/10 text-xs font-bold text-white/60 hover:text-white hover:border-white/25 transition-all flex items-center justify-center tracking-[0.15em] uppercase">
-            Go To Program
-          </Link>
-          <BrochureButton
-            source={`brochure-home-${course.slug}`}
-            className="h-11 bg-primary hover:bg-primary/85 text-xs font-bold text-white transition-all flex items-center justify-center gap-2 tracking-[0.15em] uppercase">
-            <Download className="h-4 w-4" />
-            Brochure
-          </BrochureButton>
+          <div
+            ref={coverRef}
+            style={{ transformOrigin: vertical ? "50% 0%" : "0% 50%" }}
+            className={`pointer-events-none absolute [transform-style:preserve-3d] ${
+              vertical ? "inset-x-0 bottom-0 h-1/2" : "inset-y-0 right-0 w-1/2"
+            }`}>
+            <div className={`absolute inset-0 overflow-hidden bg-cs-ink [backface-visibility:hidden] ${pageRound}`}>
+              <Image src={program.image} alt="" fill sizes="460px" className="object-cover" />
+              <div className="absolute inset-0 bg-cs-ink/55" />
+              <div className="absolute inset-x-0 bottom-0 p-6 text-cs-on-ink sm:p-8">
+                <span className="block h-1 w-12 rounded-full bg-primary" />
+                <p className="mt-4 font-heading text-[24px] font-semibold leading-[1.05] tracking-[-0.03em] sm:text-[32px]">
+                  {program.title}
+                </p>
+                <p className="mt-2 font-mono text-[13px] text-cs-on-ink/72">{program.duration}</p>
+              </div>
+            </div>
+            <div
+              style={{
+                transform: vertical ? "rotateX(180deg)" : "rotateY(180deg)",
+              }}
+              className={`absolute inset-0 overflow-hidden bg-cs-ink [backface-visibility:hidden] ${leafRound}`}>
+              <Image src={program.image} alt={program.title} fill sizes="460px" className="object-cover" />
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
 export function CoursesSection() {
-  const [showAll, setShowAll] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const bookRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const loopRef = useRef<gsap.core.Tween | null>(null);
+  const [opened, setOpened] = useState<Opened | null>(null);
 
-  const visibleMobile = showAll ? courses : courses.slice(0, 2);
+  useEffect(() => {
+    const loop = loopRef.current;
+    if (!loop) return;
+    if (opened) loop.pause();
+    else loop.resume();
+  }, [opened]);
 
-  const scroll = (dir: "left" | "right") => {
-    if (!scrollRef.current) return;
-    scrollRef.current.scrollBy({
-      left: dir === "left" ? -660 : 660,
-      behavior: "smooth",
+  useSectionMotion(sectionRef, ({ gsap, root }) => {
+    gsap.from("[data-courses-head]", {
+      opacity: 0,
+      y: 28,
+      duration: 0.8,
+      stagger: 0.09,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: "[data-courses-head]",
+        start: "top 86%",
+        once: true,
+      },
     });
+
+    gsap.fromTo(
+      "[data-courses-fill]",
+      { clipPath: "inset(-12% 100% -12% -4%)" },
+      {
+        clipPath: "inset(-12% -4% -12% -4%)",
+        ease: "none",
+        scrollTrigger: {
+          trigger: "[data-courses-fill]",
+          start: "top 88%",
+          end: "top 48%",
+          scrub: 0.6,
+        },
+      },
+    );
+
+    gsap.from("[data-book]", {
+      yPercent: -40,
+      opacity: 0,
+      duration: 0.7,
+      stagger: 0.06,
+      ease: "back.out(1.6)",
+      scrollTrigger: { trigger: "[data-shelf]", start: "top 80%", once: true },
+    });
+
+    const mm = gsap.matchMedia(root);
+    mm.add("(max-width: 1023px)", () => {
+      const track = root.querySelector<HTMLElement>("[data-shelf-track]");
+      const viewport = root.querySelector<HTMLElement>("[data-shelf-viewport]");
+      if (!track || !viewport) return;
+      const loop = gsap.to(track, {
+        xPercent: -50,
+        duration: 28,
+        ease: "none",
+        repeat: -1,
+      });
+      loopRef.current = loop;
+      let resume: gsap.core.Tween | null = null;
+      const hold = () => {
+        resume?.kill();
+        loop.pause();
+      };
+      const release = () => {
+        resume?.kill();
+        resume = gsap.delayedCall(1.4, () => loop.resume());
+      };
+      viewport.addEventListener("pointerdown", hold);
+      viewport.addEventListener("pointerup", release);
+      viewport.addEventListener("pointercancel", release);
+      return () => {
+        resume?.kill();
+        viewport.removeEventListener("pointerdown", hold);
+        viewport.removeEventListener("pointerup", release);
+        viewport.removeEventListener("pointercancel", release);
+        loopRef.current = null;
+      };
+    });
+  });
+
+  const open = (index: number, el: HTMLButtonElement) => {
+    setOpened({ index, from: el.getBoundingClientRect() });
+  };
+
+  const closed = () => {
+    const index = opened?.index;
+    setOpened(null);
+    if (index !== undefined) bookRefs.current[index]?.focus({ preventScroll: true });
   };
 
   return (
-    <section className="bg-[#0a0a0a] py-16 sm:py-20 md:py-24 overflow-hidden border-t border-white/5">
+    <section ref={sectionRef} className="relative bg-cs-paper pb-16 pt-12 text-cs-on-paper sm:pb-20 sm:pt-16 lg:pb-24 lg:pt-20">
       <Container>
-        <div className="flex flex-col items-center text-center mb-10 sm:mb-12">
-          <p className="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-primary uppercase mb-3">
-            OUR COURSES
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold text-white font-heading tracking-tight">
-            Programs To Help You Upskill
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+          <h2
+            data-courses-head
+            className="font-heading text-[32px] font-medium leading-[1.05] tracking-[-0.03em] sm:text-[44px] lg:text-[56px]">
+            {HEADLINE}{" "}
+            <span className="relative inline-block">
+              <span className="text-transparent [-webkit-text-stroke:1.5px_var(--brand-color)]">{HEADLINE_PHRASE}</span>
+              <span data-courses-fill aria-hidden="true" className="absolute inset-0 text-primary">
+                {HEADLINE_PHRASE}
+              </span>
+            </span>
           </h2>
-          <p className="mt-4 text-sm sm:text-base md:text-lg text-white/60 max-w-xl">
-            Structured programs built around real projects, 1-on-1 mentorship,
-            and guaranteed placement support.
+          <p
+            data-courses-head
+            className="max-w-[420px] text-[15px] leading-relaxed text-cs-on-paper/72 sm:text-[17px] lg:pb-2">
+            Every program runs live on campus in Indore. Pick a book off the shelf to open it.
           </p>
-          <span className="mt-6 inline-block text-[10px] font-bold tracking-[0.2em] text-primary uppercase border border-primary/30 px-4 py-1.5">
-            On-Campus · Indore
-          </span>
         </div>
 
-        {/* ── MOBILE grid ── */}
-        <div className="md:hidden">
-          <div className="grid grid-cols-1 gap-3">
-            {visibleMobile.map((course, i) => (
-              <CourseCard key={i} course={course} className="w-full" />
-            ))}
+        <div data-shelf className="mt-4 min-w-0 lg:mt-6">
+          <div
+            data-shelf-viewport
+            className="-mx-4 overflow-hidden pt-8 motion-reduce:overflow-x-auto motion-reduce:px-4 lg:mx-0 lg:overflow-visible">
+            <ul
+              aria-label="Programs"
+              data-shelf-track
+              className="flex h-[300px] w-max items-end sm:h-[360px] lg:mx-auto lg:h-[420px]">
+              {[0, 1].flatMap((copy) =>
+                PROGRAMS.map((program, index) => {
+                  const spine = SPINES[index % SPINES.length];
+                  const hidden = opened?.index === index;
+                  const clone = copy > 0;
+                  return (
+                    <li
+                      key={`${copy}-${program.slug}`}
+                      data-book={clone ? undefined : true}
+                      aria-hidden={clone ? true : undefined}
+                      className={`flex w-[76px] flex-none pr-2 sm:w-[92px] lg:w-[124px] lg:pr-3 xl:w-[140px] ${spine.height} ${clone ? "motion-reduce:hidden lg:hidden" : ""}`}>
+                      <button
+                        ref={(el) => {
+                          if (!clone) bookRefs.current[index] = el;
+                        }}
+                        type="button"
+                        tabIndex={clone ? -1 : undefined}
+                        aria-haspopup="dialog"
+                        aria-label={`Open ${program.title}, ${program.duration}`}
+                        onClick={(event) => open(index, event.currentTarget)}
+                        className={`group relative flex h-full w-full origin-bottom flex-col items-center justify-between overflow-hidden rounded-t-[8px] rounded-b-[3px] px-1 py-4 text-white transition-[transform,opacity] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] hover:-translate-y-4 hover:-rotate-2 motion-reduce:transition-none ${
+                          hidden ? "opacity-0" : "opacity-100"
+                        } ${focusRing}`}>
+                        <Image
+                          src={program.image}
+                          alt=""
+                          fill
+                          sizes="128px"
+                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                        />
+                        <span aria-hidden className={`absolute inset-0 ${spine.veil}`} />
+                        <span aria-hidden className="relative flex w-full flex-col gap-1 px-2">
+                          <span className={`h-[3px] rounded-full ${spine.band}`} />
+                          <span className={`h-[3px] w-2/3 rounded-full ${spine.band} opacity-70`} />
+                        </span>
+                        <span
+                          aria-hidden
+                          className="relative min-h-0 flex-1 overflow-hidden py-3 font-heading text-[15px] font-semibold leading-none tracking-[-0.01em] [writing-mode:vertical-rl] rotate-180 sm:text-[18px] lg:text-[20px]">
+                          {program.title}
+                        </span>
+                        <span aria-hidden className="relative flex w-full flex-col items-center gap-2">
+                          <span className="font-mono text-[10px] leading-tight opacity-80 lg:text-[11px]">
+                            {program.duration}
+                          </span>
+                          <span className={`h-[3px] w-[calc(100%-16px)] rounded-full ${spine.band}`} />
+                        </span>
+                      </button>
+                    </li>
+                  );
+                }),
+              )}
+            </ul>
           </div>
-          {courses.length > 2 && (
-            <div className="mt-6 flex justify-center">
-              <button
-                onClick={() => setShowAll((p) => !p)}
-                className="flex items-center gap-2 border border-white/20 px-6 py-3 text-sm font-semibold text-white/60 hover:border-primary hover:text-primary transition-all">
-                {showAll ? (
-                  <><ChevronUp className="size-4" /> View Less</>
-                ) : (
-                  <><ChevronDown className="size-4" /> View More ({courses.length - 2} more)</>
-                )}
-              </button>
-            </div>
-          )}
+          <div aria-hidden className="h-3 rounded-full bg-cs-on-paper" />
+          <div aria-hidden className="mx-6 h-2 rounded-b-[6px] bg-cs-on-paper/20" />
         </div>
       </Container>
 
-      {/* ── DESKTOP carousel ── */}
-      <div className="relative mt-2 hidden md:block">
-        <button
-          onClick={() => scroll("left")}
-          aria-label="Previous"
-          className="absolute left-0 top-0 bottom-0 z-20 w-20 sm:w-28 flex items-center justify-start pl-3 sm:pl-5 bg-linear-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent group cursor-pointer">
-          <span className="h-10 w-10 border border-white/15 bg-[#1c1c1c]/90 flex items-center justify-center text-white/60 group-hover:text-white group-hover:border-white/35 group-hover:bg-[#252525] transition-all">
-            <ChevronLeft className="h-5 w-5" />
-          </span>
-        </button>
-        <button
-          onClick={() => scroll("right")}
-          aria-label="Next"
-          className="absolute right-0 top-0 bottom-0 z-20 w-20 sm:w-28 flex items-center justify-end pr-3 sm:pr-5 bg-linear-to-l from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent group cursor-pointer">
-          <span className="h-10 w-10 border border-white/15 bg-[#1c1c1c]/90 flex items-center justify-center text-white/60 group-hover:text-white group-hover:border-white/35 group-hover:bg-[#252525] transition-all">
-            <ChevronRight className="h-5 w-5" />
-          </span>
-        </button>
-        <div
-          ref={scrollRef}
-          className="no-scrollbar flex gap-2 overflow-x-auto px-20 sm:px-32">
-          {courses.map((course, i) => (
-            <CourseCard key={i} course={course} className="flex-none w-72 sm:w-80" />
-          ))}
-        </div>
-      </div>
+      {opened ? (
+        <OpenBook key={opened.index} program={PROGRAMS[opened.index]} from={opened.from} onClosed={closed} />
+      ) : null}
     </section>
   );
 }

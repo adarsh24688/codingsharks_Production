@@ -2,16 +2,18 @@
   "header": {
     "links": [
       {
-        "label": "Home",
-        "href": "/"
+        "label": "Programs",
+        "href": "/courses",
+        "menu": "programs"
       },
       {
-        "label": "Programs",
-        "href": "/courses"
+        "label": "Placements",
+        "href": "/placements"
       },
       {
         "label": "Workshops",
-        "href": "/workshops"
+        "href": "/workshops",
+        "menu": "workshops"
       },
       {
         "label": "Blog",
@@ -19,8 +21,9 @@
       }
     ],
     "primaryCta": {
-      "label": "Apply Now",
-      "href": "/book-demo"
+      "label": "Book a free career call",
+      "href": "/book-demo",
+      "note": "30 minutes. No fee to talk."
     }
   },
   "footer": {

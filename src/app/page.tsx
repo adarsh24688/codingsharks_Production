@@ -12,9 +12,15 @@ import { HowToApplySection } from "@/components/pages/home/how-to-apply-section"
 import { ComparisonSection } from "@/components/pages/home/comparison-section";
 import { FaqSection } from "@/components/pages/home/faq-section";
 import { FinalCtaSection } from "@/components/pages/home/final-cta-section";
+import { ProblemSection } from "@/components/pages/home/problem-section";
+import { JourneySection } from "@/components/pages/home/journey-section";
+import { HowYouLearnSection } from "@/components/pages/home/how-you-learn-section";
+import { ParentsSection } from "@/components/pages/home/parents-section";
+import { ScrollBand } from "@/components/pages/home/scroll-band";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationSchema, webSiteSchema, faqSchema } from "@/lib/seo-schema";
 import { SITE_URL } from "@/lib/site-config";
+import home from "@/data/home.json";
 
 const BASE_URL = SITE_URL;
 
@@ -35,32 +41,7 @@ export const metadata: Metadata = {
 
 // Visible homepage FAQ (FaqSection) must match these strings verbatim.
 // NOTE: no fee/pricing question here — fees are never shown (owner rule).
-const HOME_FAQS = [
-  {
-    q: "Is Coding Sharks suitable for complete beginners?",
-    a: "Yes — many of our top placements had zero prior coding experience. Our pre-cohort prep module gets you up to speed before Day 1, and your mentor guides you through every step.",
-  },
-  {
-    q: "What programming languages and technologies are taught at Coding Sharks?",
-    a: "Full Stack track covers JavaScript, TypeScript, React, Next.js, Node.js, PostgreSQL, MongoDB, Redis, AWS, and Docker. AI track adds Python, LangChain, OpenAI APIs, and vector databases.",
-  },
-  {
-    q: "Are the classes live or pre-recorded?",
-    a: "All core sessions are live with your cohort. Every session is recorded and available within 24 hours so you never fall behind. Workshops, code reviews, and mentor sessions are always live.",
-  },
-  {
-    q: "Do students build real projects at Coding Sharks?",
-    a: "Every week you ship something. By the end of the program you'll have 3–5 production-grade projects on GitHub with real users — not tutorial clones — which is exactly what interviewers want to see.",
-  },
-  {
-    q: "How long does it take to get placed after completing the Coding Sharks program?",
-    a: "Most students receive their first offer within 4–8 weeks of completing the program. Our placement team actively connects you with hiring partners and prepares you through mock interviews and referrals.",
-  },
-  {
-    q: "Does Coding Sharks offer a placement guarantee?",
-    a: "Coding Sharks has a 91%+ placement rate across all cohorts. Our dedicated placement team provides mock interviews, resume reviews, and direct referrals to 100+ hiring partners to ensure you get placed.",
-  },
-];
+const HOME_FAQS = home.faq.items.map((item) => ({ q: item.question, a: item.answer }));
 
 export default function HomePage() {
   return (
@@ -69,35 +50,22 @@ export default function HomePage() {
       <JsonLd data={webSiteSchema()} />
       <JsonLd data={faqSchema(HOME_FAQS)!} />
 
-      <div className="pointer-events-none fixed inset-0 -z-10">
-        <picture className="absolute top-0 left-0 right-0 h-[55vh]">
-          <source
-            media="(min-width: 768px)"
-            srcSet="/images/grid/ezgif_285019e9218540c3_9ef0acb83f.webp"
-          />
-          <source
-            media="(max-width: 767px)"
-            srcSet="/images/grid/ezgif_81a45f823f76635f_54311c2d8a.webp"
-          />
-          <img
-            src="/images/grid/ezgif_81a45f823f76635f_54311c2d8a.webp"
-            alt=""
-            fetchPriority="high"
-            className="h-full w-full object-cover object-top opacity-90"
-          />
-        </picture>
-      </div>
       <HeroSection />
-      <BookLiveClassSection />
+      <ProblemSection />
+      <JourneySection />
       <PlacementsSection />
-      <WhyCodingSharksSection />
-      <CoursesSection />
-      <ReviewsSection />
-      <CommunitySection />
-      <MentorsSection />
-      <HowToApplySection />
       <WorkAtSection />
+      <CoursesSection />
+      <HowYouLearnSection />
+      <WhyCodingSharksSection />
+      <BookLiveClassSection />
+      <MentorsSection />
+      <ReviewsSection />
+      <ScrollBand words={["Live classes.", "Real projects.", "Code reviews.", "Referrals."]} direction={-1} tone="paper-2" />
+      <CommunitySection />
       <ComparisonSection />
+      <ParentsSection />
+      <HowToApplySection />
       <FaqSection />
       <FinalCtaSection />
     </>

@@ -86,3 +86,7 @@ Dockerfile
 Makefile
 SECURITY.md
 
+redesign_research/
+public/hero
+.playwright-mcp
+.serena

@@ -1,194 +1,224 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Container } from "@/components/layout/container";
+import Image from "next/image";
+import { useRef } from "react";
+import { ArrowRight, Flag, GraduationCap, Laptop } from "lucide-react";
+
 import home from "@/data/home.json";
+import sharkMark from "@/assets/images/coding-logo-mark-white.png";
+import { Container } from "@/components/layout/container";
+import { openLeadModal } from "@/components/common/lead-modal";
+import { useSectionMotion } from "./use-section-motion";
+
+const focusRing = "focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary";
+
+const MARKER_PHRASE = "Three ways";
+
+const STOPS = [0.14, 0.38, 0.62, 0.86];
+
+const ICONS = [null, Laptop, GraduationCap];
 
 export function ComparisonSection() {
   const { comparison } = home;
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const race = comparison.race;
+  const sectionRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.1 }
+  useSectionMotion(sectionRef, ({ gsap }) => {
+    gsap.from("[data-compare-head]", {
+      opacity: 0,
+      y: 28,
+      duration: 0.8,
+      stagger: 0.09,
+      ease: "power3.out",
+      scrollTrigger: { trigger: "[data-compare-head]", start: "top 86%", once: true },
+    });
+    gsap.fromTo(
+      "[data-compare-marker]",
+      { clipPath: "inset(0% 100% 0% 0%)" },
+      {
+        clipPath: "inset(0% 0% 0% 0%)",
+        duration: 0.9,
+        delay: 0.25,
+        ease: "power3.inOut",
+        scrollTrigger: { trigger: "[data-compare-head]", start: "top 86%", once: true },
+      },
     );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+
+    const tl = gsap.timeline({
+      defaults: { ease: "none" },
+      scrollTrigger: { trigger: "[data-race]", start: "top 70%", end: "top 12%", scrub: 0.6 },
+    });
+
+    gsap.utils.toArray<HTMLElement>("[data-lane]").forEach((lane) => {
+      const reach = Number(lane.dataset.reach) || 0;
+      tl.fromTo(lane.querySelector("[data-runner]"), { xPercent: 0 }, { xPercent: reach * 100, duration: 1 }, 0);
+      tl.fromTo(lane.querySelector("[data-trail]"), { scaleX: 0 }, { scaleX: reach, duration: 1 }, 0);
+      lane.querySelectorAll<HTMLElement>("[data-stop]").forEach((stop) => {
+        const at = Number(stop.dataset.at) || 0;
+        if (at > reach) return;
+        tl.fromTo(stop, { opacity: 0.3, y: 6 }, { opacity: 1, y: 0, duration: 0.06 }, (at / reach) * 0.98 - 0.03);
+      });
+      const end = lane.querySelector("[data-end]");
+      if (end)
+        tl.fromTo(end, { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.08, ease: "back.out(2)" }, 0.97);
+    });
+    tl.fromTo("[data-finish-flag]", { rotation: -30 }, { rotation: 8, duration: 0.2, ease: "back.out(3)" }, 0.9);
+    tl.set({}, {}, 1.05);
+  });
+
+  const marked = comparison.headline.startsWith(MARKER_PHRASE);
+  const headlineRest = marked ? comparison.headline.slice(MARKER_PHRASE.length) : comparison.headline;
 
   return (
-    <section ref={ref} className="bg-[#0a0a0a] py-16 sm:py-20 md:py-28 border-t border-white/5 overflow-hidden">
+    <section ref={sectionRef} className="bg-cs-paper py-16 text-cs-on-paper sm:py-20 lg:py-24">
       <Container>
-
-        {/* Header */}
-        <div
-          className="flex flex-col items-center text-center mb-16"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(28px)",
-            transition: "opacity 0.6s ease, transform 0.6s ease",
-          }}
-        >
-          <span className="inline-block text-[10px] font-bold tracking-[0.28em] text-primary uppercase border border-primary/30 px-4 py-1.5 mb-6">
-            {comparison.eyebrow}
-          </span>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white font-heading tracking-tight leading-tight">
-            {comparison.headline1}
-            <br />
-            <span className="text-primary italic">{comparison.headline2}</span>
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
+          <h2
+            data-compare-head
+            className="font-heading text-[32px] font-medium leading-[1.1] tracking-[-0.03em] sm:text-[44px] lg:text-[56px]">
+            {marked ? (
+              <span
+                data-compare-marker
+                className="inline-block -rotate-1 rounded-[0.12em] bg-primary px-[0.18em] text-white">
+                {MARKER_PHRASE}
+              </span>
+            ) : null}
+            {headlineRest}
           </h2>
+          <p
+            data-compare-head
+            className="max-w-[420px] text-[15px] leading-relaxed text-cs-on-paper/72 sm:text-[17px] lg:pb-2">
+            {race.subline}
+          </p>
         </div>
 
-        {/* ── MOBILE layout: stacked pairs (hidden md+) ── */}
         <div
-          className="md:hidden max-w-lg mx-auto space-y-3"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(36px)",
-            transition: "opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s",
-          }}
-        >
-          {/* Column headers row */}
-          <div className="flex items-stretch gap-0 mb-4">
-            {/* CodingSharks */}
-            <div className="flex-1 bg-primary/10 border border-r-0 border-primary/40 px-3 py-3 flex items-center gap-2 min-w-0">
-              <span className="text-base shrink-0">🦈</span>
-              <div className="min-w-0">
-                <p className="text-white font-bold text-xs leading-tight truncate">{comparison.us.name}</p>
-                <p className="text-primary text-[9px] font-medium mt-0.5">The better way</p>
-              </div>
-            </div>
-            {/* VS badge */}
-            <div className="shrink-0 w-8 flex items-center justify-center bg-white/5 border-y border-white/10">
-              <span className="text-[8px] font-bold text-white/55 tracking-wider">VS</span>
-            </div>
-            {/* Others */}
-            <div className="flex-1 bg-white/3 border border-l-0 border-white/8 px-3 py-3 flex items-center gap-2 min-w-0">
-              <div className="size-5 bg-white/6 border border-white/10 flex items-center justify-center shrink-0">
-                <svg width="8" height="8" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 2l10 10M12 2L2 12" stroke="rgba(255,255,255,0.35)" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <div className="min-w-0">
-                <p className="text-white/60 font-bold text-xs leading-tight truncate">{comparison.them.name}</p>
-                <p className="text-white/40 text-[9px] font-medium mt-0.5">Typical programs</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Each row: CS point (top) + Others point (bottom) */}
-          {comparison.us.points.map((point, i) => (
-            <div
-              key={i}
-              style={{
-                opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(16px)",
-                transition: `opacity 0.5s ease ${0.35 + i * 0.08}s, transform 0.5s ease ${0.35 + i * 0.08}s`,
-              }}
-            >
-              {/* CodingSharks point */}
-              <div className="bg-primary/6 border border-b-0 border-primary/40 px-4 py-3.5 flex items-start gap-3">
-                <svg className="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 22 22" fill="none">
-                  <circle cx="11" cy="11" r="11" fill="#22c55e" fillOpacity="0.15"/>
-                  <path d="M7 11.5l3 3 5.5-5.5" stroke="#22c55e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span className="text-white/90 text-sm leading-relaxed">{point}</span>
-              </div>
-              {/* VS divider */}
-              <div className="flex items-center gap-2 px-4 py-1.5 bg-white/3 border-x border-white/8">
-                <div className="flex-1 h-px bg-white/6" />
-                <span className="text-[9px] font-bold text-white/20 tracking-widest">VS</span>
-                <div className="flex-1 h-px bg-white/6" />
-              </div>
-              {/* Others point */}
-              <div className="bg-white/2 border border-t-0 border-white/8 px-4 py-3.5 flex items-start gap-3">
-                <svg className="shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 22 22" fill="none">
-                  <circle cx="11" cy="11" r="11" fill="rgba(239,68,68,0.1)"/>
-                  <path d="M7.5 7.5l7 7M14.5 7.5l-7 7" stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>
-                <span className="text-white/55 text-sm leading-relaxed line-through decoration-white/15">
-                  {comparison.them.points[i]}
+          data-race
+          className="relative mt-10 rounded-[28px] bg-cs-ink p-5 text-cs-on-ink sm:p-8 lg:mt-12 lg:px-10 lg:py-9">
+          <div className="grid items-end gap-4 lg:grid-cols-[210px_minmax(0,1fr)] lg:gap-8">
+            <p className="hidden text-[13px] text-cs-on-ink/56 lg:block">The road you pick</p>
+            <div className="flex items-center justify-between text-[13px]">
+              <span className="text-cs-on-ink/60">Start: you, today</span>
+              <span className="flex items-center gap-2 font-semibold text-primary">
+                <span data-finish-flag className="inline-block origin-bottom-left">
+                  <Flag aria-hidden className="size-4" />
                 </span>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* ── DESKTOP table (hidden on mobile) ── */}
-        <div
-          className="hidden md:block max-w-5xl mx-auto"
-          style={{
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(36px)",
-            transition: "opacity 0.7s ease 0.25s, transform 0.7s ease 0.25s",
-          }}
-        >
-          {/* Column headers */}
-          <div className="grid grid-cols-[1fr_56px_1fr] mb-2">
-            <div className="bg-primary/10 border border-b-0 border-primary/40 px-6 py-5 flex items-center gap-3">
-              <span className="text-2xl">🦈</span>
-              <div>
-                <p className="text-white font-bold text-lg leading-tight">{comparison.us.name}</p>
-                <p className="text-primary text-xs font-medium tracking-wide mt-0.5">The better way</p>
-              </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center z-10">
-                <span className="text-[10px] font-bold text-white/60 tracking-wider">VS</span>
-              </div>
-            </div>
-            <div className="bg-white/3 border border-b-0 border-white/8 px-6 py-5 flex items-center gap-3">
-              <div className="size-9 rounded-full bg-white/6 border border-white/10 flex items-center justify-center">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 2l10 10M12 2L2 12" stroke="rgba(255,255,255,0.35)" strokeWidth="1.8" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <div>
-                <p className="text-white/60 font-bold text-lg leading-tight">{comparison.them.name}</p>
-                <p className="text-white/40 text-xs font-medium tracking-wide mt-0.5">Typical programs</p>
-              </div>
+                {race.finish}
+              </span>
             </div>
           </div>
 
-          {/* Rows */}
-          {comparison.us.points.map((point, i) => {
-            const isLast = i === comparison.us.points.length - 1;
-            return (
-              <div
-                key={i}
-                className="grid grid-cols-[1fr_56px_1fr]"
-                style={{
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? "translateY(0)" : "translateY(16px)",
-                  transition: `opacity 0.5s ease ${0.35 + i * 0.08}s, transform 0.5s ease ${0.35 + i * 0.08}s`,
-                }}
-              >
-                <div className={`bg-primary/6 border-x border-primary/40 px-6 py-5 flex items-center gap-3 ${isLast ? "border-b" : "border-b border-b-primary/15"}`}>
-                  <svg className="shrink-0" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <circle cx="11" cy="11" r="11" fill="#22c55e" fillOpacity="0.15"/>
-                    <path d="M7 11.5l3 3 5.5-5.5" stroke="#22c55e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <span className="text-white/90 text-sm sm:text-[15px] leading-relaxed">{point}</span>
-                </div>
-                <div className="flex items-center justify-center">
-                  <div className="w-px h-full bg-white/6" />
-                </div>
-                <div className={`bg-white/2 border-x border-white/8 px-6 py-5 flex items-center gap-3 ${isLast ? "border-b" : "border-b border-b-white/5"}`}>
-                  <svg className="shrink-0" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <circle cx="11" cy="11" r="11" fill="rgba(239,68,68,0.1)"/>
-                    <path d="M7.5 7.5l7 7M14.5 7.5l-7 7" stroke="#ef4444" strokeWidth="1.8" strokeLinecap="round"/>
-                  </svg>
-                  <span className="text-white/55 text-sm sm:text-[15px] leading-relaxed line-through decoration-white/15">
-                    {comparison.them.points[i]}
-                  </span>
-                </div>
-              </div>
-            );
-          })}
+          <ol className="mt-6 space-y-8 lg:space-y-6">
+            {race.lanes.map((lane, index) => {
+              const Icon = ICONS[index];
+              return (
+                <li
+                  key={lane.name}
+                  data-lane
+                  data-reach={lane.reach}
+                  className="grid gap-4 lg:grid-cols-[210px_minmax(0,1fr)] lg:items-start lg:gap-8">
+                  <div className="lg:pt-3">
+                    <h3
+                      className={`font-heading text-[20px] font-medium leading-tight tracking-[-0.02em] sm:text-[22px] ${
+                        lane.featured ? "text-primary" : "text-cs-on-ink/85"
+                      }`}>
+                      {lane.name}
+                    </h3>
+                    <p
+                      data-end
+                      className={`mt-1.5 inline-block origin-left rounded-full px-2.5 py-1 text-[12px] font-semibold ${
+                        lane.featured ? "bg-primary text-white" : "bg-cs-on-ink/10 text-cs-on-ink/70"
+                      }`}>
+                      {lane.end}
+                    </p>
+                  </div>
+
+                  <div>
+                    <div
+                      className={`relative h-14 overflow-hidden rounded-full px-7 ${lane.featured ? "bg-primary/12 ring-1 ring-inset ring-primary/40" : "bg-cs-ink-2 ring-1 ring-inset ring-cs-on-ink/10"}`}>
+                      <div className="relative h-full">
+                        <span
+                          aria-hidden
+                          className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t-2 border-dashed border-cs-on-ink/15"
+                        />
+                        <span
+                          aria-hidden
+                          data-trail
+                          className={`absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 origin-left rounded-full ${
+                            lane.featured ? "bg-primary" : "bg-cs-on-ink/45"
+                          }`}
+                        />
+                        {STOPS.map((at) => (
+                          <span
+                            key={at}
+                            aria-hidden
+                            style={{ left: `${at * 100}%` }}
+                            className={`absolute top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full ring-4 ${
+                              lane.featured ? "ring-cs-ink" : "ring-cs-ink-2"
+                            } ${at <= lane.reach ? (lane.featured ? "bg-primary" : "bg-cs-on-ink/70") : "bg-cs-on-ink/20"}`}
+                          />
+                        ))}
+                        <span
+                          aria-hidden
+                          className="absolute right-0 top-1/2 h-10 w-2.5 -translate-y-1/2 rounded-[3px] bg-[repeating-linear-gradient(0deg,var(--cs-on-ink)_0_5px,var(--cs-ink)_5px_10px)] opacity-60"
+                        />
+                        <div aria-hidden className="pointer-events-none absolute inset-0">
+                          <div data-runner className="h-full w-full will-change-transform">
+                            <span
+                              className={`absolute left-0 top-1/2 grid size-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full ring-4 ${
+                                lane.featured
+                                  ? "bg-primary text-white ring-primary/30"
+                                  : "bg-cs-on-ink text-cs-ink ring-cs-on-ink/15"
+                              }`}>
+                              {Icon ? (
+                                <Icon className="size-5" />
+                              ) : (
+                                <Image src={sharkMark} alt="" className="h-5 w-auto" />
+                              )}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <ol className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 px-1 sm:grid-cols-4 lg:px-7">
+                      {lane.milestones.map((milestone, i) => (
+                        <li
+                          key={milestone}
+                          data-stop
+                          data-at={STOPS[i]}
+                          className={`text-[13px] leading-snug sm:text-center ${
+                            STOPS[i] > lane.reach
+                              ? "text-cs-on-ink/35 line-through decoration-cs-on-ink/30"
+                              : lane.featured
+                                ? "text-cs-on-ink"
+                                : "text-cs-on-ink/75"
+                          }`}>
+                          {milestone}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+
+          <div className="mt-8 flex flex-col items-start gap-3 border-t border-cs-on-ink/12 pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <p className="max-w-[520px] text-[15px] text-cs-on-ink/80">
+              Only one road is built to end at an <span className="font-semibold text-primary">offer letter</span>.
+            </p>
+            <button
+              type="button"
+              onClick={() => openLeadModal("home-comparison")}
+              className={`group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-[15px] font-semibold text-white transition-colors duration-150 hover:bg-cs-accent-press ${focusRing}`}>
+              Book a free career call
+              <ArrowRight
+                aria-hidden
+                className="size-4 transition-transform duration-150 group-hover:translate-x-0.5"
+              />
+            </button>
+          </div>
         </div>
       </Container>
     </section>

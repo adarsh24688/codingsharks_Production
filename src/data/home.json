@@ -1,26 +1,75 @@
 {
   "hero": {
-    "headline1": "Build Real",
-    "headline2": "Software Products",
-    "headline3": "— Get Hired, Not Just Certified",
-    "subheadline": "Stop watching tutorials. Build products companies actually hire for — with 1-on-1 mentorship from senior engineers at top startups. Master Full Stack, AI Agents & System Design. Get placed in 6 months.",
-    "supportingLine": "From coding fundamentals to AI-powered applications and scalable systems.",
-    "eyebrow": "LEARN. BUILD. GET PLACED.",
-    "communityBlurb": "Students learning in our mastery programs",
-    "communityCount": "1 Million+",
-    "avatars": [
-      "/images/home/1500648767791-00dcc994a43e.jpg",
-      "/images/home/1524504388940-b1c1722653e1.jpg",
-      "/images/home/1522071820081-009f0129c71c.jpg"
-    ],
+    "headline": "Build real software products.",
+    "headlineAccent": "Get hired, not just certified.",
+    "subheadline": "2,000+ careers transformed from our Indore campus. 91%+ placement, 50+ hiring partners, and a top offer of ₹21 LPA.",
     "primaryCta": {
-      "label": "Book Free Career Session",
-      "href": "/book-demo"
+      "label": "Book a free career call",
+      "note": "30 minutes. No fee to talk."
     },
     "secondaryCta": {
-      "label": "View Full Curriculum",
-      "href": "/curriculum"
-    }
+      "label": "See where students got placed",
+      "href": "/placements"
+    },
+    "chapters": [
+      {
+        "title": "Tutorials alone will not get you hired.",
+        "accent": "not get you hired.",
+        "body": "You watch, you copy, you forget it by Friday. An interviewer can tell in five minutes."
+      },
+      {
+        "title": "Here, you build the real thing.",
+        "accent": "the real thing.",
+        "body": "You ship something every week from our Indore campus, and a senior engineer reviews every line you write."
+      },
+      {
+        "title": "Then we train you for the offer.",
+        "accent": "for the offer.",
+        "body": "Mock interviews, resume reviews and direct referrals to 50+ hiring partners, until you are ready to walk in."
+      },
+      {
+        "title": "Walk out with a developer job.",
+        "accent": "a developer job.",
+        "body": "2,000+ careers started in this room. Yours can be next."
+      }
+    ],
+    "stats": [
+      {
+        "value": "91%+",
+        "label": "Placement rate"
+      },
+      {
+        "value": "2,000+",
+        "label": "Careers transformed"
+      },
+      {
+        "value": "50+",
+        "label": "Hiring partners"
+      }
+    ]
+  },
+  "problem": {
+    "headline": "Watching tutorials is not the same as building.",
+    "body": "Companies do not hire the certificate. They open your GitHub, ask what you shipped, and watch how you debug. Most courses never get you there.",
+    "pivot": "At Coding Sharks you ship something every week, and a senior engineer reviews it.",
+    "contrasts": [
+      {
+        "them": "Watch a video",
+        "us": "Ship a feature"
+      },
+      {
+        "them": "Copy the code",
+        "us": "Get your code reviewed"
+      },
+      {
+        "them": "Collect a certificate",
+        "us": "Collect commits on GitHub"
+      },
+      {
+        "them": "Hope for an interview",
+        "us": "Train for the interview"
+      }
+    ]
   },
   "liveClass": {
     "title": "Become the Top 1% in Tech",
@@ -41,21 +90,42 @@
     ],
     "form": {
       "title": "Book a Live Class, For Free!",
-      "programs": [
-        "Full Stack",
-        "Frontend",
-        "Backend",
-        "AI/Automation"
-      ]
+      "programs": ["Full Stack", "Frontend", "Backend", "AI/Automation"]
     },
     "cta": {
       "label": "Book Free Live Class",
       "note": "Limited Seats Left"
     }
   },
+  "howYouLearn": {
+    "headline": "One week at Coding Sharks",
+    "subline": "The same four beats, every week, until you are ready for the interview room.",
+    "beats": [
+      {
+        "day": "Mon to Thu",
+        "title": "Live classes with your cohort",
+        "body": "Taught live from our Indore campus. Every session is recorded and available within 24 hours, so a missed day never means falling behind."
+      },
+      {
+        "day": "Every week",
+        "title": "You ship something",
+        "body": "Not a tutorial clone. A working feature or app that goes on your GitHub with your name on the commits."
+      },
+      {
+        "day": "Friday",
+        "title": "A senior engineer reviews your code",
+        "body": "Line by line, the way it happens inside a real engineering team. You fix it, you push again."
+      },
+      {
+        "day": "Before placement",
+        "title": "Mock interviews and resume reviews",
+        "body": "You practise the interview until it stops being scary, then we refer you directly to hiring partners."
+      }
+    ]
+  },
   "alumniWork": {
     "headline": "Our Alumni Work At",
-    "description": "CodingSharks students are building careers across startups, tech companies and growing product teams where they apply real development skills.",
+    "description": "Coding Sharks students are building careers across startups, tech companies and growing product teams where they apply real development skills.",
     "logos": [
       "Product Startups",
       "Fintech",
@@ -101,22 +171,22 @@
     {
       "name": "Santosh Patidar",
       "role": "Founder & CEO Dingg",
-      "company": "Dinng",
-      "description": "Founder of Dingg, with global experience working as technical Director  in the US Comscore. Actively connected with Coding Shark, where he mentors and guides students while providing real-world projects and growth opportunities to help them build strong careers in tech.",
+      "company": "Dingg",
+      "description": "Founder of Dingg, with global experience working as technical Director in the US Comscore. Actively connected with Coding Sharks, where he mentors and guides students while providing real-world projects and growth opportunities to help them build strong careers in tech.",
       "imageUrl": "/images/mentor/mentor3.jpeg"
     },
     {
       "name": "Prasheel Soni",
       "role": "Sr. Software Engineer",
       "company": "Bolt , europe",
-      "description": "Senior Software Engineer at Bolt (Europe), building scalable and high-performance systems. Actively connected with Coding Shark, where he guides, mentors, and supports students in their tech journey.",
+      "description": "Senior Software Engineer at Bolt (Europe), building scalable and high-performance systems. Actively connected with Coding Sharks, where he guides, mentors, and supports students in their tech journey.",
       "imageUrl": "/images/mentor/mentor2.jpeg"
     },
     {
       "name": "Krati Vyas",
       "role": "Founder, Crewnox",
       "company": "Crewnox",
-      "description": "CEO & Founder of Crewnox with 8+ years of experience in global marketing, design, and operations. A UX designer and data researcher, she actively guides emerging talent through Coding Shark while building innovative, user-focused solutions.",
+      "description": "CEO & Founder of Crewnox with 8+ years of experience in global marketing, design, and operations. A UX designer and data researcher, she actively guides emerging talent through Coding Sharks while building innovative, user-focused solutions.",
       "imageUrl": "/images/mentor/mentor1.jpeg"
     }
   ],
@@ -143,7 +213,7 @@
       "company": "Zepto",
       "ctc": "₹18L CTC",
       "ctcLocation": "Zepto Mumbai",
-      "quote": "I never thought I'd be writing React code at a unicorn. CodingSharks made it real.",
+      "quote": "I never thought I'd be writing React code at a unicorn. Coding Sharks made it real.",
       "videoId": "dQw4w9WgXcQ",
       "thumbnailUrl": "/images/home/1598257006458-087169a1f08d.jpg"
     },
@@ -201,51 +271,28 @@
     }
   ],
   "howToApply": {
-    "eyebrow": "HOW TO APPLY",
-    "headline1": "Your path to a",
-    "headline2": "dream career",
-    "subline": "Simple 5-step process. Free application. Decision in 48 hours.",
+    "headline": "Five steps to Day 1",
+    "subline": "Free to apply. Decision in 48 hours.",
     "steps": [
       {
-        "title": "Apply in 15 Minutes",
-        "description": "Fill out a simple form — no resume polish needed. We look for curiosity, commitment, and coachability. Not grades, not credentials.",
-        "tags": [
-          "Free",
-          "15 minutes",
-          "No credit card"
-        ]
+        "title": "Apply in 15 minutes",
+        "description": "A short form. No resume polish needed. We look for curiosity, commitment and coachability, not grades."
       },
       {
-        "title": "Screening Call with a Shark",
-        "description": "A 45-min call with one of our senior engineers. We work through a small problem together — nothing scary, just how you think.",
-        "tags": [
-          "45 min",
-          "With a Shark engineer"
-        ]
+        "title": "Screening call",
+        "description": "45 minutes with a senior engineer. You will work through a small problem together. Nothing scary, just how you think."
       },
       {
-        "title": "Offer in 48 Hours",
-        "description": "Choose ISA or upfront payment, pick your cohort date, and lock your seat with a fully refundable ₹5,000 deposit.",
-        "tags": [
-          "48hr decision",
-          "Refundable deposit"
-        ]
+        "title": "Decision in 48 hours",
+        "description": "You hear back within two days, pick your batch date and confirm your seat."
       },
       {
-        "title": "2-Week Pre-Cohort Prep",
-        "description": "Meet your batch, set up your dev environment, complete async prep modules. Arrive on Day 1 with momentum.",
-        "tags": [
-          "Async",
-          "Dev setup",
-          "Meet your squad"
-        ]
+        "title": "Two weeks of prep",
+        "description": "Meet your batch, set up your laptop and finish the prep modules, so you arrive on Day 1 with momentum."
       },
       {
-        "title": "Day 1 — You're a CodingShark",
-        "description": "The next 6 months will be the most transformative of your career. Build real products, get mentored, and get placed.",
-        "tags": [
-          "🦈 Ship something every week"
-        ]
+        "title": "Day 1",
+        "description": "You start shipping. Real products, weekly code reviews, and a placement team working alongside you."
       }
     ]
   },
@@ -364,7 +411,7 @@
       "name": "Aditya Kumar",
       "role": "Full Stack Developer",
       "rating": 5,
-      "text": "CodingSharks completely changed my career trajectory. The mentorship quality and real project work set it apart from every other program I tried.",
+      "text": "Coding Sharks completely changed my career trajectory. The mentorship quality and real project work set it apart from every other program I tried.",
       "initial": "A",
       "color": "#7c3aed"
     },
@@ -420,45 +467,122 @@
       "name": "Saurabh Mishra",
       "role": "Backend Developer",
       "rating": 5,
-      "text": "Switched from a non-tech job at 27. The faculty here doesn't judge your background — they focus entirely on where you want to go.",
+      "text": "Switched from a non-tech job at 27. The faculty here doesn't judge your background, they focus entirely on where you want to go.",
       "initial": "S",
       "color": "#0891b2"
     }
   ],
   "comparison": {
-    "eyebrow": "COMPARISON",
-    "headline1": "What Sets CodingSharks",
-    "headline2": "Apart From Others",
-    "us": {
-      "name": "CodingSharks",
-      "points": [
-        "1-on-1 mentorship with senior engineers",
-        "Real product projects — not toy exercises",
-        "Placement support with 1200+ hiring partners",
-        "Live cohort with weekly code reviews"
-      ]
-    },
-    "them": {
-      "name": "Others",
-      "points": [
-        "Pre-recorded lectures with no mentor access",
-        "Theory-centric, outdated curriculum",
-        "No structured placement pipeline",
-        "Self-paced with zero accountability"
+    "headline": "Three ways to become a developer",
+    "subline": "Same goal, very different odds.",
+    "paths": [
+      {
+        "name": "Coding Sharks",
+        "featured": true,
+        "points": [
+          "Live cohort with weekly code reviews",
+          "Real product projects on your GitHub",
+          "Mock interviews and resume reviews",
+          "Direct referrals to 50+ hiring partners"
+        ]
+      },
+      {
+        "name": "Self taught",
+        "featured": false,
+        "points": [
+          "Free videos, no one to review your code",
+          "Tutorial clones that look like everyone else's",
+          "No interview practice",
+          "You apply cold, on your own"
+        ]
+      },
+      {
+        "name": "College degree alone",
+        "featured": false,
+        "points": [
+          "Theory first, syllabus years behind",
+          "Little or no shipped work to show",
+          "Placement cell with limited tech roles",
+          "Three to four years before your first offer"
+        ]
+      }
+    ],
+    "race": {
+      "subline": "Same start line, same goal. Watch how far each road actually gets you.",
+      "finish": "First developer offer",
+      "lanes": [
+        {
+          "name": "Coding Sharks",
+          "featured": true,
+          "reach": 1,
+          "milestones": [
+            "Live classes with your batch",
+            "Every line reviewed by a senior engineer",
+            "Real projects on your GitHub",
+            "Mock interviews until you are ready"
+          ],
+          "end": "Referred to 50+ hiring partners"
+        },
+        {
+          "name": "Self taught",
+          "featured": false,
+          "reach": 0.46,
+          "milestones": [
+            "Free videos and tutorials",
+            "Stuck, with no one to review your code",
+            "Tutorial clones that look like everyone else's",
+            "Applying cold, on your own"
+          ],
+          "end": "Stalls without feedback"
+        },
+        {
+          "name": "College degree alone",
+          "featured": false,
+          "reach": 0.93,
+          "milestones": [
+            "Theory first, syllabus years behind",
+            "Exams over shipped work",
+            "One small final-year project",
+            "Placement cell with limited tech roles"
+          ],
+          "end": "Three to four years before a first offer"
+        }
       ]
     }
   },
-  "faq": {
-    "eyebrow": "FAQS",
-    "headline": "Frequently Asked Questions",
-    "subline": "From Our Students",
+  "parents": {
+    "headline": "For parents",
+    "subline": "The questions we hear most from families, answered plainly.",
     "items": [
       {
-        "question": "Is CodingSharks suitable for complete beginners?",
-        "answer": "Yes — many of our top placements had zero prior coding experience. Our pre-cohort prep module gets you up to speed before Day 1, and your mentor guides you through every step."
+        "q": "Where do classes happen?",
+        "a": "At our campus on the 3rd Floor, Veda Complex, Bhawarkua Main Road, Indore, and live online. You are welcome to visit."
       },
       {
-        "question": "What programming languages and technologies are taught?",
+        "q": "How do you track progress?",
+        "a": "Students ship a project every week and a senior engineer reviews it. Every class is recorded within 24 hours, so a missed day does not mean falling behind."
+      },
+      {
+        "q": "What happens before joining?",
+        "a": "A free screening call with a senior engineer, then a two week prep module before Day 1."
+      },
+      {
+        "q": "What about placements?",
+        "a": "91%+ of our students get placed, with 50+ hiring partners and a top offer of ₹21 LPA. Mock interviews and direct referrals are part of the program."
+      }
+    ],
+    "cta": "Book a call for your child"
+  },
+  "faq": {
+    "headline": "Questions students ask before joining",
+    "subline": "Straight answers. If yours is not here, ask us on a call.",
+    "items": [
+      {
+        "question": "Is Coding Sharks suitable for complete beginners?",
+        "answer": "Yes. Many of our top placements had zero prior coding experience. Our prep module gets you up to speed before Day 1, and your mentor guides you through every step."
+      },
+      {
+        "question": "What programming languages and technologies are taught at Coding Sharks?",
         "answer": "Full Stack track covers JavaScript, TypeScript, React, Next.js, Node.js, PostgreSQL, MongoDB, Redis, AWS, and Docker. AI track adds Python, LangChain, OpenAI APIs, and vector databases."
       },
       {
@@ -466,22 +590,26 @@
         "answer": "All core sessions are live with your cohort. Every session is recorded and available within 24 hours so you never fall behind. Workshops, code reviews, and mentor sessions are always live."
       },
       {
-        "question": "Do students build real projects?",
-        "answer": "Every week you ship something. By the end of the program you'll have 3–5 production-grade projects on GitHub with real users — not tutorial clones — which is exactly what interviewers want to see."
+        "question": "Do students build real projects at Coding Sharks?",
+        "answer": "Every week you ship something. By the end of the program you will have 3 to 5 production-grade projects on GitHub, not tutorial clones, which is exactly what interviewers want to see."
       },
       {
-        "question": "How long does it take to get placed after completing the program?",
-        "answer": "Most students receive their first offer within 4–8 weeks of completing the program. Our placement team actively connects you with hiring partners and prepares you through mock interviews and referrals."
+        "question": "How long does it take to get placed after completing the Coding Sharks program?",
+        "answer": "Most students receive their first offer within 4 to 8 weeks of completing the program. Our placement team actively connects you with hiring partners and prepares you through mock interviews and referrals."
+      },
+      {
+        "question": "Does Coding Sharks offer a placement guarantee?",
+        "answer": "Coding Sharks has a 91%+ placement rate across all cohorts. Our placement team provides mock interviews, resume reviews, and direct referrals to 50+ hiring partners."
       }
     ]
   },
   "finalCta": {
-    "headline1": "Transform Your Career Into",
-    "headline2": "Something Extraordinary",
-    "subline": "Join 15,000+ developers who chose to build, not just watch tutorials.",
+    "headline1": "Your first commit here",
+    "headline2": "could be your first job offer.",
+    "subline": "2,000+ careers started with one call.",
     "cta": {
-      "label": "Apply Now — It's Free",
-      "href": "/apply"
+      "label": "Book a free career call",
+      "note": "30 minutes. No fee to talk."
     },
     "images": [
       "/images/home/1573497019940-1c28c88b4f3e.jpg",
@@ -492,6 +620,27 @@
       "/images/home/1551836022-d5d88e9218df.jpg",
       "/images/home/1542744173-8e7e53415bb0.jpg",
       "/images/office/office7.jpg"
+    ]
+  },
+  "journey": {
+    "label": "Build, ship, get reviewed, get hired",
+    "steps": [
+      {
+        "word": "Build",
+        "caption": "Real projects from week one, not tutorial clones."
+      },
+      {
+        "word": "Ship",
+        "caption": "Something goes live every week, on your own GitHub."
+      },
+      {
+        "word": "Get reviewed",
+        "caption": "A senior engineer reads every line you write."
+      },
+      {
+        "word": "Get hired",
+        "caption": "Mock interviews and referrals to 50+ hiring partners."
+      }
     ]
   }
 }
