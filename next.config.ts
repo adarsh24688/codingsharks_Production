@@ -15,6 +15,18 @@ const nextConfig: NextConfig = {
     ],
     qualities: [75, 85],
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: "/workshops/ai-native-developer-program",
+          destination: "/workshops/ai-native-developer-program/index.html",
+        },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
 };
 
 export default nextConfig;

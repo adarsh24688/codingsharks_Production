@@ -172,6 +172,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
+      url: `${BASE_URL}/workshops/ai-native-developer-program`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
       url: `${BASE_URL}/instructors`,
       lastModified: now,
       changeFrequency: "monthly",
