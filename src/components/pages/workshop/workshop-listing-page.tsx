@@ -8,6 +8,29 @@ import workshops from'@/data/workshops.json';
 
 type WorkshopJson = typeof workshops[number];
 
+type WorkshopCardData = Pick<
+ WorkshopJson,
+'slug' |'title' |'tagline' |'short_description' |'event_date' |'event_time' |'duration' |'mode' |'platform' |'price' |'is_free' |'base_url'
+> & { href?: string };
+
+const STATIC_WORKSHOPS: WorkshopCardData[] = [
+ {
+ slug:'ai-native-developer-program',
+ href:'/workshops/ai-native-developer-program',
+ title:'AI-Native Developer Program',
+ tagline:'60 days in Indore: Python basics to a deployed AI product. LLMs, RAG, AI agents, multi-agent systems.',
+ short_description:'',
+ event_date:'',
+ event_time:'',
+ duration:'60 Days',
+ mode:'offline',
+ platform:'',
+ price:'Bootcamp',
+ is_free: false,
+ base_url:'/workshops/ai-native-developer-program/img/hero-classroom-900.webp',
+ },
+];
+
 const GRADIENTS = [
 'from-violet-500 to-purple-800',
 'from-rose-500 to-pink-700',
@@ -25,13 +48,13 @@ function getGradient(slug: string) {
  return GRADIENTS[Math.abs(hash) % GRADIENTS.length];
 }
 
-function WorkshopCard({ workshop }: { workshop: WorkshopJson }) {
+function WorkshopCard({ workshop }: { workshop: WorkshopCardData }) {
  const gradient = getGradient(workshop.slug);
  const isPast = workshop.event_date ? new Date(workshop.event_date) < new Date() : false;
 
  return (
  <Link
- href={`/workshops/${workshop.slug}`}
+ href={workshop.href ?? `/workshops/${workshop.slug}`}
  target="_blank"
  rel="noopener noreferrer"
  className="group border border-white/8 bg-[#111] overflow-hidden flex flex-col hover:border-primary/40 transition-all duration-300"
@@ -129,7 +152,7 @@ function WorkshopCard({ workshop }: { workshop: WorkshopJson }) {
 }
 
 export function WorkshopListingPage() {
- const active = workshops.filter((w) => w.is_active);
+ const active: WorkshopCardData[] = [...STATIC_WORKSHOPS, ...workshops.filter((w) => w.is_active)];
 
  return (
  <div className="bg-[#0a0a0a] min-h-screen">
