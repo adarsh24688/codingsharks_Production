@@ -1840,7 +1840,7 @@
               } catch (_) {}
               try { localStorage.removeItem(DRAFT_KEY); } catch (_) {}
               track("program_paid", { value: CONFIG.reservationAmount });
-              location.href = "/thank-you?source=workshop&from=" + encodeURIComponent("/workshops/ai-native-developer-program");
+              location.href = "/thank-you?source=workshop&paid=1&from=" + encodeURIComponent("/workshops/ai-native-developer-program");
             },
           });
           if (dlg && dlg.open) dlg.close();
