@@ -1,5 +1,7 @@
+import { after } from "next/server";
 import { SupabaseError, supabaseRest } from "@/lib/supabase-admin";
 import { sendMetaEvent, type MetaTracking } from "@/lib/meta-capi";
+import { sendProgramLeadToCrm } from "@/lib/crm-leads";
 import { markDraftFailed, markDraftPaid } from "@/lib/program-drafts";
 
 export const PROGRAM_NAME = "AI-Native Developer Program";
@@ -116,6 +118,15 @@ export async function markPaid(input: {
       tracking: row.tracking ?? undefined,
       value: input.amountPaise / 100,
     });
+    if (row.name && row.email && row.whatsapp) {
+      const lead = { name: row.name, email: row.email, mobile: row.whatsapp };
+      after(() =>
+        sendProgramLeadToCrm({
+          ...lead,
+          notes: `Paid ₹${input.amountPaise / 100} application fee · ${PROGRAM_NAME} · ${input.paymentId}`,
+        })
+      );
+    }
     await markDraftPaid({ orderId: input.orderId, paymentId: input.paymentId }).catch((err) =>
       console.error("[program-registrations] draft paid sync failed", err)
     );

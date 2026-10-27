@@ -1,9 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse, after } from "next/server";
 import { z } from "zod";
 import { sanitizeIndianMobile } from "@/lib/validators";
 import { createRazorpayOrder, getPublicKeyId } from "@/lib/razorpay";
 import { saveSubmittedDraft } from "@/lib/program-drafts";
 import { sendMetaEvent, trackingFromRequest } from "@/lib/meta-capi";
+import { sendProgramLeadToCrm } from "@/lib/crm-leads";
 import {
   PROGRAM_NAME,
   RESERVATION_AMOUNT_PAISE,
@@ -69,6 +70,15 @@ export async function POST(request: NextRequest) {
     console.error("[program/checkout] insert failed", err);
     return respond(500, { success: false, error: "Could not save your details. Please try again." });
   }
+
+  after(() =>
+    sendProgramLeadToCrm({
+      name: input.name,
+      email: input.email,
+      mobile: input.whatsapp,
+      notes: `${PROGRAM_NAME} application · ${input.status} · ${input.college}`,
+    })
+  );
 
   await sendMetaEvent({
     eventName: "Lead",
