@@ -79,6 +79,8 @@ const resources = [
 const legal = [
   { label: "Privacy Policy", href: "/privacy" },
   { label: "Terms & Conditions", href: "/terms" },
+  { label: "Refund Policy", href: "/refund" },
+  { label: "Disclaimer", href: "/disclaimer" },
 ];
 
 function FooterCol({
