@@ -24,9 +24,13 @@ create table if not exists public.program_registrations (
   paid_at timestamptz,
   source_page text,
   utm jsonb not null default '{}'::jsonb,
+  tracking jsonb,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+-- Meta Conversions API data (fbp, fbc, ip, ua, lead_event_id). For existing databases:
+alter table public.program_registrations add column if not exists tracking jsonb;
 
 create index if not exists program_registrations_payment_status_idx
   on public.program_registrations (payment_status);

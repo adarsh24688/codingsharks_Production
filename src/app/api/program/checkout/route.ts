@@ -3,6 +3,7 @@ import { z } from "zod";
 import { sanitizeIndianMobile } from "@/lib/validators";
 import { createRazorpayOrder, getPublicKeyId } from "@/lib/razorpay";
 import { saveSubmittedDraft } from "@/lib/program-drafts";
+import { sendMetaEvent, trackingFromRequest } from "@/lib/meta-capi";
 import {
   PROGRAM_NAME,
   RESERVATION_AMOUNT_PAISE,
@@ -27,6 +28,7 @@ const checkoutSchema = z.object({
   draft_id: z.string().uuid().optional(),
   page: z.string().trim().max(300).optional(),
   utm: z.record(z.string(), z.string().max(200)).optional(),
+  lead_event_id: z.string().trim().max(80).optional(),
 });
 
 function respond(status: number, body: Record<string, unknown>) {
@@ -47,6 +49,7 @@ export async function POST(request: NextRequest) {
   }
   const input = parsed.data;
   const whatsapp = `+91${input.whatsapp}`;
+  const tracking = { ...trackingFromRequest(request, input.utm?.fbclid), lead_event_id: input.lead_event_id };
 
   let registrationId: string;
   try {
@@ -59,12 +62,24 @@ export async function POST(request: NextRequest) {
       reality_check_score: input.reality_check_score ?? null,
       source_page: input.page ?? null,
       utm: input.utm ?? {},
+      tracking,
     });
     registrationId = row.id;
   } catch (err) {
     console.error("[program/checkout] insert failed", err);
     return respond(500, { success: false, error: "Could not save your details. Please try again." });
   }
+
+  await sendMetaEvent({
+    eventName: "Lead",
+    eventId: input.lead_event_id ?? `lead_${registrationId}`,
+    eventSourceUrl: input.page,
+    email: input.email,
+    phone: whatsapp,
+    name: input.name,
+    externalId: registrationId,
+    tracking,
+  });
 
   try {
     const order = await createRazorpayOrder({

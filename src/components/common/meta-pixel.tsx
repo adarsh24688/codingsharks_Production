@@ -14,18 +14,25 @@ declare global {
   }
 }
 
-function trackEvent(eventName: string, retries = 10) {
+function trackEvent(
+  eventName: string,
+  retries = 10,
+  params?: Record<string, unknown>,
+  eventId?: string
+) {
   if (typeof window === "undefined") {
     return false;
   }
 
   if (typeof window.fbq === "function") {
-    window.fbq("track", eventName);
+    if (eventId) window.fbq("track", eventName, params ?? {}, { eventID: eventId });
+    else if (params) window.fbq("track", eventName, params);
+    else window.fbq("track", eventName);
     return true;
   }
 
   if (retries > 0) {
-    window.setTimeout(() => trackEvent(eventName, retries - 1), 200);
+    window.setTimeout(() => trackEvent(eventName, retries - 1, params, eventId), 200);
     return false;
   }
 
@@ -54,8 +61,18 @@ function MetaPixelRouteTracker({
     }
 
     if (pathname === "/thank-you" && leadTrackedUrlRef.current !== url) {
-      trackEvent("Lead", 30);
-      onEvent("Lead", url);
+      // A paid program reservation already sent Lead on the landing page, so count it as the ₹499 Purchase.
+      const paidProgram = searchParams.get("source") === "workshop" && searchParams.get("paid") === "1";
+      const eventName = paidProgram ? "Purchase" : "Lead";
+      // Same event_id as the server Purchase (src/lib/program-registrations.ts) so Meta counts it once.
+      const orderId = searchParams.get("oid");
+      trackEvent(
+        eventName,
+        30,
+        paidProgram ? { value: 499, currency: "INR" } : undefined,
+        paidProgram && orderId ? `purchase_${orderId}` : undefined
+      );
+      onEvent(eventName, url);
       leadTrackedUrlRef.current = url;
     }
   }, [pathname, searchParams, onEvent]);

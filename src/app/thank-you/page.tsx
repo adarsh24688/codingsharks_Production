@@ -27,14 +27,14 @@ interface VariantCopy {
 
 const COPY: Record<Variant, VariantCopy> = {
   program: {
-    stub: "Seat reserved",
-    title: "Your seat is",
-    accent: "reserved.",
-    body: "Your reservation payment is confirmed. Join the WhatsApp group now. Batch timings, class links and reminders go there first.",
+    stub: "Application received",
+    title: "Your application is",
+    accent: "in.",
+    body: "Your ₹499 payment is confirmed. Join the WhatsApp group now. Your onboarding call, interview slot and batch updates go there first.",
     next: [
-      "Our team calls you within 24 hours to confirm your batch.",
-      "Your reservation amount is adjusted in the final fee and is refundable before the first class.",
-      "Keep your phone close. We also message you on WhatsApp.",
+      "Our team calls you within 24 hours for your onboarding call.",
+      "Next, a 20-minute video interview with a mentor. You get your result within 48 hours.",
+      "Your ₹499 is adjusted in the fee. Not selected? You get a full refund.",
     ],
   },
   workshop: {
