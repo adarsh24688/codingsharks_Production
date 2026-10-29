@@ -5,6 +5,8 @@ Master plan: `latestPlan.md`. Constraints honoured: no fees shown anywhere; no n
 
 ---
 
+ok 
+
 ## 1. ✅ What has been built (and where to look)
 
 Open these on the live site (after deploy) or locally via `npm run dev` → `localhost:3000`.
