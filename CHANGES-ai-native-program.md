@@ -15,9 +15,7 @@ None of this is live yet. Everything below is local until deployed.
 | Applications close (`reservationCloses`) | 11 Oct 2026 | **22 Nov 2026, 11:59 PM** |
 | Seats (`seatsTotal`) | 100 | **60** |
 | Fee | ₹12,999 | **₹17,999** |
-| Instalments | ₹6,999 + ₹6,000 | **₹9,999 + ₹8,000** (confirmed) |
-| Batch timings (`batchTimings`) | not set | **Mon–Sat · 10 AM – 1 PM** (placeholder, change if needed) |
-| Orientation Day (`orientation`) | not set | **Sun 22 Nov 2026, 11 AM** (placeholder, change if needed) |
+| Instalments | ₹6,999 + ₹6,000 | **₹9,999 + ₹8,000** |
 | Balance after ₹499 | ₹12,500 | **₹17,500** |
 | Per-day line | ₹216 a day | **₹300 a day** |
 | Day 60 / Demo Day | 10 Dec | **21 Jan 2027** (calculated from the start date) |
@@ -33,7 +31,7 @@ All hidden sections are wrapped in `<!-- HIDDEN FOR NOW (...) -->`. Delete the t
 |---|---|
 | News clippings | Kept; the 4 "Read ↗" links removed |
 | Old way vs AI-native way | Hidden |
-| Coding Sharks Promise | Build Guarantee and "Repeat free" hidden; only the **7-day full refund** stays (`promise.confirmed: true`, approved by the business), centred as one card |
+| Coding Sharks Promise | Build Guarantee and "Repeat free" hidden; only the **7-day full refund** stays (`promise.confirmed: true`), centred as one card |
 | Student testimonials (Priyanka, Saurabh, Nikhil, reels, WhatsApp) | Hidden; scripts updated so the page works without it |
 
 ## 3. New "How to join" process
@@ -45,7 +43,7 @@ Apply for ₹499 → Onboarding call (within 24 hrs) → **20-minute video inter
 
 ## 4. Mentors
 
-- **Sudhir Chauhan**: large featured card. AI Project Lead, Persistent Systems · 20 years. "Previously" row with J.P. Morgan and Cognizant logos, plus Mphasis as text. Quote from his ad video. New photo `img/expert-sudhir-chauhan.webp`. No "Industry mentor" tag.
+- **Sudhir Chouhan**: large featured card. AI Project Lead, Persistent Systems · 20 years. "Previously" row with J.P. Morgan and Cognizant logos, plus Mphasis as text. Quote from his ad video. New photo `img/expert-sudhir-chouhan.webp`. No "Industry mentor" tag.
 - **Pradeep Patidar**: Tech Lead, Aerpace (was "Founder, Apoliums · ex-Airpace").
 - Company logo badges on photos: Dingg (Santosh), Aerpace (Pradeep), Crewnox (Krati), Persistent (Sudhir).
 - New box under the cards: "And many more industry experts joining us".
@@ -132,9 +130,20 @@ The browser and server send the same `event_id`, so Meta counts each event once.
 3. **Razorpay webhook:** `https://www.thecodingsharks.com/api/razorpay/webhook` with `payment.captured`.
 4. **Deploy.**
 5. **One real ₹499 test payment:** Lead and Purchase should show Browser + Server, "Deduplicated". Refund the test payment afterwards.
+6. **Ads must match the page:**
+   - 60 seats (s03 poster still says 100)
+   - ₹17,999
+   - Sudhir Chouhan spelled the same everywhere
+   - His title: "AI Project Lead, Persistent Systems"
 
 ## Still to confirm or add
 
-- Mentor LinkedIn links (`CONFIG.experts`), to come from sir
-- Final batch timings and Orientation Day (placeholders are set; Orientation is 22 Nov, the same day applications close)
+- Batch timings (`CONFIG.batchTimings`) and Orientation Day date
+- Instalment split (₹9,999 + ₹8,000 assumed)
+- Sudhir's surname spelling (page uses "Chouhan"; his video says "Chauhan")
+- Mentor LinkedIn links (`CONFIG.experts`)
+- Colleges / students / sessions numbers
+- Mphasis and Comscore logos
+- Whether the 7-day refund promise is approved by the business
 - Source of the existing Conversions API connection on the dataset (not from this website's code)
+- Google Ads conversion action, if Google Ads will run
