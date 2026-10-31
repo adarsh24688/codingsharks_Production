@@ -119,7 +119,13 @@ export async function markPaid(input: {
       value: input.amountPaise / 100,
     });
     if (row.name && row.email && row.whatsapp) {
-      const lead = { name: row.name, email: row.email, mobile: row.whatsapp };
+      const t = row.tracking ?? undefined;
+      const lead = {
+        name: row.name,
+        email: row.email,
+        mobile: row.whatsapp,
+        tracking: t ? { fbp: t.fbp, fbc: t.fbc, ip: t.ip, ua: t.ua, url: row.source_page } : undefined,
+      };
       after(() =>
         sendProgramLeadToCrm({
           ...lead,

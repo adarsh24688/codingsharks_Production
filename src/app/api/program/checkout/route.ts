@@ -77,6 +77,7 @@ export async function POST(request: NextRequest) {
       email: input.email,
       mobile: input.whatsapp,
       notes: `${PROGRAM_NAME} application · ${input.status} · ${input.college}`,
+      tracking: { fbp: tracking.fbp, fbc: tracking.fbc, ip: tracking.ip, ua: tracking.ua, url: request.headers.get("referer") },
     })
   );
 
